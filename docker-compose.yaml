@@ -1,0 +1,38 @@
+services:
+  php:
+    build: . #utilisation de Dockerfile au lieu de l'image
+    container_name: locmns_php
+    ports:
+      - 8001:80
+    volumes:
+      - ./:/var/www/html
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/html/public  # ← AJOUTE CETTE LIGNE
+    depends_on:
+      - db
+  db:
+    image: mysql:8.0
+    container_name: locmns_db            # ← Changé
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpasswordb
+      MYSQL_DATABASE: loc_mns_mvc           # ← Changé (nom du projet)
+      MYSQL_USER: locmns_user            # ← Changé (spécifique)
+      MYSQL_PASSWORD: locmns_pass        # ← Changé (spécifique)
+    ports:
+      - "3307:3306"
+    volumes:                             # ← Ajouté (persister les données)
+      - db_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: locmns_phpmyadmin    # ← Changé
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: rootpasswordb
+    ports:
+      - "8081:80"
+    depends_on:                          # ← Ajouté
+      - db
+
+volumes:                                 # ← Ajouté (définition du volume)
+  db_data:

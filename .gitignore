@@ -1,0 +1,23 @@
+# fichiers sensibles 
+config/database.php
+
+#fichiers test temporaires
+public/test_db.php
+public/hash.php
+
+#docker data
+docker/data/
+
+#dépendances
+vendor/ 
+
+#windows
+Thumbs.db
+desktop.ini
+
+#mac 
+.DS_store
+
+# IDE
+.vscode/
+.idea/

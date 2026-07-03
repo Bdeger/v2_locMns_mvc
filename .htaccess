@@ -1,0 +1,5 @@
+# projet_locMns_MVC/.htaccess
+RewriteEngine On
+RewriteRule ^(.*)$ public/$1 [L]
+
+# son role : rediriger toutes les requêtes vers le dossier public/
