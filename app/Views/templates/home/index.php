@@ -1,8 +1,8 @@
 <!-- Views/templates/home/index.php -->
 
 <section class="bienvenue">
-    <div class="titre-bienvenu">
-        <h1>LocMns</h1>
+    <div class="titre-bienvenue">
+        <h1>LocMNS</h1>
         <h2>De retour, Bienvenue !</h2>
         <p>Connectez-vous à votre compte pour emprunter</p>
 
