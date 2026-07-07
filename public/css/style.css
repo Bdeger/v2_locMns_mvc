@@ -98,3 +98,137 @@ main {
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(255, 126, 6, 0.4);
 }
+
+/* ==================== */
+/* PAGE CONNEXION     */
+/* ==================== */
+
+
+.section-login {
+  flex: 1;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 16px; /* ← mobile : padding réduit */
+
+  background-image: url(/image/image2.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.section-login .login-container {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px 20px; /* ← mobile : padding réduit */
+  width: 100%;
+  max-width: 420px;
+  color: white;
+  text-align: center;
+}
+
+.section-login .login-container h1 {
+  color: #ff6400;
+  font-size: 32px; /* ← mobile */
+  margin-bottom: 8px;
+}
+
+.section-login .login-container h2 {
+  font-size: 16px; /* ← mobile */
+  font-weight: 400;
+  margin-bottom: 24px;
+  opacity: 0.9;
+}
+
+.login-container .form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.login-container .form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.login-container .form-group input {
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.login-container .form-group input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.login-container .form-group input:focus {
+  border: 2px solid #ff6400;
+}
+
+#form-login .form-note {
+  font-size: 12px;
+  opacity: 0.7;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+#form-login .btn-submit {
+  width: 100%;
+  padding: 14px;
+  background-color: #ff7e06;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px; /* ← mobile */
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+#form-login .btn-submit:hover {
+  background-color: #e15b01;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 126, 6, 0.4);
+}
+
+/* ==================== */
+/* DESKTOP              */
+/* ==================== */
+
+@media screen and (min-width: 768px) {
+  .section-login {
+    padding: 60px 20px;
+  }
+
+  .section-login .login-container {
+    padding: 40px;
+  }
+
+  .section-login .login-container h1 {
+    font-size: 42px; /* ← desktop */
+    margin-bottom: 8px;
+  }
+
+  .section-login .login-container h2 {
+    font-size: 18px; /* ← desktop */
+    margin-bottom: 32px;
+  }
+
+  #form-login .btn-submit {
+    font-size: 18px; /* ← desktop */
+    padding: 16px;
+  }
+}
