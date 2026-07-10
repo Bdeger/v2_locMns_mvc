@@ -36,3 +36,24 @@ html {
   font-size: 0.6em;
   padding-left: 40px;
 }
+/* Contenu : Vue d'ensemble */
+
+.resum {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.card-top,
+.card-bottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100px;
+}
+.card-top > div,
+.card-bottom > div {
+  width: 50%;
+  border-top: 5px solid pink;
+  margin: 25px;
+  border-radius: 25%;
+}
