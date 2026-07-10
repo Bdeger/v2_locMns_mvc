@@ -13,7 +13,12 @@
 
     <link rel="stylesheet" href="/css/style.css">
 
-
+    <!-- css du Dashboard -->
+    <?php if(isset($dashboard)&& $dashboard): ?>
+        <link rel="stylesheet" href="/css/dashboard.css">
+    <?php endif; ?>
+    
+    
 </head>
 <body>
     <?php echo $content; ?>

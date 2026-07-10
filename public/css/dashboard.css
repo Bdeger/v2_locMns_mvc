@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.container {
+  max-width: 100%;
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.header-top {
+  overflow: hidden;
+  width: 100%;
+  background-image: url(/public/image/image2.jpg);
+  background-position-y: 3%;
+  background-position-x: 28%;
+  display: flex;
+  align-content: center;
+}
+
+.header-top img {
+  width: 230px;
+  height: auto;
+}
+
+.header-bottom {
+  background-color: rgb(235, 107, 2);
+  color: #ffff;
+  font-size: 0.6em;
+  padding-left: 40px;
+}
