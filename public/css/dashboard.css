@@ -49,11 +49,30 @@ html {
   flex-direction: row;
   align-items: center;
   height: 100px;
+  margin: 50px;
 }
-.card-top > div,
-.card-bottom > div {
+.card-top div,
+.card-bottom div {
   width: 50%;
-  border-top: 5px solid pink;
-  margin: 25px;
-  border-radius: 25%;
+  margin: 15px;
+  border-top-left-radius: 25%;
+  border-top-right-radius: 25%;
+  border-top-width: 5px;
+  border-top-style: solid;
+}
+.card-total {
+  border-top-color: rgb(255, 106, 0);
+  background-color: rgb(255, 248, 233);
+}
+.card-available {
+  border-top-color: green;
+  background-color: rgb(229, 252, 229);
+}
+.card-ongoing {
+  border-top-color: rgb(19, 184, 255);
+  background-color: rgb(243, 250, 255);
+}
+.card-pending {
+  border-top-color: rgb(255, 65, 65);
+  background-color:rgb(255, 241, 241);
 }
