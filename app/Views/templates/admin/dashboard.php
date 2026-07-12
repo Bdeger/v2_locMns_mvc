@@ -9,6 +9,7 @@
 </section>
 <section class="resum container">
     <h2>Vue d'ensemble</h2>
+
     <div class = "card-top">
         <div class='card-total'>
             <h3>TOTAL MATERIEL</h3>
