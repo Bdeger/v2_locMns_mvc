@@ -32,5 +32,40 @@
     </div>
 
 </section>
-<section class="last-emprunt container"></section>
+<!-- derniers emprunts -->
+  <section class="last-emprunts">
+    <div class="last-emprunts-header">
+        <h3>Derniers emprunts</h3>
+        <a href="#" class="btn-voir-tout">Voir tout</a>
+    </div>
+
+    <div class="emprunteur">
+        <div class="emprunteur-info">
+            <p class="emprunteur-nom">Marie Dupont</p>
+            <p class="emprunteur-materiel">MacBook Pro 13"</p>
+        </div>
+        <span class="status pending">En attente</span>
+    </div>
+    <div class="emprunteur">
+        <div class="emprunteur-info">
+            <p class="emprunteur-nom">Lucas Martin</p>
+            <p class="emprunteur-materiel">iPad Pro</p>
+        </div>
+        <span class="status validated">Validé</span>
+    </div>
+    <div class="emprunteur">
+        <div class="emprunteur-info">
+            <p class="emprunteur-nom">Sofia Bernard</p>
+            <p class="emprunteur-materiel">Dell XPS 15</p>
+        </div>
+        <span class="status ongoing">En cours</span>
+    </div>
+    <div class="emprunteur">
+        <div class="emprunteur-info">
+            <p class="emprunteur-nom">Thomas Petit</p>
+            <p class="emprunteur-materiel">Écran 27"</p>
+        </div>
+        <span class="status refused">Refusé</span>
+    </div>
+</section>
 <section class="navbar"></section>

@@ -52,16 +52,20 @@ html {
   flex-direction: row;
   align-items: center;
   height: 100px;
-  margin: 50px;
+  margin: 20px;
 }
 .card-top div,
 .card-bottom div {
   width: 50%;
-  margin: 15px;
-  border-top-left-radius: 25%;
-  border-top-right-radius: 25%;
+  border-top-left-radius: 15%;
+  border-top-right-radius: 15%;
   border-top-width: 5px;
   border-top-style: solid;
+  margin: 15px;
+}
+.card-top div p,
+.card-bottom div p {
+  font-size: 1.1em;
 }
 .card-total {
   border-top-color: rgb(255, 106, 0);
@@ -78,4 +82,85 @@ html {
 .card-pending {
   border-top-color: rgb(255, 65, 65);
   background-color: rgb(255, 241, 241);
+}
+
+/* Derniers emprunts */
+
+.last-emprunts {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.last-emprunts-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.last-emprunts-header h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(30, 30, 30);
+}
+
+.btn-voir-tout {
+  text-decoration: none;
+  color: rgb(255, 102, 0);
+  border: 1px solid rgba(255, 100, 0, 0.3);
+  padding: 4px 12px;
+  border-radius: 20px;
+  transition: background 0.2s;
+}
+.btn-voir-tout:hover {
+  background-color: tomato;
+}
+
+.emprunteur {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+.emprunteur:lastchild {
+  border-bottom: none;
+}
+.emprunteur-nom {
+  font-size: 0.878rem;
+  font-weight: 500;
+  color: rgba(30, 30, 30);
+}
+.emprunteur-materiel {
+  font-size: 0.75rem;
+  color: rgb(130, 130, 130);
+  margin-top: 2px;
+}
+
+.status {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.status.pending {
+  background-color: rgb(255, 248, 233);
+  color: #ba7517;
+}
+.status.validated {
+  background-color: rgb(229, 252, 229);
+  color: #0f6e56;
+}
+.status.ongoing {
+  background-color: rgb(243, 250, 255);
+  color: #185fa5;
+}
+.status.refused {
+  background-color: rgb(255, 241, 241);
+  color: #a32d2d;
 }
