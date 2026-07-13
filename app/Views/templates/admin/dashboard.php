@@ -6,6 +6,21 @@
     <div class="header-bottom">
         <h1>Dashboard Admin</h1>
     </div>
+    <nav id="nav">
+        <button id="burger-button-display">
+            <!-- <i class="bxr bx-menu"></i>
+            <i class="bxr bx-x"></i> -->
+            <!-- <i class="fa-solid fa-bars fa-canvas-roomy"></i> -->
+           <i class="ti ti-menu-2"></i>
+           <i class="ti ti-x"></i>
+        </button>
+        <ul id="nav-ul">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Emprunts</a></li>
+            <li><a href="#">Matériel</a></li>
+            <li><a href="#">Membres</a></li>
+        </ul>
+    </nav>
 </section>
 <section class="resum container">
     <h2>Vue d'ensemble</h2>

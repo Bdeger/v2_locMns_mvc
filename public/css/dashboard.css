@@ -36,6 +36,45 @@ html {
   font-size: 0.6em;
   padding-left: 40px;
 }
+
+/* MENU BURGER */
+
+#burger-button-display {
+  position: absolute;
+  top: 40px;
+  right: 10px;
+  cursor: pointer;
+}
+.header nav ul {
+  list-style: none;
+  padding-left: 0;
+}
+.header nav ul li a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  padding: 5px 0;
+  border-bottom: 1px solid rgb(214, 214, 214);
+}
+
+.header nav ul li a:hover {
+  background-color: #223ce4;
+}
+
+/* pour le js du menu burger */
+
+#nav.nav-hide #nav-ul {
+  display: none;
+}
+#nav.nav-hide i.ti-x {
+  display: none;
+}
+#nav:not(.nav-hide) i.ti-menu-2 {
+  display: none;
+  color: #0f6e56;
+}
+
 /* Contenu : Vue d'ensemble */
 
 .resum {
