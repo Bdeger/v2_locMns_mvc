@@ -59,7 +59,8 @@ html {
 }
 
 .header nav ul li a:hover {
-  background-color: #223ce4;
+  background-color: #ff7010;
+  color: #ffff;
 }
 
 /* pour le js du menu burger */
@@ -166,7 +167,7 @@ html {
   padding: 12px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 }
-.emprunteur:lastchild {
+.emprunteur-lastchild {
   border-bottom: none;
 }
 .emprunteur-nom {
@@ -202,4 +203,67 @@ html {
 .status.refused {
   background-color: rgb(255, 241, 241);
   color: #a32d2d;
+}
+
+/* media */
+@media screen and (min-width: 1024px) {
+  /* SIDEBAR */
+  .header {
+    width: 220px;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-image: url(/public/image/image2.jpg);
+    background-position-y: 20%;
+    background-position-x: 8%;
+  }
+
+  #burger-button-display {
+    display: none;
+  }
+
+  #nav-ul {
+    display: flex !important;
+    flex-direction: column;
+  }
+
+  .header nav ul li a {
+    color: rgba(255, 255, 255, 0.6);
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: none;
+  }
+
+  /* CONTENU DÉCALÉ */
+  .resum,
+  .last-emprunts {
+    margin-left: 240px;
+    padding: 24px;
+  }
+
+  /* 4 CARTES EN LIGNE */
+  .card-top,
+  .card-bottom {
+    margin: 0;
+    height: auto;
+  }
+
+  .resum {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .card-top,
+  .card-bottom {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .card-top div,
+  .card-bottom div {
+    flex: 1;
+    margin: 0;
+  }
 }

@@ -1,5 +1,4 @@
 <!-- Views/templates/layout.php -->
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>

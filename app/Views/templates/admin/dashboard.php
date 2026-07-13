@@ -1,5 +1,5 @@
 <!-- Views/templates/admin/dashboard.php -->
-<section class="header container">
+<section class="header">
     <div class="header-top">
         <img src="/public/image/logo2.png">
     </div>
@@ -8,9 +8,6 @@
     </div>
     <nav id="nav">
         <button id="burger-button-display">
-            <!-- <i class="bxr bx-menu"></i>
-            <i class="bxr bx-x"></i> -->
-            <!-- <i class="fa-solid fa-bars fa-canvas-roomy"></i> -->
            <i class="ti ti-menu-2"></i>
            <i class="ti ti-x"></i>
         </button>
