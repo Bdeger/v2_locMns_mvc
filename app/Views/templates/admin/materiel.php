@@ -1,14 +1,19 @@
 <?php include __DIR__ . '/sidebar.php'; ?>
 
 <!-- /Views/templates/admin/materiel.php -->
-<header class="admin-content header-materiel">
+<header class="header-materiel">
     <div class="title">
         <h1>Liste de Matériel</h1>
         <p>Gestion de votre inventaire d'équipements</p>
     </div>
 </header>
 
-<div class="admin-content materiel-content">
+<div class="materiel-content">
+    <div class="materiel-header-actions">
+        <a href="/materiel/ajouter" class="btn-ajouter">
+            <i class="ti ti-plus"></i> Ajouter
+        </a>
+    </div>
     <?php foreach($listMateriel as $materiel):?>
         <div class="materiel-card">
             <div class="materiel-icon">
@@ -32,7 +37,10 @@
                 </p>
                 <div class="statut" data-statut="<?php echo htmlspecialchars($materiel['etat']); ?>"></div>
             </div>
-            <div class="actions">Actions</div>
+            <div class="actions">
+                <a href="#">Modifier</a>
+                <a href="#">Supprimer</a>
+            </div>
         </div>
     <?php endforeach;?>
 </div>

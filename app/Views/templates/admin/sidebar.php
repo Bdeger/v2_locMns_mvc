@@ -1,5 +1,5 @@
 <!-- Views/templates/admin/sidebar.php -->
-<section class="header">
+<header class="header">
     <div class="header-top">
         <img src="/public/image/logo2.png">
     </div>
@@ -18,4 +18,4 @@
             <li><a href="/membres">Membres</a></li>
         </ul>
     </nav>
-</section>
+</header>

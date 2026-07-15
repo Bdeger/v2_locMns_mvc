@@ -27,8 +27,8 @@
 
      <?php if(isset($materiel)&&$materiel): ?>
         <script src="/js/script.js" defer></script>
-        <link rel="stylesheet" href="/css/materiel.css"> 
         <link rel="stylesheet" href="/css/sidebar.css">
+        <link rel="stylesheet" href="/css/materiel.css"> 
 
     <?php endif; ?>
     
