@@ -1,5 +1,9 @@
+<?php 
+include __DIR__ . '/sidebar.php'; ?>
+
 <!-- Views/templates/admin/dashboard.php -->
-<section class="header">
+
+<!-- <section class="header">
     <div class="header-top">
         <img src="/public/image/logo2.png">
     </div>
@@ -18,7 +22,7 @@
             <li><a href="#">Membres</a></li>
         </ul>
     </nav>
-</section>
+</section> -->
 <section class="resum container">
     <h2>Vue d'ensemble</h2>
 

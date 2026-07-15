@@ -3,18 +3,19 @@
 
 //controleur matériel
 
-require_once __DIR__ . "/../View.php";
+require_once __DIR__ . "/../Views/View.php"; 
 require_once __DIR__ . "/Controller.php";
+require_once __DIR__ . "/../Models/MaterielManager.php";
 
 class MaterielController extends Controller{
-    public function materiel():void{
+    public function index():void{
         // afficher la page materiel avec la liste lié à la bdd 
-        $listMateriel = new MatrielManager();
+        $listMateriel = new MaterielManager();
         $materiel = $listMateriel -> getAllMateriel();
-        $this -> view ->render('admin/dashboard',[
+        $this -> view ->render('admin/materiel',[
             'title' => 'List Materiel',
             'listMateriel' => $materiel,
-            'materiel' => true //pour active le css du materiel
+            'materielPage' => true 
         ]);
     }
 }

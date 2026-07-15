@@ -16,13 +16,21 @@
 
     <link rel="stylesheet" href="/css/style.css">
 
+
     <!-- css du Dashboard -->
     <?php if(isset($dashboard)&& $dashboard): ?>
         <script src="/js/script.js" defer></script>
         <link rel="stylesheet" href="/css/dashboard.css">
+        <link rel="stylesheet" href="/css/sidebar.css">
 
     <?php endif; ?>
-    
+
+     <?php if(isset($materiel)&&$materiel): ?>
+        <script src="/js/script.js" defer></script>
+        <link rel="stylesheet" href="/css/materiel.css"> 
+        <link rel="stylesheet" href="/css/sidebar.css">
+
+    <?php endif; ?>
     
 </head>
 <body>
