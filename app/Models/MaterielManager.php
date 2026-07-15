@@ -16,6 +16,23 @@ class MaterielManager extends Manager{
         $stmt -> execute();
         return $stmt -> fetchAll();
     }
+
+    public function addMateriel($nom,$modele,$numero_serie,$localisation,$description, $id_categorie, $id_etat_materiel){
+        $stmt = $this ->pdo->prepare('
+        INSERT INTO materiel(nom,modele,numero_serie,localisation,description, id_categorie, id_etat_materiel)
+        VALUES(:nom, :modele, :numero_serie, :localisation, :description, :id_categorie, :id_etat_materiel)
+        ');
+        $stmt -> execute([
+            ':nom' => $nom,
+            ':modele'=> $modele,
+            ':numero_serie' => $numero_serie,
+            ':localisation' => $localisation,
+            ':description' => $description,
+            ':id_categorie' => $id_categorie,
+            ':id_etat_materiel' => $id_etat_materiel
+        ]);
+    
+    }
 }
 
 
