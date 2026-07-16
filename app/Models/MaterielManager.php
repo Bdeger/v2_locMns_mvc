@@ -31,7 +31,7 @@ class MaterielManager extends Manager{
             ':id_categorie' => $id_categorie,
             ':id_etat_materiel' => $id_etat_materiel
         ]);
-    
+        
     }
 }
 

@@ -18,6 +18,13 @@ class MaterielController extends Controller{
             'materielPage' => true 
         ]);
     }
+    public function ajouter():void{
+      $this ->view -> render('admin/ajouter',[
+        'title'=> 'Ajouter un matériel',
+        'materielPage' =>true
+      ]);
+    }
+    
 }
 
 

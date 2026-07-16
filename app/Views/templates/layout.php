@@ -25,13 +25,12 @@
 
     <?php endif; ?>
 
-     <?php if(isset($materiel)&&$materiel): ?>
+     <?php if(isset($materielPage)&&$materielPage): ?>
         <script src="/js/script.js" defer></script>
         <link rel="stylesheet" href="/css/sidebar.css">
         <link rel="stylesheet" href="/css/materiel.css"> 
-
     <?php endif; ?>
-    
+
 </head>
 <body>
     <?php echo $content; ?>

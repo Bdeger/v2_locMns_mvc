@@ -8,7 +8,9 @@ body {
   margin: 0;
 }
 
-/* HEADER */
+/* ==================== */
+/* HEADER MATERIEL      */
+/* ==================== */
 .header-materiel {
   display: flex;
   width: 100%;
@@ -34,13 +36,9 @@ body {
   margin-top: 4px;
 }
 
-/* LISTE DES CARTES */
-.materiel-content {
-  display: flex;
-  flex-direction: column;
-  padding: 16px;
-}
-
+/* ==================== */
+/* BOUTON AJOUTER       */
+/* ==================== */
 .materiel-header-actions {
   display: flex;
   justify-content: flex-end;
@@ -50,7 +48,6 @@ body {
 .btn-ajouter {
   display: flex;
   align-items: center;
-  gap: 6px;
   background-color: rgb(249, 113, 9);
   color: white;
   text-decoration: none;
@@ -60,15 +57,27 @@ body {
   font-weight: 500;
 }
 
+.btn-ajouter i {
+  margin-right: 6px;
+}
+
 .btn-ajouter:hover {
   background-color: rgb(220, 90, 5);
+}
+
+/* ==================== */
+/* LISTE DES CARTES     */
+/* ==================== */
+.materiel-content {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
 }
 
 .materiel-card {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 14px;
   margin: 8px 0;
   padding: 14px;
   border: 1px solid rgb(225, 225, 225);
@@ -76,7 +85,6 @@ body {
   background-color: white;
 }
 
-/* ICONE */
 .materiel-icon {
   flex-shrink: 0;
   width: 42px;
@@ -88,9 +96,9 @@ body {
   justify-content: center;
   font-size: 1.3rem;
   color: rgb(249, 113, 9);
+  margin-right: 14px;
 }
 
-/* INFOS */
 .materiel-infos {
   flex: 1;
   min-width: 0;
@@ -130,7 +138,9 @@ body {
   margin-bottom: 8px;
 }
 
-/* BADGE STATUT */
+/* ==================== */
+/* BADGES STATUT        */
+/* ==================== */
 .statut::before {
   content: attr(data-statut);
   font-size: 0.75rem;
@@ -160,32 +170,201 @@ body {
   color: rgb(180, 35, 35);
 }
 
-/* ACTIONS */
-.materiel-card .actions a {
+/* ==================== */
+/* ACTIONS              */
+/* ==================== */
+.materiel-card .actions {
+  display: flex;
+  flex-direction: column;
   flex-shrink: 0;
-  text-align: end;
+}
+
+.materiel-card .actions a {
   font-size: 0.82rem;
   color: rgb(249, 113, 9);
   cursor: pointer;
   text-decoration: none;
+  margin-bottom: 6px;
 }
+
 .materiel-card .actions a:hover {
   border-bottom: 1px solid rgb(255, 132, 0);
 }
 
-/* MEDIA QUERY DESKTOP */
+/* ==================== */
+/* PAGE AJOUTER         */
+/* ==================== */
+.back {
+  padding: 16px;
+}
+
+.btn-retour {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.85rem;
+  color: rgb(100, 100, 100);
+  text-decoration: none;
+}
+
+.btn-retour i {
+  margin-right: 6px;
+}
+
+.btn-retour:hover {
+  color: rgb(249, 113, 9);
+}
+
+.form-addMateriel {
+  padding: 16px;
+}
+
+.form-addMateriel form {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid rgb(225, 225, 225);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-addMateriel .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.form-addMateriel .form-group label {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: rgb(30, 30, 30);
+  margin-bottom: 6px;
+}
+
+.form-addMateriel .form-group input,
+.form-addMateriel .form-group select,
+.form-addMateriel .form-group textarea {
+  padding: 10px 12px;
+  border: 1px solid rgb(210, 210, 210);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-family: "Poppins", sans-serif;
+  color: rgb(30, 30, 30);
+  background-color: white;
+  width: 100%;
+}
+
+.form-addMateriel .form-group input:focus,
+.form-addMateriel .form-group select:focus,
+.form-addMateriel .form-group textarea:focus {
+  outline: none;
+  border-color: rgb(249, 113, 9);
+  box-shadow: 0 0 0 3px rgba(249, 113, 9, 0.1);
+}
+
+.form-addMateriel .form-group textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.btn-group {
+  display: flex;
+  margin-top: 8px;
+}
+
+.btn-submit {
+  display: inline-flex;
+  align-items: center;
+  background-color: rgb(249, 113, 9);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.btn-submit i {
+  margin-right: 6px;
+}
+
+.btn-submit:hover {
+  background-color: rgb(220, 90, 5);
+}
+
+.btn-annuler {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: rgb(100, 100, 100);
+  border: 1px solid rgb(210, 210, 210);
+  text-decoration: none;
+  background: white;
+}
+
+.btn-annuler:hover {
+  background-color: rgb(245, 245, 245);
+}
+
+/* ==================== */
+/* MEDIA QUERIES        */
+/* ==================== */
+
 @media screen and (min-width: 1024px) {
   .header-materiel {
     justify-content: flex-start;
     padding: 24px 40px;
+    margin-left: 220px;
   }
 
   .header-materiel .title {
     text-align: left;
   }
 
+  .materiel-header-actions {
+    margin-left: 220px;
+  }
+
   .materiel-content {
     padding: 24px 40px;
-    max-width: 900px;
+    margin-left: 220px;
+  }
+
+  .back {
+    margin-left: 220px;
+    padding: 16px 40px;
+  }
+
+  .form-addMateriel {
+    margin-left: 220px;
+    padding: 0 40px 40px;
+  }
+
+  .form-addMateriel form {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .form-addMateriel .form-group {
+    width: calc(50% - 8px);
+    margin-right: 16px;
+  }
+
+  .form-addMateriel .form-group:nth-child(even) {
+    margin-right: 0;
+  }
+
+  .form-addMateriel .form-group:last-of-type {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .btn-group {
+    width: 100%;
+    justify-content: flex-end;
   }
 }

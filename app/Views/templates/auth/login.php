@@ -18,7 +18,7 @@
             <div class="form-group">
                 <label for="email">Email *</label>
                 <input type="email" name="email" id="email" 
-                       placeholder="stagiaireMns@gmail.com" required>
+                placeholder="stagiaireMns@gmail.com" required>
             </div>
 
             <div class="form-group">
