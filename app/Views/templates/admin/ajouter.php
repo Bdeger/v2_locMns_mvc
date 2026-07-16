@@ -18,7 +18,12 @@
     <!-- FORMULAIRE -->
     <section class="form-addMateriel">
         <form action="/materiel/processAjouter" method="post" id="form-addMateriel">
-
+            <?php if(isset($error)): ?>
+                <div class="error-message">
+                    <?php echo htmlspecialchars($error); ?>
+                </div>
+            <?php endif;?>
+            <p class="form-note">* Champs Obligatoires</p>
             <div class="form-group">
                 <label for="nom">Nom *</label>
                 <input type="text"
@@ -27,7 +32,6 @@
                     placeholder="MacBook Pro"
                     required>
             </div>
-
             <div class="form-group">
                 <label for="modele">Modèle *</label>
                 <input type="text"
@@ -36,7 +40,6 @@
                     placeholder="13'' M2 2023"
                     required>
             </div>
-
             <div class="form-group">
                 <label for="numero_serie">Numéro de série *</label>
                 <input type="text"
@@ -75,7 +78,10 @@
                     <option value="4">Hors service</option>
                 </select>
             </div>
-
+            <div class="form-group">
+                <label for="date_acquisition">Date d'acquisition</label>
+                <input type="date" name="date_acquisition" id="date_acquisition">
+            </div>
             <div class="form-group">
                 <label for="description">Description</label>
                 <textarea name="description" id="description"

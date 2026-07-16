@@ -8,7 +8,7 @@
 
         <!-- formulaire de connexion -->
         <form action="/auth/processLogin" method="post" id="form-login">
-                 <?php  if(isset($error)): ?>
+                <?php  if(isset($error)): ?>
                 <div class="error-message">
                     <?php echo htmlspecialchars($error); ?>
                 </div>

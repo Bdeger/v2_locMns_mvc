@@ -24,7 +24,33 @@ class MaterielController extends Controller{
         'materielPage' =>true
       ]);
     }
-    
+    public function processAjouter():void{
+        // on vérifie que les champs sont bien remplis
+        if(empty($_POST['nom'])||empty($_POST['modele'])||empty($_POST['numero_serie'])||empty($_POST['localisation'])||empty($_POST['id_categorie'])||empty($_POST['id_etat_materiel'])){
+            $this->view->render('admin/ajouter',[
+                'title'=>'Ajouter',
+                'error'=>'Veuillez remplir tous les champs'
+            ]);
+            return;
+        };
+
+        // 1. récupérer les données du formulaire
+        $nom = trim($_POST['nom']);
+        $modele = trim($_POST['modele']);
+        $numero_serie =trim($_POST['numero_serie']);
+        $localisation =trim($_POST['localisation']);
+        $id_categorie = $_POST['id_categorie'];
+        $id_etat_materiel=$_POST['id_etat_materiel'];
+        $date_acquisition = $_POST['date_acquisition'];
+        $description= $_POST["description"];
+
+        // 2. appeler materielManager
+        $materielManager = new MaterielManager();
+        $materielManager->addMateriel($nom, $modele, $numero_serie, $localisation, $description, $id_categorie, $id_etat_materiel, $date_acquisition);
+        header('Location: /materiel');
+        exit;
+    }
+
 }
 
 

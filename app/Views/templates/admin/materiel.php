@@ -35,6 +35,9 @@
                 <p class="description">
                     <?php echo htmlspecialchars($materiel['description']);?>
                 </p>
+                <p class="date_acquisition">
+                    <?php echo htmlspecialchars($materiel['date_acquisition'] ?? '' );?>
+                </p>
                 <div class="statut" data-statut="<?php echo htmlspecialchars($materiel['etat']); ?>"></div>
             </div>
             <div class="actions">
