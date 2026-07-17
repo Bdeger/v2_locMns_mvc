@@ -6,7 +6,7 @@ require_once __DIR__ .'/Manager.php';
 class MaterielManager extends Manager{
     public function getAllMateriel():array{
         $stmt = $this->pdo->prepare("
-        SELECT m.nom, m.modele, m.numero_serie, m.localisation, m.description,m.date_acquisition,
+        SELECT m.nom, m.modele, m.numero_serie, m.localisation, m.description,m.date_acquisition, m.id_materiel,
             c.nom AS categorie,
             em.nom_etat AS etat
         FROM materiel m
