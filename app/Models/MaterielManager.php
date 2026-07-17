@@ -34,6 +34,14 @@ class MaterielManager extends Manager{
         ]);
         
     }
+    public function deleteMateriel($id):void{
+        $stmt = $this -> pdo -> prepare('
+        DELETE FROM materiel 
+        WHERE id_materiel = :id');
+        $stmt -> execute([
+            ':id' => $id
+        ]);
+    }
 }
 
 

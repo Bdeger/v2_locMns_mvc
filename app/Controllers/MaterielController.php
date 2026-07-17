@@ -51,6 +51,14 @@ class MaterielController extends Controller{
         exit;
     }
 
+    // CRUD : DELETE
+    public function supprimer($id):void{
+        $materielManager = new MaterielManager();
+        $materielManager -> deleteMateriel($id);
+        header('Location: /materiel');
+        exit;
+    }
+
 }
 
 
