@@ -41,8 +41,8 @@
                 <div class="statut" data-statut="<?php echo htmlspecialchars($materiel['etat']); ?>"></div>
             </div>
             <div class="actions">
-                <a href="admin/modifier">Modifier</a>
-                <a href="#">Supprimer</a>
+                <a href="/materiel/modifier/<?php echo $materiel['id_materiel']; ?>">Modifier</a>
+                <a href="/materiel/supprimer/<?php echo $materiel['id_materiel']; ?>">Supprimer</a>
             </div>
         </div>
     <?php endforeach;?>

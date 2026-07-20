@@ -52,7 +52,31 @@ class MaterielManager extends Manager{
         ]);
     }
 
-   
+    // UPDATE
+    public function updateMateriel($id, $nom, $modele, $numero_serie, $localisation, $description, $id_categorie, $id_etat_materiel, $date_acquisition):void{
+        $stmt = $this -> pdo -> prepare('
+        UPDATE materiel
+        SET nom = :nom,
+            modele = :modele,
+            numero_serie = :numero_serie,
+            localisation = :localisation,
+            description = :description,
+            id_categorie = :id_categorie,
+            id_etat_materiel = :id_etat_materiel,
+            date_acquisition= :date_acquisition
+        WHERE id_materiel = :id');
+        $stmt -> execute([
+            ':id'=> $id,
+            ':nom'=> $nom,
+            ':modele'=> $modele,
+            ':numero_serie'=> $numero_serie,
+            ':localisation' => $localisation,
+            ':description' => $description,
+            ':id_categorie' => $id_categorie,
+            ':id_etat_materiel' => $id_etat_materiel,
+            ':date_acquisition'=> $date_acquisition
+        ]);
+    }
 
 }
 

@@ -1,6 +1,6 @@
 <?php include __DIR__ . '/sidebar.php';?>
 
-<!-- /Views/templates/admin/ajouter.php -->
+<!-- /Views/templates/admin/modifier.php -->
 <div class="main-content">
     <header class="header-materiel">
         <div class="title">
@@ -17,35 +17,38 @@
 
     <!-- FORMULAIRE -->
     <section class="form-addMateriel">
-        <form action="/materiel/processModifier/<?php echo $materiel['id_materiel']; ?>" method="post" id="form-addMateriel">
+        <form action="/materiel/processModifier/<?php echo $materiel['id_materiel']; ?>" method="post" id="form-modifierMateriel">
             <?php if(isset($error)): ?>
                 <div class="error-message">
                     <?php echo htmlspecialchars($error); ?>
                 </div>
             <?php endif;?>
             <p class="form-note">* Champs Obligatoires</p>
+
             <div class="form-group">
                 <label for="nom">Nom *</label>
                 <input type="text"
                     name="nom"
                     id="nom"
-                    placeholder="MacBook Pro"
+                    value="<?php echo htmlspecialchars($materiel['nom']); ?>"
                     required>
             </div>
+
             <div class="form-group">
                 <label for="modele">Modèle *</label>
                 <input type="text"
                     name="modele"
                     id="modele"
-                    placeholder="13'' M2 2023"
+                    value="<?php echo htmlspecialchars($materiel['modele']); ?>"
                     required>
             </div>
+
             <div class="form-group">
                 <label for="numero_serie">Numéro de série *</label>
                 <input type="text"
                     name="numero_serie"
                     id="numero_serie"
-                    placeholder="SN-MBP-001"
+                    value="<?php echo htmlspecialchars($materiel['numero_serie']); ?>"
                     required>
             </div>
 
@@ -54,17 +57,17 @@
                 <input type="text"
                     name="localisation"
                     id="localisation"
-                    placeholder="Salle 102">
+                    value="<?php echo htmlspecialchars($materiel['localisation'] ?? ''); ?>">
             </div>
 
             <div class="form-group">
                 <label for="id_categorie">Catégorie *</label>
                 <select name="id_categorie" id="id_categorie" required>
                     <option value="">-- Choisir une catégorie --</option>
-                    <option value="1">Ordinateur portable</option>
-                    <option value="2">Tablette</option>
-                    <option value="3">Écran</option>
-                    <option value="4">Accessoires</option>
+                    <option value="1" <?php echo $materiel['id_categorie'] == 1 ? 'selected' : ''; ?>>Ordinateur portable</option>
+                    <option value="2" <?php echo $materiel['id_categorie'] == 2 ? 'selected' : ''; ?>>Tablette</option>
+                    <option value="3" <?php echo $materiel['id_categorie'] == 3 ? 'selected' : ''; ?>>Écran</option>
+                    <option value="4" <?php echo $materiel['id_categorie'] == 4 ? 'selected' : ''; ?>>Accessoires</option>
                 </select>
             </div>
 
@@ -72,27 +75,32 @@
                 <label for="id_etat_materiel">État *</label>
                 <select name="id_etat_materiel" id="id_etat_materiel" required>
                     <option value="">-- Sélectionner --</option>
-                    <option value="1">Disponible</option>
-                    <option value="2">Emprunté</option>
-                    <option value="3">En maintenance</option>
-                    <option value="4">Hors service</option>
+                    <option value="1" <?php echo $materiel['id_etat_materiel'] == 1 ? 'selected' : ''; ?>>Disponible</option>
+                    <option value="2" <?php echo $materiel['id_etat_materiel'] == 2 ? 'selected' : ''; ?>>Emprunté</option>
+                    <option value="3" <?php echo $materiel['id_etat_materiel'] == 3 ? 'selected' : ''; ?>>En maintenance</option>
+                    <option value="4" <?php echo $materiel['id_etat_materiel'] == 4 ? 'selected' : ''; ?>>Hors service</option>
                 </select>
             </div>
+
             <div class="form-group">
                 <label for="date_acquisition">Date d'acquisition</label>
-                <input type="date" name="date_acquisition" id="date_acquisition">
+                <input type="date"
+                    name="date_acquisition"
+                    id="date_acquisition"
+                    value="<?php echo htmlspecialchars($materiel['date_acquisition'] ?? ''); ?>">
             </div>
+
             <div class="form-group">
                 <label for="description">Description</label>
                 <textarea name="description" id="description"
-                    placeholder="ex: Ordinateur portable pour développement"></textarea>
+                    placeholder="ex: Ordinateur portable pour développement"><?php echo htmlspecialchars($materiel['description'] ?? ''); ?></textarea>
             </div>
 
             <div class="btn-group">
                 <button type="submit" class="btn-submit">
-                    <i class="ti ti-plus"></i> Modifier le matériel
+                    <i class="ti ti-edit"></i> Modifier le matériel
                 </button>
-                <a href="/materiel" class="btn-annuler">Modifier</a>
+                <a href="/materiel" class="btn-annuler">Annuler</a>
             </div>
 
         </form>
