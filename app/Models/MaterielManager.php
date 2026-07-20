@@ -17,6 +17,13 @@ class MaterielManager extends Manager{
         return $stmt -> fetchAll();
     }
 
+    public function getMaterielById($id):array{
+        $stmt = $this -> pdo -> prepare('
+        SELECT * FROM materiel WHERE id_materiel = :id');
+        $stmt -> execute([':id' => $id]);
+        return $stmt -> fetch();
+    }
+    // Create_RUD
     public function addMateriel($nom,$modele,$numero_serie,$localisation,$description, $id_categorie, $id_etat_materiel, $date_acquisition){
         $stmt = $this ->pdo->prepare('
         INSERT INTO materiel(nom,modele,numero_serie,localisation,description, id_categorie, id_etat_materiel, date_acquisition)
@@ -34,6 +41,8 @@ class MaterielManager extends Manager{
         ]);
         
     }
+
+    // cruDELETE
     public function deleteMateriel($id):void{
         $stmt = $this -> pdo -> prepare('
         DELETE FROM materiel 
@@ -42,6 +51,9 @@ class MaterielManager extends Manager{
             ':id' => $id
         ]);
     }
+
+   
+
 }
 
 

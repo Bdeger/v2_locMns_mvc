@@ -41,7 +41,7 @@
                 <div class="statut" data-statut="<?php echo htmlspecialchars($materiel['etat']); ?>"></div>
             </div>
             <div class="actions">
-                <a href="#">Modifier</a>
+                <a href="admin/modifier">Modifier</a>
                 <a href="#">Supprimer</a>
             </div>
         </div>
