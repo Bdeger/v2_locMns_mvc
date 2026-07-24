@@ -31,6 +31,14 @@
         <link rel="stylesheet" href="/css/materiel.css"> 
     <?php endif; ?>
 
+    <?php if(isset($membrePage)&& $membrePage): ?>
+        <script src="/js/script.js" defer></script>
+        <link rel="stylesheet" href="/css/sidebar.css">
+        <link rel="stylesheet" href="/css/materiel.css">
+        <link rel="stylesheet" href="/css/membre.css">
+    <?php endif; ?>
+
+
 </head>
 <body>
     <?php echo $content; ?>

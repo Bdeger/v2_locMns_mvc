@@ -46,7 +46,7 @@ body {
 }
 
 .btn-ajouter {
-  display: flex;
+  display: flex;                           
   align-items: center;
   background-color: rgb(249, 113, 9);
   color: white;
