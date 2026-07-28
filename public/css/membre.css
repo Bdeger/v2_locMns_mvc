@@ -1,15 +1,16 @@
 * {
   box-sizing: border-box;
 }
+
 body {
   font-family: "Poppins", sans-serif;
   background-color: #f4f6f9;
   margin: 0;
 }
 
-/* ----------- */
-/* HEADER MEMBRE */
-/* ----------- */
+/* ==================== */
+/* HEADER MEMBRE        */
+/* ==================== */
 
 .header-membre {
   display: flex;
@@ -36,12 +37,16 @@ body {
   margin-top: 4px;
 }
 
-/* bouton ajouter */
+/* ==================== */
+/* BOUTON AJOUTER       */
+/* ==================== */
+
 .membre-header-actions {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   padding: 16px;
 }
+
 .btn-ajouter {
   display: flex;
   align-items: center;
@@ -59,10 +64,12 @@ body {
 }
 
 .btn-ajouter:hover {
-  background-color: rgb(249, 90, 5);
+  background-color: rgb(220, 90, 5);
 }
 
-/* liste de card */
+/* ==================== */
+/* LISTE DES CARTES     */
+/* ==================== */
 
 .membre-content {
   display: flex;
@@ -74,26 +81,39 @@ body {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  margin: 8px 0;
+  margin-bottom: 12px;
   padding: 14px;
   border: 1px solid rgb(225, 225, 225);
   border-radius: 10px;
   background-color: white;
 }
 
+.membre-card:last-child {
+  margin-bottom: 0;
+}
+
+/* ==================== */
+/* AVATAR INITIALES     */
+/* ==================== */
+
 .membre-icon {
   flex-shrink: 0;
   width: 42px;
   height: 42px;
-  border-radius: 8px;
-  background-color: rgba(249, 113, 9, 0.1);
+  border-radius: 50%;
+  background-color: rgba(249, 113, 9, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.3rem;
+  font-size: 0.9rem;
+  font-weight: 600;
   color: rgb(249, 113, 9);
   margin-right: 14px;
 }
+
+/* ==================== */
+/* INFOS MEMBRE         */
+/* ==================== */
 
 .membre-infos {
   flex: 1;
@@ -101,8 +121,113 @@ body {
 }
 
 .membre-infos .nom {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: rgb(30, 30, 30);
-  margin-bottom: 4px;
+  margin-bottom: 3px;
+}
+
+.membre-infos .mail {
+  font-size: 0.82rem;
+  color: rgb(100, 100, 100);
+  margin-bottom: 8px;
+}
+
+/* ==================== */
+/* BADGES STATUT / ROLE */
+/* ==================== */
+
+.membre-infos .status {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.membre-infos .status p {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-right: 6px;
+}
+
+.membre-infos .status p:first-child {
+  background-color: rgba(37, 99, 235, 0.1);
+  color: rgb(37, 99, 235);
+}
+
+.membre-infos .status p:last-child {
+  background-color: rgba(34, 197, 94, 0.12);
+  color: rgb(22, 130, 65);
+}
+
+.membre-infos .status p.inactif {
+  background-color: rgba(0, 0, 0, 0.06);
+  color: rgb(130, 130, 130);
+}
+
+/* ==================== */
+/* ACTIONS              */
+/* ==================== */
+
+.membre-infos .actions a {
+  font-size: 0.82rem;
+  color: rgb(249, 113, 9);
+  text-decoration: none;
+}
+
+.membre-infos .actions a:hover {
+  border-bottom: 1px solid rgb(249, 113, 9);
+}
+
+/* ==================== */
+/* MEDIA QUERIES        */
+/* ==================== */
+
+@media screen and (min-width: 1024px) {
+  .header-membre {
+    justify-content: flex-start;
+    padding: 24px 40px;
+    margin-left: 220px;
+  }
+
+  .header-membre .title {
+    text-align: left;
+  }
+
+  .membre-header-actions {
+    margin-left: 220px;
+  }
+
+  .membre-content {
+    margin-left: 220px;
+    padding: 0 40px 40px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .membre-card {
+    flex: 0 0 30%;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .membre-icon {
+    margin-right: 0;
+    margin-bottom: 10px;
+    width: 52px;
+    height: 52px;
+    font-size: 1.1rem;
+  }
+
+  .membre-infos .status {
+    justify-content: center;
+  }
+
+  .membre-infos .actions {
+    display: flex;
+    justify-content: center;
+  }
 }

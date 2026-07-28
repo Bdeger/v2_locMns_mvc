@@ -16,27 +16,28 @@
             Ajouter
         </a>
     </div>
+    <?php foreach($listMembre as $membre): ?>
     <div class="membre-card">
         <div class="membre-icon">
-            icon
+            <!-- initiales du membre -->
+            <?php echo strtoupper(substr($membre['prenom'], 0, 1) . substr($membre['nom'], 0, 1)); ?>
         </div>
         <div class="membre-infos">
             <div class="nom">
-                <p>Nom Prenom</p>
+                <?php echo htmlspecialchars($membre['prenom'] . ' ' . $membre['nom']); ?>
             </div>
             <div class="mail">
-                <p>email@htoma.fr</p>
+                <?php echo htmlspecialchars($membre['email']); ?>
             </div>
             <div class="status">
-                <p>Emprunteur</p>
-                <p>Actif</p>
+                <p><?php echo htmlspecialchars($membre['role']); ?></p>
+                <p><?php echo $membre['actif'] ? 'Actif' : 'Inactif'; ?></p>
             </div>
             <div class="actions">
-                <a href="#">Modifier</a>
+                <a href="/membre/modifier/<?php echo $membre['id_utilisateur']; ?>">Modifier</a>
             </div>
         </div>
     </div>
-
-
+    <?php endforeach; ?>
 </div>
 
