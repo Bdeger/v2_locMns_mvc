@@ -44,6 +44,7 @@ class MaterielController extends Controller{
         $date_acquisition = $_POST['date_acquisition'];
         $description= $_POST["description"];
 
+        $date_acquisition = date('Y-m-d');
         // 2. appeler materielManager
         $materielManager = new MaterielManager();
         $materielManager->addMateriel($nom, $modele, $numero_serie, $localisation, $description, $id_categorie, $id_etat_materiel, $date_acquisition);

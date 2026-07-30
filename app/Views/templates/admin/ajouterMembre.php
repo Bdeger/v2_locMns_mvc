@@ -69,7 +69,10 @@
             <select name="id_role" id="id_role">
                 <option value="">-- Choisir le role --</option>
                 <option value="1">Emprunteur</option>
-                <option value="2">Administrateur</option>
+
+                <!-- TODO onglet différent -->
+                <!-- <option value="2">Administrateur</option> -->
+                 
             </select>
         </div>
         <div class="form-group">
