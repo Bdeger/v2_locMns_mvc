@@ -16,8 +16,19 @@ class MembresController extends Controller{
             'listMembre' => $membre,
             'membrePage' => true
         ]);
-
     }
+    public function ajouterMembre():void{
+        $this -> view -> render('admin/ajouterMembre',[
+            'title' => 'Ajouter un Membre',
+            'membrePage' => true
+        ]);
+    }
+    // public function processAjouterMembre():void{
+    //     // on vérifie si les champs sont bien remplis
+        
+    // }
+
+    
 }
 
 

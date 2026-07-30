@@ -11,7 +11,7 @@
 
 <div class="membre-content">
     <div class="membre-header-actions">
-        <a href="/membre/ajouter" class="btn-ajouter">
+        <a href="/membre/ajouterMembre" class="btn-ajouter">
             <i class="ti ti-plus"></i>
             Ajouter
         </a>

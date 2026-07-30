@@ -15,18 +15,38 @@ class UserManager extends Manager{
     }
 
     public function getAllUsers():array{
-        $stmt = $this ->pdo -> prepare("
-        SELECT u.nom, u.prenom, u.adresse_postale, u.telephone, u.email,u.date_inscription, u.actif, u.date_derniere_connexion, u.id_utilisateur, 
-            r.nom AS role
+        $stmt = $this->pdo->prepare("
+        SELECT u.id_utilisateur, u.nom, u.prenom, u.telephone, u.email, u.date_inscription,
+            r.nom AS role,
+            s.nom AS statut
         FROM utilisateur u
-        INNER JOIN role r ON u.id_role = r.id_role");
-        $stmt -> execute();
-        return $stmt -> fetchAll();
+        INNER JOIN role r ON u.id_role = r.id_role
+        INNER JOIN statut_utilisateur s ON u.id_statut_utilisateur = s.id_statut_utilisateur        
+        WHERE u.id_role = 2
+        ");
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+    public function addUser($nom, $prenom, $telephone, $email, $mot_de_passe, $date_inscription, $id_role, $id_statut_utilisateur, $commentaire):void{
+        $stmt = $this->pdo->prepare("
+        INSERT INTO utilisateur(nom, prenom, telephone, email, mot_de_passe, date_inscription, id_role, id_statut_utilisateur, commentaire)
+        VALUES(:nom, :prenom, :telephone, :email, :mot_de_passe, :date_inscription, :id_role, :id_statut_utilisateur, :commentaire)
+        ");
+        $stmt->execute([
+            ":nom" => $nom,
+            ":prenom" => $prenom,
+            ":telephone" => $telephone,
+            ":email" => $email,
+            ":mot_de_passe" => $mot_de_passe,
+            ":date_inscription" => $date_inscription,
+            ":id_role" => $id_role,
+            ":id_statut_utilisateur" => $id_statut_utilisateur,
+            ":commentaire" => $commentaire
+        ]);
+    }
 }
-}
 
-
-
+// faire WHERE id=2 quand on aura des membres en plus
 
 
 
