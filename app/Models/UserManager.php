@@ -16,7 +16,7 @@ class UserManager extends Manager{
 
     public function getAllUsers():array{
         $stmt = $this->pdo->prepare("
-        SELECT u.id_utilisateur, u.nom, u.prenom, u.telephone, u.email, u.date_inscription,
+        SELECT u.id_utilisateur, u.nom, u.prenom, u.telephone, u.email, u.date_inscription, u.commentaire,
             r.nom AS role,
             s.nom AS statut
         FROM utilisateur u
@@ -27,6 +27,7 @@ class UserManager extends Manager{
         $stmt->execute();
         return $stmt->fetchAll();
     }
+    
     public function addUser($nom, $prenom, $telephone, $email, $mot_de_passe, $date_inscription, $id_role, $id_statut_utilisateur, $commentaire):void{
         $stmt = $this->pdo->prepare("
         INSERT INTO utilisateur(nom, prenom, telephone, email, mot_de_passe, date_inscription, id_role, id_statut_utilisateur, commentaire)

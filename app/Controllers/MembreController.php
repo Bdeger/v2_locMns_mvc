@@ -1,12 +1,12 @@
 <?php 
 
-// app/Controllers/MembresController.php
+// app/Controllers/MembreController.php
 
 require_once __DIR__ . "/../Views/View.php";
 require_once __DIR__ . "/Controller.php";
 require_once __DIR__ . "/../Models/UserManager.php";
 
-class MembresController extends Controller{
+class MembreController extends Controller{
     public function index():void{
         $listMembre = new UserManager();
         $membre = $listMembre->getAllUsers();

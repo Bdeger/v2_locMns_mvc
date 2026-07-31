@@ -15,7 +15,7 @@
             <li><a href="/admin/dashboard">Dashboard</a></li>
             <li><a href="/emprunts">Emprunts</a></li>
             <li><a href="/materiel">Matériel</a></li>
-            <li><a href="/membres">Membres</a></li>
+            <li><a href="/membre">Membres</a></li>
         </ul>
     </nav>
 </header>

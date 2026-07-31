@@ -31,7 +31,10 @@
             </div>
             <div class="status">
                 <p><?php echo htmlspecialchars($membre['role']); ?></p>
-                <p><?php echo $membre['actif'] ? 'Actif' : 'Inactif'; ?></p>
+                <p><?php echo htmlspecialchars($membre['statut']); ?></p>
+            </div>
+            <div class="commentaire">
+                <p><?php echo htmlspecialchars($membre['commentaire'] ?? '');?></p>
             </div>
             <div class="actions">
                 <a href="/membre/modifier/<?php echo $membre['id_utilisateur']; ?>">Modifier</a>

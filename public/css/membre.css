@@ -179,6 +179,137 @@ body {
   border-bottom: 1px solid rgb(249, 113, 9);
 }
 
+
+/* ==================== */
+/* PAGE AJOUTER MEMBRE  */
+/* ==================== */
+
+.form-addMembre {
+  max-width: 600px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+.header-membre {
+  background: linear-gradient(135deg, #0a0e3f, #1a2a6c);
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header-membre h1 {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.header-membre::before {
+  content: "\ea77";
+  font-family: "tabler-icons";
+  font-size: 22px;
+  color: rgb(249, 113, 9);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(255, 100, 0, 0.2);
+  border: 3px solid rgba(255, 100, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.form-addMembre form {
+  background: white;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  padding: 24px;
+}
+
+.form-addMembre .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+}
+
+.form-addMembre .form-group label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 5px;
+}
+
+.form-addMembre .form-group input,
+.form-addMembre .form-group select,
+.form-addMembre .form-group textarea {
+  padding: 10px 12px;
+  border: 1.5px solid #e8e8e8;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #333;
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+}
+
+.form-addMembre .form-group input:focus,
+.form-addMembre .form-group select:focus,
+.form-addMembre .form-group textarea:focus {
+  outline: none;
+  border-color: rgb(249, 113, 9);
+  box-shadow: 0 0 0 3px rgba(255, 100, 0, 0.08);
+}
+
+.form-addMembre .form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-addMembre .btn-group {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.form-addMembre .btn-submit {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  background: rgb(249, 113, 9);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  margin-right: 10px;
+}
+
+.form-addMembre .btn-submit i {
+  margin-right: 6px;
+}
+
+.form-addMembre .btn-submit:hover {
+  background: rgb(220, 90, 5);
+}
+
+.form-addMembre .btn-annuler {
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  border: 1.5px solid #ddd;
+  background: none;
+  color: #666;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+
+
+
+
 /* ==================== */
 /* MEDIA QUERIES        */
 /* ==================== */
@@ -229,5 +360,11 @@ body {
   .membre-infos .actions {
     display: flex;
     justify-content: center;
+  }
+
+  /* formulaire ajouter membre */
+   .form-addMembre {
+    margin-left: 240px;
+    max-width: 700px;
   }
 }
