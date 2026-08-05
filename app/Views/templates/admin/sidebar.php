@@ -16,6 +16,11 @@
             <li><a href="/emprunts">Emprunts</a></li>
             <li><a href="/materiel">Matériel</a></li>
             <li><a href="/membre">Membres</a></li>
+            <li>
+                <a href="/auth/logout">
+                    <i class="ti ti-logout"></i>Déconnexion
+                </a>
+            </li>
         </ul>
     </nav>
 </header>

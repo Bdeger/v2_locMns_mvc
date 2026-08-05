@@ -18,6 +18,11 @@ class AuthController extends Controller{
             ['title'=>'Connexion']
         );
     }
+    public function logout():void{
+        session_destroy();
+        header('Location: /');
+        exit;
+    }
     public function processLogin():void{
         // méthode pour traiter le formulaire quand l'utilisateur clique sur se connecter
 
@@ -66,4 +71,5 @@ class AuthController extends Controller{
                 ]);
             }
     }
+
 }
