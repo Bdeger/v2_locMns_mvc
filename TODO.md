@@ -29,8 +29,8 @@
 - [ ] Lien sur le logo LocMns → page d'accueil
 
 ### Authentification
-- [ ] Déconnexion — méthode `logout()` dans `AuthController` + lien sidebar
-
+- [X] Déconnexion — méthode `logout()` dans `AuthController` + lien sidebar
+=> **SECURITE** à faire 
 ### Emprunts (côté admin)
 - [ ] Liste des demandes (En attente, En cours, Terminé, Refusé)
 - [ ] Actions : Valider / Refuser / Marquer comme rendu
