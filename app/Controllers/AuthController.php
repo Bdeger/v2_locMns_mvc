@@ -53,12 +53,15 @@ class AuthController extends Controller{
             if($user && password_verify($pwd, $user['mot_de_passe'])){
                 // 4. créer la session
                 $_SESSION['user']=[
+                    'id' => $user['id_utilisateur'],
+                    'nom' => $user['nom'],
+                    'prenom' => $user['prenom'],
                     'email' => $user['email'],
-                    'role' => $user['nom']
+                    'role' => $user['role']
                 ];
 
                 // 5. Rediréction selon rôle 
-                if($user['nom']==='Administrateur'){
+                if($user['id_role']== 1){
                     header('Location: /admin/dashboard');
                 }else{
                     header('Location: /user/dashboard');
