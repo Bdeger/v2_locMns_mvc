@@ -64,7 +64,7 @@ class AuthController extends Controller{
                 if($user['id_role']== 1){
                     header('Location: /admin/dashboard');
                 }else{
-                    header('Location: /user/dashboard');
+                    header('Location: /user/accueil');
                 }
                 exit;
             }else{

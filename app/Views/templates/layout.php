@@ -38,7 +38,11 @@
         <link rel="stylesheet" href="/css/membre.css">
     <?php endif; ?>
 
-
+    <!-- COTE EMPRUNTEUR -->
+    <?php if(isset($accueil) && $accueil): ?>
+        <link rel="stylesheet" href="/css/accueil.css">
+    <?php endif; ?>
+    
 </head>
 <body>
     <?php echo $content; ?>
