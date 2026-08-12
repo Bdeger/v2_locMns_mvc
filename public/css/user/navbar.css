@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family:"poppins";
+}
+
+.header{
+    display:flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.header-top {
+  overflow: hidden;
+  width: 100%;
+  background-image: url(/public/image/image2.jpg);
+  background-position-y: 3%;
+  background-position-x: 28%;
+  display: flex;
+  align-content: center;
+}
+
+
+.header-top img {
+  width: 230px;
+  height: auto;
+}
+
+.header-bottom {
+  background-color: rgb(22, 19, 84);
+  color: #ffff;
+  font-size: 0.4rem;
+  padding-left: 40px;
+}
+
+/* MENU BURGER */
+
+#burger-button-display {
+  position: absolute;
+  top: 40px;
+  right: 10px;
+  cursor: pointer;
+}
+.header nav ul {
+  list-style: none;
+  padding-left: 0;
+}
+.header nav ul li a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  padding: 5px 0;
+  border-bottom: 1px solid rgb(214, 214, 214);
+}
+
+.header nav ul li a:hover {
+  background-color: #2531de;
+  color: #ffff;
+}
+
+/* pour le js du menu burger */
+
+#nav.nav-hide #nav-ul {
+  display: none;
+}
+#nav.nav-hide i.ti-x {
+  display: none;
+}
+#nav:not(.nav-hide) i.ti-menu-2 {
+  display: none;
+  color: #0f6e56;
+}
+
+/* media */
+
+@media screen and (min-width: 1024px) {
+  /* SIDEBAR */
+  .header {
+    width: 220px;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-image: url(/public/image/image2.jpg);
+    background-position-y: 20%;
+    background-position-x: 8%;
+  }
+
+  #burger-button-display {
+    display: none;
+  }
+
+  #nav-ul {
+    display: flex !important;
+    flex-direction: column;
+  }
+
+  .header nav ul li a {
+    color: rgba(255, 255, 255, 0.6);
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: none;
+  }
+}

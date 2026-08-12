@@ -40,6 +40,8 @@
 
     <!-- COTE EMPRUNTEUR -->
     <?php if(isset($accueil) && $accueil): ?>
+        <script src="/js/script.js" defer></script>
+        <link rel="stylesheet" href="/css/user/navbar.css">
         <link rel="stylesheet" href="/css/user/accueil.css">
     <?php endif; ?>
 
