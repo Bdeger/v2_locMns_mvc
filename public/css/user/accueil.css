@@ -1,1 +1,76 @@
 /*  CSS pour ACCUEIL "emprunteur"  */
+
+/* ===== SECTION INTRO ===== */
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 20px;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0a0d5c 0%, #16205e 40%, #1e3fd8 100%);
+}
+
+.intro-titre h2 {
+  font-size: 1.4em;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+.intro-soustitre {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85em;
+  margin-bottom: 18px;
+}
+
+/* ===== BARRE DE RECHERCHE ===== */
+
+.intro-recherche {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 4px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.intro-recherche-champ {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 12px;
+  font-family: inherit;
+  font-size: 0.9em;
+  background: transparent;
+}
+
+.intro-recherche-bouton {
+  border: none;
+  background-color: #1e3fd8;
+  color: #ffffff;
+  border-radius: 6px;
+  padding: 12px 20px;
+  font-family: inherit;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+.intro-recherche-bouton:hover {
+  background-color: #2531de;
+}
+
+/* ===== DESKTOP ===== */
+
+@media screen and (min-width: 1024px) {
+  .intro {
+    padding: 60px 20px;
+  }
+
+  .intro-titre h2 {
+    font-size: 1.8em;
+  }
+}
