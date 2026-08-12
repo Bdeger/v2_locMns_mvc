@@ -20,29 +20,29 @@
     <!-- css du Dashboard -->
     <?php if(isset($dashboard)&& $dashboard): ?>
         <script src="/js/script.js" defer></script>
-        <link rel="stylesheet" href="/css/dashboard.css">
-        <link rel="stylesheet" href="/css/sidebar.css">
+        <link rel="stylesheet" href="/css/admin/dashboard.css">
+        <link rel="stylesheet" href="/css/admin/sidebar.css">
 
     <?php endif; ?>
 
      <?php if(isset($materielPage)&&$materielPage): ?>
         <script src="/js/script.js" defer></script>
-        <link rel="stylesheet" href="/css/sidebar.css">
-        <link rel="stylesheet" href="/css/materiel.css"> 
+        <link rel="stylesheet" href="/css/admin/sidebar.css">
+        <link rel="stylesheet" href="/css/admin/materiel.css"> 
     <?php endif; ?>
 
     <?php if(isset($membrePage)&& $membrePage): ?>
         <script src="/js/script.js" defer></script>
-        <link rel="stylesheet" href="/css/sidebar.css">
-        <link rel="stylesheet" href="/css/materiel.css">
-        <link rel="stylesheet" href="/css/membre.css">
+        <link rel="stylesheet" href="/css/admin/sidebar.css">
+        <link rel="stylesheet" href="/css/admin/materiel.css">
+        <link rel="stylesheet" href="/css/admin/membre.css">
     <?php endif; ?>
 
     <!-- COTE EMPRUNTEUR -->
     <?php if(isset($accueil) && $accueil): ?>
-        <link rel="stylesheet" href="/css/accueil.css">
+        <link rel="stylesheet" href="/css/user/accueil.css">
     <?php endif; ?>
-    
+
 </head>
 <body>
     <?php echo $content; ?>
