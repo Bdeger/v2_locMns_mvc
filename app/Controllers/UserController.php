@@ -21,6 +21,21 @@ class UserController extends Controller{
             "accueil" => true 
         ]);
     }
+    public function categorie($id):void{
+        $dateDebut = $_GET['date_debut']?? date('Y-m-d');
+        $dateFin = $_GET['date_fin'] ?? date('Y-m-d', strtotime('+7 days'));
+
+        $materielManager = new MaterielManager();
+        $materielDispo = $materielManager -> getMaterielDisponibleParCategorie($id, $dateDebut, $dateFin);
+        
+        $this -> view -> render('user/categorie',[
+            'title' => 'Matériel Disponible',
+            'listMateriel' => $materielDispo,
+            'dateDebut' => $dateDebut,
+            'dateFin' => $dateFin, 
+            'categorie' => true
+        ]);
+    }
     
 
 }
