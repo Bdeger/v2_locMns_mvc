@@ -63,6 +63,44 @@
   background-color: #2531de;
 }
 
+/* CATEGORIE */
+
+.list-categorie {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 20px;
+}
+
+.carte-categorie {
+  flex: 1 1 calc(50% - 6px);
+  min-width:160px;
+  border-radius: 12px;
+  padding: 26px 16px;
+  text-align: center;
+  text-decoration : none;
+  color:#ffffff;
+}
+
+.carte-categorie h3{
+  margin: 10px 0 4px;
+  font-size:0.9em;
+  text-transform: uppercase;
+}
+
+.carte-categorie p{
+  margin:0;
+  font-size:0.8em;
+  color: rgba(255,255,255,0.8);
+}
+
+.carte-categorie-1 {background-color: #4fa8d8;}
+.carte-categorie-2 {background-color: #7ec77e;}
+.carte-categorie-3{background-color: #d9c94a;}
+.carte-categorie-4{background-color: #e8636b;}
+
+
+
 /* ===== DESKTOP ===== */
 
 @media screen and (min-width: 1024px) {
