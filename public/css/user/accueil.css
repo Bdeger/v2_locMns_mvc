@@ -79,7 +79,7 @@
   padding: 26px 16px;
   text-align: center;
   text-decoration : none;
-  color:#ffffff;
+  color: #1a1a1a;
 }
 
 .carte-categorie h3{
@@ -91,7 +91,7 @@
 .carte-categorie p{
   margin:0;
   font-size:0.8em;
-  color: rgba(255,255,255,0.8);
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .carte-categorie-1 {background-color: #4fa8d8;}
@@ -110,5 +110,24 @@
 
   .intro-titre h2 {
     font-size: 1.8em;
+  }
+
+  .list-categorie {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px 20px;
+  }
+
+  .carte-categorie {
+    padding: 60px 20px;
+  }
+
+  .carte-categorie h3 {
+    font-size: 1.1em;
+  }
+
+  .carte-categorie p {
+    font-size: 0.9em;
   }
 }
