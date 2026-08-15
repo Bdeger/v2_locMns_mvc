@@ -12,7 +12,7 @@
 </section>
 
 <section class="tri-categorie">
-
+<pre><?php print_r($listCategorie); ?></pre>
 </section>
 <section class="materiel-content">
     <?php foreach($listMateriel as $materiel): ?>    

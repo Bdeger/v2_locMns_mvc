@@ -12,13 +12,17 @@ class UserController extends Controller{
     public function accueil():void{
         $listMateriel = new MaterielManager();
         $materiel = $listMateriel -> getAllMateriel();
+        $listCategorie = new CategorieManager();
+        $categorie = $listCategorie -> getCategoriesAvecCompte();
         $this -> view -> render('user/accueil',[
             'title' => "Votre Espace",
             'listMateriel' =>$materiel,
+            'listCategorie'=> $categorie,
             "accueil" => true 
         ]);
     }
     
+
 }
 
 
