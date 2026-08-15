@@ -1,0 +1,248 @@
+/*  CSS pour la page CATEGORIE "emprunteur"  */
+
+/* ===== EN-TETE ===== */
+
+.header-categorie {
+  padding: 20px;
+  border-left: 6px solid;
+}
+
+.header-categorie-retour {
+  display: inline-block;
+  font-size: 0.75em;
+  color: #555555;
+  text-decoration: none;
+  margin-bottom: 7px;
+}
+
+.header-categorie-retour:hover {
+  text-decoration: underline;
+}
+
+.header-categorie-titre {
+  margin: 0;
+  font-size: 1.3em;
+  color: #1a1a1a;
+}
+
+.header-categorie-description {
+  margin: 4px 0 0;
+  font-size: 0.8em;
+  color: #555555;
+}
+
+.header-categorie-1 { background-color: #eaf4fa; border-left-color: #4fa8d8; }
+.header-categorie-2 { background-color: #eef7ee; border-left-color: #7ec77e; }
+.header-categorie-3 { background-color: #faf7e6; border-left-color: #d9c94a; }
+.header-categorie-4 { background-color: #fdeced; border-left-color: #e8636b; }
+
+/* ===== PERIODE ===== */
+
+.periode {
+  padding: 16px 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.periode-titre {
+  margin: 0 0 10px;
+  font-size: 0.85em;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.periode-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.periode-champ {
+  flex: 1;
+  min-width: 130px;
+  display: flex;
+  flex-direction: column;
+}
+
+.periode-champ-label {
+  font-size: 0.7em;
+  color: #555555;
+  margin-bottom: 4px;
+}
+
+.periode-champ-input {
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  padding: 9px 11px;
+  font-family: inherit;
+  font-size: 0.85em;
+  color: #1a1a1a;
+}
+
+.periode-bouton {
+  flex-shrink: 0;
+  border: none;
+  background-color: #1e3fd8;
+  color: #ffffff;
+  border-radius: 6px;
+  padding: 11px 20px;
+  font-family: inherit;
+  font-size: 0.85em;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.periode-bouton:hover {
+  background-color: #2531de;
+}
+
+/* ===== LISTE DES MATERIELS ===== */
+
+.materiel-liste {
+  padding: 18px 20px;
+}
+
+.materiel-liste-compte {
+  margin: 0 0 13px;
+  font-size: 0.85em;
+  color: #555555;
+}
+
+.materiel-liste-compte strong {
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+.materiel-liste-vide {
+  padding: 30px 20px;
+  text-align: center;
+  color: #888888;
+  font-size: 0.85em;
+}
+
+/* ===== CARTE MATERIEL ===== */
+
+.materiel-carte {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 13px 14px;
+  margin-bottom: 8px;
+}
+
+.materiel-carte-icone {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background-color: #eaf4fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-right: 12px;
+  color: #185fa5;
+  font-size: 1.2em;
+}
+
+.materiel-carte-infos {
+  flex: 1;
+  min-width: 0;
+}
+
+.materiel-carte-nom {
+  margin: 0 0 3px;
+  font-size: 0.9em;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.materiel-carte-detail {
+  margin: 0;
+  font-size: 0.78em;
+  color: #555555;
+}
+
+.materiel-carte-bouton {
+  flex-shrink: 0;
+  background-color: #1e3fd8;
+  color: #ffffff;
+  border-radius: 6px;
+  padding: 9px 18px;
+  font-size: 0.78em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.materiel-carte-bouton:hover {
+  background-color: #2531de;
+}
+
+/* ===== ENCART SANS PREFERENCE ===== */
+
+.demande-libre {
+  display: flex;
+  align-items: center;
+  border: 1px dashed #cccccc;
+  border-radius: 12px;
+  padding: 15px 16px;
+  background-color: #f7f7f7;
+  margin-top: 16px;
+}
+
+.demande-libre-icone {
+  flex-shrink: 0;
+  margin-right: 12px;
+  font-size: 1.4em;
+  color: #888888;
+}
+
+.demande-libre-infos {
+  flex: 1;
+  min-width: 0;
+}
+
+.demande-libre-titre {
+  margin: 0 0 2px;
+  font-size: 0.85em;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.demande-libre-texte {
+  margin: 0;
+  font-size: 0.78em;
+  color: #555555;
+}
+
+.demande-libre-bouton {
+  flex-shrink: 0;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  padding: 9px 18px;
+  font-size: 0.78em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.demande-libre-bouton:hover {
+  background-color: #f0f0f0;
+}
+
+/* ===== DESKTOP ===== */
+
+@media screen and (min-width: 1024px) {
+  .header-categorie,
+  .periode,
+  .materiel-liste {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .header-categorie-titre {
+    font-size: 1.6em;
+  }
+}
