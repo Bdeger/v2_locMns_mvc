@@ -6,10 +6,12 @@
     </div>
 
     <!-- BARRE DE RECHERCHE -->
-    <form action="/user/accueil" method="get" class="intro-recherche">
-        <input type="text" name="recherche" id="recherche" class="intro-recherche-champ" placeholder="Ordinateur, tablette ...">
-        <input type="submit" value="Rechercher" class="intro-recherche-bouton">
-    </form>
+     <div>
+        <form action="/user/accueil" method="get" class="intro-recherche">
+            <input type="text" name="recherche" id="recherche" class="intro-recherche-champ" placeholder="Ordinateur, tablette ...">
+            <input type="submit" value="Rechercher" class="intro-recherche-bouton">
+        </form>
+    </div>
 </section>
 
 <!-- LISTE DES CATEGORIES -->

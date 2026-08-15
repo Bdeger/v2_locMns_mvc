@@ -40,6 +40,7 @@
 
 .intro-recherche-champ {
   flex: 1;
+  min-width: 0;
   border: none;
   outline: none;
   padding: 12px;
@@ -49,21 +50,23 @@
 }
 
 .intro-recherche-bouton {
+  flex-shrink: 0;
+  white-space: nowrap;
   border: none;
   background-color: #1e3fd8;
   color: #ffffff;
   border-radius: 6px;
-  padding: 12px 20px;
+  padding: 12px 16px;
   font-family: inherit;
   font-size: 0.9em;
   cursor: pointer;
 }
 
 .intro-recherche-bouton:hover {
-  background-color: #ff7a21;
+  background-color: #2531de;
 }
 
-/* CATEGORIE */
+/* ===== CATEGORIES ===== */
 
 .list-categorie {
   display: flex;
@@ -74,32 +77,30 @@
 
 .carte-categorie {
   flex: 1 1 calc(50% - 6px);
-  min-width:160px;
+  min-width: 160px;
   border-radius: 12px;
   padding: 26px 16px;
   text-align: center;
-  text-decoration : none;
+  text-decoration: none;
   color: #1a1a1a;
 }
 
-.carte-categorie h3{
+.carte-categorie h3 {
   margin: 10px 0 4px;
-  font-size:0.9em;
+  font-size: 0.9em;
   text-transform: uppercase;
 }
 
-.carte-categorie p{
-  margin:0;
-  font-size:0.8em;
+.carte-categorie p {
+  margin: 0;
+  font-size: 0.8em;
   color: rgba(0, 0, 0, 0.7);
 }
 
-.carte-categorie-1 {background-color: #4fa8d8;}
-.carte-categorie-2 {background-color: #7ec77e;}
-.carte-categorie-3{background-color: #d9c94a;}
-.carte-categorie-4{background-color: #e8636b;}
-
-
+.carte-categorie-1 { background-color: #4fa8d8; }
+.carte-categorie-2 { background-color: #7ec77e; }
+.carte-categorie-3 { background-color: #d9c94a; }
+.carte-categorie-4 { background-color: #e8636b; }
 
 /* ===== DESKTOP ===== */
 
