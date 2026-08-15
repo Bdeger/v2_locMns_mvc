@@ -21,7 +21,7 @@
             </div>
             <div class="materiel-infos">
                 <div class="categorie">
-                    <?php echo htmlspecialchars($materiel['categorie']);?>
+                    <?php echo htmlspecialchars($materiel['categorie']); ?>
                 </div>
                 <h3 class="nom">
                     <?php echo htmlspecialchars($materiel['nom']); ?>

@@ -14,6 +14,32 @@
 <section class="tri-categorie">
 
 </section>
-<section class="list-materiel">
+<section class="materiel-content">
+    <?php foreach($listMateriel as $materiel): ?>    
+        <div class="materiel-car">
+            <div class="materiel-icon">
+                <i class="ti ti-device-laptop"></i>
+            </div>
+        </div>
+        <div class="materiel-infos">
+            <div class="categorie">
+                <?php echo htmlspecialchars($materiel['categorie']);?>  
+            </div>
+            <h3 class="nom">
+                <?php echo htmlspecialchars($materiel['nom']); ?>
+            </h3>
+            <p class="modele-serie">
+                <?php echo htmlspecialchars($materiel['modele']); ?> . <?php echo htmlspecialchars($materiel['numero_serie']); ?>
+            </p>
+            <p class="emplacement"></p>
+        </div>
+
+
+
+
+
+
     
+        <?php endforeach; ?>
+
 </section>

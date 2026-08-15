@@ -2,6 +2,7 @@
 // Models/AuthManager.php
 
 require_once __DIR__ .'/Manager.php';
+
 class UserManager extends Manager{
     public function findByEmail(string $email): ?array{
         $stmt = $this -> pdo -> prepare("
