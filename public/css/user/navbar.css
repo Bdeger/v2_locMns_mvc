@@ -1,17 +1,17 @@
 * {
   box-sizing: border-box;
 }
-html{
-    scroll-behavior: smooth;
+html {
+  scroll-behavior: smooth;
 }
-body{
-    font-family:"Poppins";
+body {
+  font-family: "Poppins";
 }
 
-.header{
-    display:flex;
-    flex-direction: column;
-    overflow: hidden;
+.header {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 .header-top {
   overflow: hidden;
@@ -23,15 +23,14 @@ body{
   align-content: center;
 }
 
-
 .header-top img {
   width: 230px;
   height: auto;
 }
 
 .header-bottom {
-  background-color: rgb(22, 19, 84);
-  color: #ffff;
+  background-color: rgb(0, 41, 226);
+  color: #fff;
   font-size: 0.4rem;
   padding-left: 40px;
 }
@@ -58,7 +57,7 @@ body{
 }
 
 .header nav ul li a:hover {
-  background-color:#ff7a21;
+  background-color: #ff7a21;
   color: #ffff;
 }
 

@@ -23,6 +23,27 @@ class MaterielManager extends Manager{
         $stmt -> execute([':id' => $id]);
         return $stmt -> fetch();
     }
+
+    // toutes les matériels de la catégorie moins ceux déjà réservés sur la période 
+    public function getMaterielDisponibleParCategorie(int $idCategorie, string $dateDebut, string $dateFin): array {
+        $stmt = $this->pdo->prepare("
+        SELECT m.id_materiel, m.nom, m.modele, m.description
+        FROM materiel m
+        WHERE m.id_categorie = ?
+        AND m.id_etat_materiel = 1
+        AND m.id_materiel NOT IN (
+            SELECT e.id_materiel FROM emprunt e
+            WHERE e.id_materiel IS NOT NULL
+            AND e.id_status_emprunt IN (2, 4)
+            AND e.date_debut_souhaitee <= ?
+            AND e.date_fin_souhaitee >= ?
+        )
+        ");
+        $stmt->execute([$idCategorie, $dateFin, $dateDebut]);
+        return $stmt->fetchAll();
+    }
+
+
     // Create_RUD
     public function addMateriel($nom,$modele,$numero_serie,$localisation,$description, $id_categorie, $id_etat_materiel, $date_acquisition){
         $stmt = $this ->pdo->prepare('
