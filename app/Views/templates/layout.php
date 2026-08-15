@@ -44,6 +44,11 @@
         <link rel="stylesheet" href="/css/user/navbar.css">
         <link rel="stylesheet" href="/css/user/accueil.css">
     <?php endif; ?>
+    <?php if(isset($categorie) && $categorie): ?>
+        <script src="/js/script.js" defer></script>
+        <link rel="stylesheet" href="/css/user/navbar.css">
+    <?php endif; ?>
+
 
 </head>
 <body>

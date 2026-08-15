@@ -27,12 +27,16 @@ class UserController extends Controller{
 
         $materielManager = new MaterielManager();
         $materielDispo = $materielManager -> getMaterielDisponibleParCategorie($id, $dateDebut, $dateFin);
+
+        $categorieManager = new CategorieManager();
+        $categorieInfo = $categorieManager -> getCategorieById($id);
         
         $this -> view -> render('user/categorie',[
             'title' => 'Matériel Disponible',
             'listMateriel' => $materielDispo,
             'dateDebut' => $dateDebut,
             'dateFin' => $dateFin, 
+            'categorieInfo' => $categorieInfo,
             'categorie' => true
         ]);
     }

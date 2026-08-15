@@ -14,6 +14,14 @@ class CategorieManager extends Manager{
         $stmt -> execute();
         return $stmt->fetchAll();
     }
+    public function getCategorieById(int $id): ? array{
+        $stmt = $this -> pdo -> prepare("
+        SELECT id_categorie, nom, description
+        FROM categorie
+        WHERE id_categorie = ?");
+        $stmt-> execute([$id]);
+        return $stmt -> fetch();
+    }
     
 }
 

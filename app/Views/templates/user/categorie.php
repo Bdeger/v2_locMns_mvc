@@ -4,3 +4,5 @@
 <p>Du <?php echo $dateDebut; ?> au <?php echo $dateFin; ?></p>
 
 <pre><?php print_r($listMateriel); ?></pre>
+
+<h1><?php echo htmlspecialchars($categorieInfo['nom']); ?></h1>
