@@ -47,11 +47,17 @@
 
     
     <?php if(isset($categorie) && $categorie): ?>
-    <script src="/js/script.js" defer></script>
-    <link rel="stylesheet" href="/css/user/navbar.css">
-    <link rel="stylesheet" href="/css/user/categorie.css">
+        <script src="/js/script.js" defer></script>
+        <link rel="stylesheet" href="/css/user/navbar.css">
+        <link rel="stylesheet" href="/css/user/categorie.css">
     <?php endif; ?>
 
+    <!-- DEMANDE  -->
+    <?php if(isset($demande) && $demande): ?>
+        <script src="/js/script.js" defer></script>
+        <link rel="stylesheet" href="/css/user/navbar.css">
+        <link rel="stylesheet" href="/css/user/demander.css">
+    <?php endif; ?>
 
 </head>
 <body>

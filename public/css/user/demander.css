@@ -1,0 +1,149 @@
+/*  CSS pour la page CONFIRMATION de demande  */
+
+.confirmation {
+  padding: 20px;
+  max-width: 520px;
+}
+
+.confirmation-retour {
+  display: inline-block;
+  font-size: 0.75em;
+  color: #555555;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.confirmation-retour:hover {
+  text-decoration: underline;
+}
+
+.confirmation-titre {
+  margin: 0 0 4px;
+  font-size: 1.3em;
+  color: #1a1a1a;
+}
+
+.confirmation-soustitre {
+  margin: 0 0 20px;
+  font-size: 0.85em;
+  color: #555555;
+}
+
+/* ===== RECAPITULATIF ===== */
+
+.recap {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.recap-ligne {
+  padding: 14px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.recap-ligne:last-child {
+  border-bottom: none;
+}
+
+.recap-periode {
+  display: flex;
+}
+
+.recap-bloc {
+  flex: 1;
+}
+
+.recap-label {
+  margin: 0 0 3px;
+  font-size: 0.7em;
+  color: #888888;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.recap-valeur {
+  margin: 0 0 2px;
+  font-size: 0.9em;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.recap-detail {
+  margin: 0;
+  font-size: 0.78em;
+  color: #555555;
+}
+
+/* ===== AVERTISSEMENT ===== */
+
+.avertissement {
+  display: flex;
+  align-items: flex-start;
+  background-color: #faeeda;
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-bottom: 20px;
+}
+
+.avertissement i {
+  margin-right: 8px;
+  color: #854f0b;
+  font-size: 1.1em;
+}
+
+.avertissement p {
+  margin: 0;
+  font-size: 0.78em;
+  color: #854f0b;
+  line-height: 1.5;
+}
+
+/* ===== BOUTONS ===== */
+
+.confirmation-form {
+  display: flex;
+  gap: 10px;
+}
+
+.confirmation-annuler {
+  flex: 1;
+  text-align: center;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  padding: 12px 0;
+  font-size: 0.85em;
+  color: #555555;
+  text-decoration: none;
+}
+
+.confirmation-annuler:hover {
+  background-color: #f0f0f0;
+}
+
+.confirmation-envoyer {
+  flex: 2;
+  border: none;
+  background-color: #1e3fd8;
+  color: #ffffff;
+  border-radius: 6px;
+  padding: 12px 0;
+  font-family: inherit;
+  font-size: 0.85em;
+  cursor: pointer;
+}
+
+.confirmation-envoyer:hover {
+  background-color: #2531de;
+}
+
+/* ===== DESKTOP ===== */
+
+@media screen and (min-width: 1024px) {
+  .confirmation {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px 20px;
+  }
+}

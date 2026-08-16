@@ -17,17 +17,3 @@ class EmpruntManager extends Manager{
     }
 }
 
-
-
-?>
-<!-- 
--------------------------------------------------------
-ID   Statut            qui déclanche           vers
---------------------------------------------------------
-1	En attente	  Emprunteur (INSERT)	      2 ou 3
-2	Validé	          Admin	                  4
-3	Refusé	          Admin	                  fin
-4	En cours	 Admin (remise du matériel)	  5
-5	Terminé	         Admin (retour)	          fin
--------------------------------------------------------
--->

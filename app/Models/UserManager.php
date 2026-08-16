@@ -1,5 +1,5 @@
 <?php 
-// Models/AuthManager.php
+// Models/UserManager.php
 
 require_once __DIR__ .'/Manager.php';
 
@@ -48,9 +48,3 @@ class UserManager extends Manager{
         ]);
     }
 }
-
-// faire WHERE id=2 quand on aura des membres en plus
-
-
-
-?>
