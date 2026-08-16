@@ -1,6 +1,6 @@
 <?php
 
-//Models/AuthManager.php
+//Models/MaterielManager.php
 
 require_once __DIR__ .'/Manager.php';
 class MaterielManager extends Manager{
