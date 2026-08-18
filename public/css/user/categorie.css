@@ -234,12 +234,21 @@
 /* ===== DESKTOP ===== */
 
 @media screen and (min-width: 1024px) {
-  .header-categorie,
+
+  /* le bandeau prend toute la largeur disponible à droite de la sidebar */
+  .header-categorie {
+    margin-left: 220px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  /* le contenu est centré dans cet espace */
   .periode,
   .materiel-liste {
+    margin-left: 220px;
     max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
+    padding-left: 40px;
+    padding-right: 40px;
   }
 
   .header-categorie-titre {

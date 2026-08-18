@@ -16,45 +16,41 @@
 
     <link rel="stylesheet" href="/css/style.css">
 
+    <script src="/js/script.js" defer></script>
+
+
 
     <!-- css du Dashboard -->
     <?php if(isset($dashboard)&& $dashboard): ?>
-        <script src="/js/script.js" defer></script>
         <link rel="stylesheet" href="/css/admin/dashboard.css">
         <link rel="stylesheet" href="/css/admin/sidebar.css">
 
     <?php endif; ?>
 
      <?php if(isset($materielPage)&&$materielPage): ?>
-        <script src="/js/script.js" defer></script>
         <link rel="stylesheet" href="/css/admin/sidebar.css">
         <link rel="stylesheet" href="/css/admin/materiel.css"> 
     <?php endif; ?>
 
     <?php if(isset($membrePage)&& $membrePage): ?>
-        <script src="/js/script.js" defer></script>
-        <link rel="stylesheet" href="/css/admin/sidebar.css">
         <link rel="stylesheet" href="/css/admin/materiel.css">
         <link rel="stylesheet" href="/css/admin/membre.css">
     <?php endif; ?>
 
     <!-- COTE EMPRUNTEUR -->
     <?php if(isset($accueil) && $accueil): ?>
-        <script src="/js/script.js" defer></script>
         <link rel="stylesheet" href="/css/user/navbar.css">
         <link rel="stylesheet" href="/css/user/accueil.css">
     <?php endif; ?>
 
     
     <?php if(isset($categorie) && $categorie): ?>
-        <script src="/js/script.js" defer></script>
         <link rel="stylesheet" href="/css/user/navbar.css">
         <link rel="stylesheet" href="/css/user/categorie.css">
     <?php endif; ?>
 
     <!-- DEMANDE  -->
     <?php if(isset($demande) && $demande): ?>
-        <script src="/js/script.js" defer></script>
         <link rel="stylesheet" href="/css/user/navbar.css">
         <link rel="stylesheet" href="/css/user/demander.css">
     <?php endif; ?>
