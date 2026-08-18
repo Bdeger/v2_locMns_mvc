@@ -15,5 +15,31 @@ class EmpruntManager extends Manager{
             ":date_fin_souhaitee" => $dateFin
         ]);
     }
+
+    public function getDemandes(): array{
+        $stmt = $this->pdo->prepare("
+        SELECT
+            e.id_emprunt, e.date_demande, e.date_debut_souhaitee, e.date_fin_souhaitee,
+            e.motif_refus, e.id_materiel, e.id_categorie, e.id_status_emprunt,
+
+            u.nom AS nom_user,
+            u.prenom AS prenom_user,
+
+            m.nom AS nom_materiel,
+            m.modele,
+
+            c.nom AS nom_categorie,
+            s.nom_status
+
+        FROM emprunt e
+        INNER JOIN utilisateur u ON e.id_utilisateur = u.id_utilisateur
+        INNER JOIN statut_emprunt s ON e.id_status_emprunt = s.id_status_emprunt
+        LEFT JOIN materiel m ON e.id_materiel = m.id_materiel
+        LEFT JOIN categorie c ON e.id_categorie = c.id_categorie
+        ORDER BY e.date_demande DESC
+        ");
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
 }
 
