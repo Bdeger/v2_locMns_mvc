@@ -41,5 +41,52 @@ class EmpruntManager extends Manager{
         $stmt->execute();
         return $stmt->fetchAll();
     }
+
+    public function validerEmprunt($idEmprunt, $idMateriel):void{
+        try {
+            $this -> pdo -> beginTransaction();
+            // UPDATE 1 : l'emprunt
+            $stmtEmprunt = $this-> pdo -> prepare("
+            UPDATE emprunt
+            SET id_status_emprunt = 2,
+                date_validation = NOW(),
+                id_materiel = :id_materiel
+            WHERE id_emprunt = :id_emprunt
+            ");
+
+            $stmtEmprunt -> execute([
+                ":id_materiel" => $idMateriel,
+                ":id_emprunt" => $idEmprunt
+            ]);
+
+            // UPDATE 2 : le materiel 
+            $stmtMateriel = $this -> pdo -> prepare("
+            UPDATE materiel
+            SET id_etat_materiel = 2
+            WHERE id_materiel = :id_materiel
+            ");
+            $stmtMateriel -> execute([
+                ":id_materiel" => $idMateriel
+            ]);
+            $this->pdo->commit();
+
+        } catch (Exception $e) {
+            $this -> pdo -> rollBack();
+            throw $e;
+        }
+    }
+
+    public function refuserEmprunt($idEmprunt, $motif): void{
+        $stmt = $this->pdo->prepare("
+        UPDATE emprunt
+        SET id_status_emprunt = 3,
+            motif_refus = :motif
+        WHERE id_emprunt = :id_emprunt
+        ");
+        $stmt->execute([
+            ":motif"      => $motif,
+            ":id_emprunt" => $idEmprunt
+        ]);
+    }
 }
 
