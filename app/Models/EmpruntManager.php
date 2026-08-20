@@ -88,5 +88,38 @@ class EmpruntManager extends Manager{
             ":id_emprunt" => $idEmprunt
         ]);
     }
+
+   public function marquerRendu($idEmprunt, $idMateriel): void{
+        try {
+            $this->pdo->beginTransaction();
+
+            // UPDATE 1 : l'emprunt passe en "Terminé"
+            $stmtEmprunt = $this->pdo->prepare("
+            UPDATE emprunt
+            SET id_status_emprunt = 5,
+                date_retour_reel = CURDATE()
+            WHERE id_emprunt = :id_emprunt
+            ");
+            $stmtEmprunt->execute([
+                ":id_emprunt" => $idEmprunt
+            ]);
+
+            // UPDATE 2 : le matériel redevient "Disponible"
+            $stmtMateriel = $this->pdo->prepare("
+            UPDATE materiel
+            SET id_etat_materiel = 1
+            WHERE id_materiel = :id_materiel
+            ");
+            $stmtMateriel->execute([
+                ":id_materiel" => $idMateriel
+            ]);
+
+            $this->pdo->commit();
+
+        } catch (Exception $e) {
+            $this->pdo->rollBack();
+            throw $e;
+        }
+    }
 }
 
