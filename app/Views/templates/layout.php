@@ -33,8 +33,15 @@
     <?php endif; ?>
 
     <?php if(isset($membrePage)&& $membrePage): ?>
+        <link rel="stylesheet" href="/css/admin/sidebar.css">
+
         <link rel="stylesheet" href="/css/admin/materiel.css">
         <link rel="stylesheet" href="/css/admin/membre.css">
+        
+    <?php endif; ?>
+
+    <?php if(isset($empruntPage) && $empruntPage): ?>
+        <link rel="stylesheet" href="/css/admin/sidebar.css">
     <?php endif; ?>
 
     <!-- COTE EMPRUNTEUR -->

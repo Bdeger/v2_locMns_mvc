@@ -32,9 +32,16 @@ class AdminController extends Controller{
             }
         }
 
+        // caclul du nombre de demandes par statut
+        $compteurs = [1 => 0 , 2=>0 , 3 =>0 , 4=>0, 5=>0];
+        foreach ($demandes as $d) {
+            $compteurs[$d['id_status_emprunt']]++;
+        }
+
         $this->view->render("admin/emprunts",[
             'title' => "Demandes d'emprunt",
             'demandes' => $demandes,
+            'compteurs' => $compteurs,
             'empruntPage' => true
         ]);
     }
