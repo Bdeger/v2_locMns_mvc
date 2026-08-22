@@ -1,32 +1,45 @@
-<?php 
-// app/Controllers/AdminController.php 
-
-// controleur pour Dahsboard
+<?php
+// app/Controllers/AdminController.php
 
 require_once __DIR__ . "/../Views/View.php";
 require_once __DIR__ . "/Controller.php";
 require_once __DIR__ . "/../Models/EmpruntManager.php";
+require_once __DIR__ . "/../Models/MaterielManager.php";
 
 class AdminController extends Controller{
-    public function dashboard():void{
-        // afficher la page d'accueil dashboard
-        $this -> view -> render('admin/dashboard',[
+
+    public function dashboard(): void{
+        $this->view->render('admin/dashboard',[
             'title' => 'Dashboard Admin',
-            'dashboard' => true //active le css du dashboard 
+            'dashboard' => true
         ]);
     }
-    public function emprunts():void{
-        $empruntManager = new EmpruntManager();
-        $demandes = $empruntManager -> getDemandes();
 
-        $this -> view -> render('admin/emprunts',[
-            'title' => 'Demande d\emprunt,',
+    public function emprunts(): void{
+        $empruntManager = new EmpruntManager();
+        $demandes = $empruntManager->getDemandes();
+
+        $materielManager = new MaterielManager();
+
+        // pour chaque demande sans matériel assigné, on prépare la liste des disponibles
+        foreach($demandes as $index => $demande){
+            if(empty($demande['id_materiel']) && !empty($demande['id_categorie'])){
+                $demandes[$index]['materiels_dispo'] = $materielManager->getMaterielDisponibleParCategorie(
+                    $demande['id_categorie'],
+                    $demande['date_debut_souhaitee'],
+                    $demande['date_fin_souhaitee']
+                );
+            }
+        }
+
+        $this->view->render("admin/emprunts",[
+            'title' => "Demandes d'emprunt",
             'demandes' => $demandes,
             'empruntPage' => true
         ]);
     }
 
-        public function valider(): void {
+    public function valider(): void{
         $idEmprunt  = $_POST['id_emprunt']  ?? null;
         $idMateriel = $_POST['id_materiel'] ?? null;
 
@@ -48,7 +61,7 @@ class AdminController extends Controller{
         exit;
     }
 
-    public function refuser(): void {
+    public function refuser(): void{
         $idEmprunt = $_POST['id_emprunt'] ?? null;
         $motif     = $_POST['motif']      ?? null;
 
@@ -66,7 +79,7 @@ class AdminController extends Controller{
         exit;
     }
 
-    public function rendu(): void {
+    public function rendu(): void{
         $idEmprunt  = $_POST['id_emprunt']  ?? null;
         $idMateriel = $_POST['id_materiel'] ?? null;
 
@@ -88,6 +101,3 @@ class AdminController extends Controller{
         exit;
     }
 }
-
-
-

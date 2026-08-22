@@ -13,7 +13,7 @@
         </button>
         <ul id="nav-ul">
             <li><a href="/admin/dashboard">Dashboard</a></li>
-            <li><a href="/emprunts">Emprunts</a></li>
+            <li><a href="/admin/emprunts">Emprunts</a></li>
             <li><a href="/materiel">Matériel</a></li>
             <li><a href="/membre">Membres</a></li>
             <li>
