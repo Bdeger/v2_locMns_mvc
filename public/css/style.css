@@ -235,6 +235,65 @@ main {
   color: #3b6d11;
 }
 
+/* ---- */
+
+.container {
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+
+/* ===== FOOTER ===== */
+
+.footer {
+  background-color: #16135e;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 30px 20px;
+  margin-top: auto;
+  text-align: center;
+}
+
+.footer-marque {
+  margin: 0 0 6px;
+  font-size: 1em;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.footer-texte {
+  margin: 0 0 18px;
+  font-size: 0.8em;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.footer-nav a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.8em;
+  padding: 6px 0;
+}
+
+.footer-nav a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.footer-copyright {
+  margin: 0;
+  font-size: 0.7em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+
 /* ==================== */
 /* DESKTOP              */
 /* ==================== */
@@ -262,4 +321,19 @@ main {
     font-size: 18px; /* ← desktop */
     padding: 16px;
   }
+
+  /* FOOTER */
+  .footer {
+    margin-left: 220px;
+  }
+
+  .footer-nav {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .footer-nav a {
+    margin: 0 14px;
+  }
+  
 }
