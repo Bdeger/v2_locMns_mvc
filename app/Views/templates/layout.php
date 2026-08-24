@@ -42,6 +42,7 @@
 
     <?php if(isset($empruntPage) && $empruntPage): ?>
         <link rel="stylesheet" href="/css/admin/sidebar.css">
+        <link rel="stylesheet" href="/css/admin/emprunts.css">
     <?php endif; ?>
 
     <!-- COTE EMPRUNTEUR -->
