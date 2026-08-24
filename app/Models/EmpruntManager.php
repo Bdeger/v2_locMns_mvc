@@ -121,5 +121,32 @@ class EmpruntManager extends Manager{
             throw $e;
         }
     }
+
+    // ---- emprunt par user
+   public function getEmpruntsByUser(int $idUtilisateur): array{
+        $stmt = $this->pdo->prepare("
+        SELECT
+            e.id_emprunt, e.date_demande,
+            e.date_debut_souhaitee, e.date_fin_souhaitee,
+            e.date_retour_reel, e.motif_refus,
+            e.id_materiel, e.id_categorie, e.id_status_emprunt,
+
+            m.nom AS nom_materiel,
+            m.modele,
+            m.localisation,
+
+            c.nom AS nom_categorie,
+            s.nom_status
+
+        FROM emprunt e
+        INNER JOIN statut_emprunt s ON e.id_status_emprunt = s.id_status_emprunt
+        LEFT JOIN materiel m ON e.id_materiel = m.id_materiel
+        LEFT JOIN categorie c ON e.id_categorie = c.id_categorie
+        WHERE e.id_utilisateur = ?
+        ORDER BY e.date_demande DESC
+        ");
+        $stmt->execute([$idUtilisateur]);
+        return $stmt->fetchAll();
+    }
 }
 

@@ -62,6 +62,11 @@
         <link rel="stylesheet" href="/css/user/navbar.css">
         <link rel="stylesheet" href="/css/user/demander.css">
     <?php endif; ?>
+    <?php if(isset($mesEmprunts) && $mesEmprunts): ?>
+        <link rel="stylesheet" href="/css/user/navbar.css">
+        <link rel="stylesheet" href="/css/user/mesEmprunts.css">
+    <?php endif; ?>
+
 
 </head>
 <body>

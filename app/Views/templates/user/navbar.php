@@ -14,7 +14,9 @@
         </button>
         <ul id="nav-ul">
             <li><a href="/user/accueil">Accueil</a></li>
-            <li><a href="#">Mes Emprunts</a></li>
+            <li>
+                <a href="/user/mesEmprunts">Mes Emprunts</a>
+            </li>            
             <li><a href="#">Profil</a></li>
             <li>
                 <a href="/auth/logout">

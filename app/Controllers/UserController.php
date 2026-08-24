@@ -7,6 +7,7 @@ require_once __DIR__ . "/../Views/View.php";
 require_once __DIR__ . "/Controller.php";
 require_once __DIR__ . "/../Models/MaterielManager.php";
 require_once __DIR__ . "/../Models/CategorieManager.php";
+require_once __DIR__ . "/../Models/EmpruntManager.php";
 
 class UserController extends Controller{
     public function accueil():void{
@@ -41,7 +42,23 @@ class UserController extends Controller{
         ]);
     }
     
+    public function mesEmprunts(): void{
+        $idUtilisateur = $_SESSION['user']['id'] ?? null;
 
+        if(empty($idUtilisateur)){
+            header('Location: /auth/login');
+            exit;
+        }
+
+        $empruntManager = new EmpruntManager();
+        $emprunts = $empruntManager->getEmpruntsByUser($idUtilisateur);
+
+        $this->view->render('user/mesEmprunts',[
+            'title' => 'Mes emprunts',
+            'emprunts' => $emprunts,
+            'mesEmprunts' => true
+        ]);
+    }
 }
 
 
