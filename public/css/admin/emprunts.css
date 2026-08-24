@@ -176,12 +176,27 @@
 
 @media screen and (min-width: 1024px) {
 
-  .header-emprunts,
-  .emprunt-liste {
+  .header-emprunts {
     margin-left: 220px;
+    justify-content: flex-start;
+    background-color: #16135e;
+    border-bottom: none;
+  }
+
+  .header-emprunts .title {
+    text-align: left;
+  }
+
+  .header-emprunts .title h1 {
+    color: #ffffff;
+  }
+
+  .header-emprunts .title p {
+    color: rgba(255, 255, 255, 0.7);
   }
 
   .emprunt-liste {
+    margin-left: 220px;
     padding-left: 30px;
     padding-right: 30px;
   }
