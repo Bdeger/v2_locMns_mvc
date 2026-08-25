@@ -2,7 +2,9 @@
 
 <header class="header">
     <div class="header-top">
-        <img src="/public/image/logo2.png">
+        <a href="/user/accueil">
+            <img src="/public/image/logo2.png">
+        </a>
     </div>
     <div class="header-bottom">
         <h1>Votre Espace Emprunteur</h1>
