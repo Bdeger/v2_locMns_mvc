@@ -1,4 +1,5 @@
 <?php include __DIR__ . '/sidebar.php'; ?>
+<?php include __DIR__ . "/../messages.php"; ?>
 
 <!-- /Views/templates/admin/materiel.php -->
 <header class="header-materiel">
