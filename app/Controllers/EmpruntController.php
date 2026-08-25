@@ -12,6 +12,7 @@ class EmpruntController extends Controller{
 
     // Affiche la page de confirmation avant l'envoi de la demande
     public function demander(): void{
+        $this-> checkAuth(); //sécurité
 
         // 1. récupérer les données passées dans l'URL
         $idMateriel  = $_GET['materiel']  ?? null;
@@ -56,6 +57,7 @@ class EmpruntController extends Controller{
 
     // Traite le formulaire et enregistre la demande en base
     public function enregistrer(): void{
+        $this-> checkAuth(); //sécurité
 
         // 1. récupérer les données du POST
         $idMateriel  = $_POST['materiel']  ?? null;
@@ -64,14 +66,10 @@ class EmpruntController extends Controller{
         $dateFin     = $_POST['fin']       ?? null;
 
         // l'utilisateur vient de la session, jamais du formulaire
-        $idUtilisateur = $_SESSION['user']['id'] ?? null;
+        $idUtilisateur = $_SESSION['user']['id'];
 
         // 2. vérifier que l'utilisateur est connecté
-        if(empty($idUtilisateur)){
-            header('Location: /auth/login');
-            exit;
-        }
-
+        
         // 3. au moins un matériel OU une catégorie doit être renseigné
         if(empty($idMateriel) && empty($idCategorie)){
             $_SESSION['erreur'] = "Aucun matériel ni catégorie sélectionné.";

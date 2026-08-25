@@ -8,6 +8,8 @@ require_once __DIR__ . "/../Models/UserManager.php";
 
 class MembreController extends Controller{
     public function index():void{
+        $this-> checkAdmin(); //sécurité
+
         $listMembre = new UserManager();
         $membre = $listMembre->getAllUsers();
         $this->view->render('admin/membre',[
@@ -18,6 +20,8 @@ class MembreController extends Controller{
     }
 
     public function ajouterMembre():void{
+        $this-> checkAdmin(); //sécurité
+
         $this->view->render('admin/ajouterMembre',[
             'title' => 'Ajouter un Membre',
             'membrePage' => true
@@ -25,6 +29,8 @@ class MembreController extends Controller{
     }
 
     public function processAjouterMembre():void{
+        $this-> checkAdmin(); //sécurité
+
         // vérifier les champs obligatoires
         if(empty($_POST['nom']) || empty($_POST['prenom']) || empty($_POST['email']) || empty($_POST['mdp'])){
             $this->view->render('admin/ajouterMembre',[
