@@ -9,6 +9,8 @@ require_once __DIR__ . "/../Models/MaterielManager.php";
 class AdminController extends Controller{
 
     public function dashboard(): void{
+        $this-> checkAdmin(); //sécurité
+
         $this->view->render('admin/dashboard',[
             'title' => 'Dashboard Admin',
             'dashboard' => true
@@ -16,6 +18,8 @@ class AdminController extends Controller{
     }
 
     public function emprunts(): void{
+        $this-> checkAdmin(); //sécurité
+
         $empruntManager = new EmpruntManager();
         $demandes = $empruntManager->getDemandes();
 
@@ -47,6 +51,8 @@ class AdminController extends Controller{
     }
 
     public function valider(): void{
+        $this -> checkAdmin(); //sécurité
+
         $idEmprunt  = $_POST['id_emprunt']  ?? null;
         $idMateriel = $_POST['id_materiel'] ?? null;
 
@@ -69,6 +75,8 @@ class AdminController extends Controller{
     }
 
     public function refuser(): void{
+        $this-> checkAdmin(); //sécurité
+
         $idEmprunt = $_POST['id_emprunt'] ?? null;
         $motif     = $_POST['motif']      ?? null;
 
@@ -87,6 +95,8 @@ class AdminController extends Controller{
     }
 
     public function rendu(): void{
+        $this->checkAdmin(); //sécurité
+
         $idEmprunt  = $_POST['id_emprunt']  ?? null;
         $idMateriel = $_POST['id_materiel'] ?? null;
 
