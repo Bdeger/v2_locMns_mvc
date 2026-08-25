@@ -11,6 +11,8 @@ require_once __DIR__ . "/../Models/EmpruntManager.php";
 
 class UserController extends Controller{
     public function accueil():void{
+        $this -> checkAuth(); //sécurité 
+
         $listMateriel = new MaterielManager();
         $materiel = $listMateriel -> getAllMateriel();
         $listCategorie = new CategorieManager();
@@ -23,6 +25,8 @@ class UserController extends Controller{
         ]);
     }
     public function categorie($id):void{
+        $this -> checkAuth(); //sécurité 
+
         $dateDebut = $_GET['date_debut']?? date('Y-m-d');
         $dateFin = $_GET['date_fin'] ?? date('Y-m-d', strtotime('+7 days'));
 
@@ -43,12 +47,9 @@ class UserController extends Controller{
     }
     
     public function mesEmprunts(): void{
-        $idUtilisateur = $_SESSION['user']['id'] ?? null;
+        $this -> checkAuth(); //sécurité
 
-        if(empty($idUtilisateur)){
-            header('Location: /auth/login');
-            exit;
-        }
+        $idUtilisateur = $_SESSION['user']['id'];
 
         $empruntManager = new EmpruntManager();
         $emprunts = $empruntManager->getEmpruntsByUser($idUtilisateur);

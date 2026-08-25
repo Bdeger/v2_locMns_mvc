@@ -9,6 +9,8 @@ require_once __DIR__ . "/../Models/MaterielManager.php";
 
 class MaterielController extends Controller{
     public function index():void{
+        $this->checkAdmin(); //sécurité
+
         // afficher la page materiel avec la liste lié à la bdd 
         $listMateriel = new MaterielManager();
         $materiel = $listMateriel -> getAllMateriel();
@@ -19,12 +21,16 @@ class MaterielController extends Controller{
         ]);
     }
     public function ajouter():void{
-      $this ->view -> render('admin/ajouter',[
+        $this->checkAdmin(); //sécurité
+
+        $this ->view -> render('admin/ajouter',[
         'title'=> 'Ajouter un matériel',
         'materielPage' =>true
       ]);
     }
     public function processAjouter():void{
+        $this->checkAdmin(); //sécurité
+
         // on vérifie que les champs sont bien remplis
         if(empty($_POST['nom'])||empty($_POST['modele'])||empty($_POST['numero_serie'])||empty($_POST['localisation'])||empty($_POST['id_categorie'])||empty($_POST['id_etat_materiel'])){
             $this->view->render('admin/ajouter',[
@@ -54,6 +60,8 @@ class MaterielController extends Controller{
 
     // CRUD : DELETE
     public function supprimer($id):void{
+        $this->checkAdmin(); //sécurité
+
         $materielManager = new MaterielManager();
         $materielManager -> deleteMateriel($id);
         header('Location: /materiel');
@@ -62,6 +70,8 @@ class MaterielController extends Controller{
     // CRUD : UPDATE
 
     public function modifier($id):void{
+        $this->checkAdmin(); //sécurité
+
         $materielManager = new MaterielManager();
         $materiel = $materielManager -> getMaterielById($id);
         $this -> view -> render('admin/modifier',[
@@ -71,6 +81,8 @@ class MaterielController extends Controller{
         ]);
     }
     public function processModifier($id):void{
+        $this->checkAdmin(); //sécurité
+
         if(empty($_POST['nom'])||empty($_POST['modele'])||empty($_POST['numero_serie'])||empty($_POST['localisation'])||empty($_POST['id_categorie'])||empty($_POST['id_etat_materiel'])){
         $this->view->render('admin/modifier',[
             'title'=>'Modifier',
