@@ -15,9 +15,15 @@ class AdminController extends Controller{
         $statsMateriel = $materielManager -> getStatsMateriel();
 
         $empruntManager = new EmpruntManager();
+        $statsEmprunt = $empruntManager -> getStatsEmprunt();
+
+        $derniers = array_slice($empruntManager -> getDemandes(), 0, 5);
 
         $this->view->render('admin/dashboard',[
             'title' => 'Dashboard Admin',
+            'statsMateriel' => $statsMateriel,
+            'statsEmprunt' =>$statsEmprunt,
+            'derniers' => $derniers,
             'dashboard' => true
         ]);
     }
