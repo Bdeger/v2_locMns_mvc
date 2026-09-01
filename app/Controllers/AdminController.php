@@ -11,6 +11,11 @@ class AdminController extends Controller{
     public function dashboard(): void{
         $this-> checkAdmin(); //sécurité
 
+        $materielManager = new MaterielManager();
+        $statsMateriel = $materielManager -> getStatsMateriel();
+
+        $empruntManager = new EmpruntManager();
+
         $this->view->render('admin/dashboard',[
             'title' => 'Dashboard Admin',
             'dashboard' => true

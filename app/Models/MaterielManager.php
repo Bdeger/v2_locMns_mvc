@@ -54,18 +54,6 @@ class MaterielManager extends Manager{
         return $stmt -> fetch();
     }
 
-    // stats : calcul nb emprunt
-    public function getStatsEmprunt():array{
-        $stmt = $this -> pdo -> prepare("
-        SELECT 
-            COUNT(CASE WHEN id_status_emprunt = 4 THEN 1 END) AS en_cours,
-            COUNT(CASE WHEN id_status_emprunt = 1 THEN 1 END) AS en_attente
-        FROM emprunt");
-        $stmt -> execute();
-        return $stmt -> fetch();
-    }
-
-
     // Create_RUD
     public function addMateriel($nom,$modele,$numero_serie,$localisation,$description, $id_categorie, $id_etat_materiel, $date_acquisition){
         $stmt = $this ->pdo->prepare('
