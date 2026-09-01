@@ -4,85 +4,68 @@ include __DIR__ . '/sidebar.php'; ?>
 
 <!-- Views/templates/admin/dashboard.php -->
 
-<!-- <section class="header">
-    <div class="header-top">
-        <img src="/public/image/logo2.png">
-    </div>
-    <div class="header-bottom">
-        <h1>Dashboard Admin</h1>
-    </div>
-    <nav id="nav">
-        <button id="burger-button-display">
-           <i class="ti ti-menu-2"></i>
-           <i class="ti ti-x"></i>
-        </button>
-        <ul id="nav-ul">
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Emprunts</a></li>
-            <li><a href="#">Matériel</a></li>
-            <li><a href="#">Membres</a></li>
-        </ul>
-    </nav>
-</section> -->
 <section class="resum container">
     <h2>Vue d'ensemble</h2>
 
     <div class = "card-top">
         <div class='card-total'>
             <h3>TOTAL MATERIEL</h3>
-            <p>24</p>
+            <p><?php echo $statsMateriel['total']; ?></p>
         </div>
         <div class = 'card-available'>
             <h3>DISPONIBLE</h3>
-            <p>18</p>
+            <p><?php echo $statsMateriel['disponibles']; ?></p>
         </div>
     </div>
     <div class = "card-bottom">
         <div class='card-ongoing'>
-            <h3>EN COURS</h3>
-            <p>4</p>
+            <h3>À RÉCUPÉRER</h3>
+            <p><?php echo $statsEmprunt['a_recuperer']; ?></p>
         </div>
         <div class="card-pending">
             <h3>EN ATTENTE</h3>
-            <p>2</p>
+            <p><?php echo $statsEmprunt['en_attente']; ?></p>
         </div>
     </div>
 
 </section>
+
 <!-- derniers emprunts -->
-  <section class="last-emprunts">
+<section class="last-emprunts">
+
     <div class="last-emprunts-header">
         <h3>Derniers emprunts</h3>
-        <a href="#" class="btn-voir-tout">Voir tout</a>
+        <a href="/admin/emprunts" class="btn-voir-tout">Voir tout</a>
     </div>
 
-    <div class="emprunteur">
-        <div class="emprunteur-info">
-            <p class="emprunteur-nom">Marie Dupont</p>
-            <p class="emprunteur-materiel">MacBook Pro 13"</p>
-        </div>
-        <span class="status pending">En attente</span>
-    </div>
-    <div class="emprunteur">
-        <div class="emprunteur-info">
-            <p class="emprunteur-nom">Lucas Martin</p>
-            <p class="emprunteur-materiel">iPad Pro</p>
-        </div>
-        <span class="status validated">Validé</span>
-    </div>
-    <div class="emprunteur">
-        <div class="emprunteur-info">
-            <p class="emprunteur-nom">Sofia Bernard</p>
-            <p class="emprunteur-materiel">Dell XPS 15</p>
-        </div>
-        <span class="status ongoing">En cours</span>
-    </div>
-    <div class="emprunteur">
-        <div class="emprunteur-info">
-            <p class="emprunteur-nom">Thomas Petit</p>
-            <p class="emprunteur-materiel">Écran 27"</p>
-        </div>
-        <span class="status refused">Refusé</span>
-    </div>
+    <?php if(empty($derniers)): ?>
+
+        <p class="emprunteur-materiel">Aucun emprunt pour le moment.</p>
+
+    <?php else: ?>
+
+        <?php foreach($derniers as $emprunt): ?>
+            <article class="emprunteur">
+                <div>
+                    <p class="emprunteur-nom">
+                        <?php echo htmlspecialchars($emprunt['prenom_user']); ?>
+                        <?php echo htmlspecialchars($emprunt['nom_user']); ?>
+                    </p>
+                    <p class="emprunteur-materiel">
+                        <?php if(!empty($emprunt['nom_materiel'])): ?>
+                            <?php echo htmlspecialchars($emprunt['nom_materiel']); ?>
+                        <?php else: ?>
+                            <?php echo htmlspecialchars($emprunt['nom_categorie']); ?>
+                        <?php endif; ?>
+                    </p>
+                </div>
+
+                <span class="status status-<?php echo $emprunt['id_status_emprunt']; ?>">
+                    <?php echo htmlspecialchars($emprunt['nom_status']); ?>
+                </span>
+            </article>
+        <?php endforeach; ?>
+
+    <?php endif; ?>
+
 </section>
-<section class="navbar"></section>

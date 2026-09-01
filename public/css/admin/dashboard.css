@@ -9,83 +9,17 @@ html {
 .container {
   max-width: 100%;
 }
-/* .header {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
 
-.header-top {
-  overflow: hidden;
-  width: 100%;
-  background-image: url(/public/image/image2.jpg);
-  background-position-y: 3%;
-  background-position-x: 28%;
-  display: flex;
-  align-content: center;
-}
-
-.header-top img {
-  width: 230px;
-  height: auto;
-}
-
-.header-bottom {
-  background-color: rgb(255, 112, 23);
-  color: #ffff;
-  font-size: 0.6em;
-  padding-left: 40px;
-} */
-
-/* MENU BURGER */
-/* 
-#burger-button-display {
-  position: absolute;
-  top: 40px;
-  right: 10px;
-  cursor: pointer;
-}
-.header nav ul {
-  list-style: none;
-  padding-left: 0;
-}
-.header nav ul li a {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  text-align: center;
-  padding: 5px 0;
-  border-bottom: 1px solid rgb(214, 214, 214);
-}
-
-.header nav ul li a:hover {
-  background-color: #ff7010;
-  color: #ffff;
-} */
-
-/* pour le js du menu burger */
-
-/* #nav.nav-hide #nav-ul {
-  display: none;
-}
-#nav.nav-hide i.ti-x {
-  display: none;
-}
-#nav:not(.nav-hide) i.ti-menu-2 {
-  display: none;
-  color: #0f6e56;
-} */
-
-/* Contenu : Vue d'ensemble */
+/* ==================== */
+/* VUE D'ENSEMBLE       */
+/* ==================== */
 
 .resum {
   display: flex;
   flex-direction: column;
   text-align: center;
 }
-.resum > img {
-  align-items: center;
-}
+
 .card-top,
 .card-bottom {
   display: flex;
@@ -94,6 +28,7 @@ html {
   height: 100px;
   margin: 20px;
 }
+
 .card-top div,
 .card-bottom div {
   width: 50%;
@@ -103,34 +38,42 @@ html {
   border-top-style: solid;
   margin: 15px;
 }
+
 .card-top div p,
 .card-bottom div p {
   font-size: 1.1em;
 }
+
 .card-total {
   border-top-color: rgb(255, 106, 0);
   background-color: rgb(255, 248, 233);
 }
+
 .card-available {
   border-top-color: green;
   background-color: rgb(229, 252, 229);
 }
+
 .card-ongoing {
   border-top-color: rgb(19, 184, 255);
   background-color: rgb(243, 250, 255);
 }
+
 .card-pending {
   border-top-color: rgb(255, 65, 65);
   background-color: rgb(255, 241, 241);
 }
 
-/* Derniers emprunts */
+/* ==================== */
+/* DERNIERS EMPRUNTS    */
+/* ==================== */
 
 .last-emprunts {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
   border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 10px;
   padding: 16px;
+  margin: 20px;
 }
 
 .last-emprunts-header {
@@ -145,19 +88,23 @@ html {
 .last-emprunts-header h3 {
   font-size: 0.95rem;
   font-weight: 600;
-  color: rgba(30, 30, 30);
+  color: rgb(30, 30, 30);
+  margin: 0;
 }
 
 .btn-voir-tout {
   text-decoration: none;
+  font-size: 0.8rem;
   color: rgb(255, 102, 0);
   border: 1px solid rgba(255, 100, 0, 0.3);
   padding: 4px 12px;
   border-radius: 20px;
+  white-space: nowrap;
   transition: background 0.2s;
 }
+
 .btn-voir-tout:hover {
-  background-color: tomato;
+  background-color: rgb(255, 240, 230);
 }
 
 .emprunteur {
@@ -167,92 +114,79 @@ html {
   padding: 12px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 }
-.emprunteur-lastchild {
+
+.emprunteur:last-child {
   border-bottom: none;
 }
+
 .emprunteur-nom {
   font-size: 0.878rem;
   font-weight: 500;
-  color: rgba(30, 30, 30);
+  color: rgb(30, 30, 30);
+  margin: 0;
 }
+
 .emprunteur-materiel {
   font-size: 0.75rem;
   color: rgb(130, 130, 130);
-  margin-top: 2px;
+  margin: 2px 0 0;
 }
+
+/* ===== BADGES DE STATUT ===== */
 
 .status {
   padding: 4px 10px;
   border-radius: 20px;
   font-size: 0.7rem;
   font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: 10px;
 }
 
-.status.pending {
+.status-1 {
   background-color: rgb(255, 248, 233);
   color: #ba7517;
 }
-.status.validated {
-  background-color: rgb(229, 252, 229);
-  color: #0f6e56;
-}
-.status.ongoing {
+
+.status-2 {
   background-color: rgb(243, 250, 255);
   color: #185fa5;
 }
-.status.refused {
+
+.status-3 {
   background-color: rgb(255, 241, 241);
   color: #a32d2d;
 }
 
-/* media */
+.status-4 {
+  background-color: rgb(229, 252, 229);
+  color: #0f6e56;
+}
+
+.status-5 {
+  background-color: rgb(241, 239, 232);
+  color: #5f5e5a;
+}
+
+/* ==================== */
+/* DESKTOP              */
+/* ==================== */
 
 @media screen and (min-width: 1024px) {
-  /* SIDEBAR */
-  /* .header {
-    width: 220px;
-    min-height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-image: url(/public/image/image2.jpg);
-    background-position-y: 20%;
-    background-position-x: 8%;
-  }
 
-  #burger-button-display {
-    display: none;
-  }
-
-  #nav-ul {
-    display: flex !important;
-    flex-direction: column;
-  }
-
-  .header nav ul li a {
-    color: rgba(255, 255, 255, 0.6);
-    text-align: left;
-    padding: 12px 16px;
-    border-bottom: none;
-  } */
-
-  /* CONTENU DÉCALÉ */
   .resum,
   .last-emprunts {
     margin-left: 240px;
-    padding: 24px;
-  }
-
-  /* 4 CARTES EN LIGNE */
-  .card-top,
-  .card-bottom {
-    margin: 0;
-    height: auto;
   }
 
   .resum {
-    display: grid;
-    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+
+  .last-emprunts {
+    margin-right: 24px;
+    margin-top: 0;
   }
 
   .card-top,
@@ -260,11 +194,14 @@ html {
     display: flex;
     flex-direction: row;
     gap: 16px;
+    margin: 0 0 16px 0;
+    height: auto;
   }
 
   .card-top div,
   .card-bottom div {
     flex: 1;
     margin: 0;
+    padding: 16px;
   }
 }

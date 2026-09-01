@@ -153,7 +153,7 @@ class EmpruntManager extends Manager{
     public function getStatsEmprunt():array{
         $stmt = $this -> pdo -> prepare("
         SELECT 
-            COUNT(CASE WHEN id_status_emprunt = 4 THEN 1 END) AS en_cours,
+            COUNT(CASE WHEN id_status_emprunt IN (2, 4) THEN 1 END) AS a_recuperer,
             COUNT(CASE WHEN id_status_emprunt = 1 THEN 1 END) AS en_attente
         FROM emprunt");
         $stmt -> execute();
