@@ -5,9 +5,6 @@
             <img src="/public/image/logo2.png">
         </a>
     </div>
-    <div class="header-bottom">
-        <h1>Dashboard Admin</h1>
-    </div>
     <nav id="nav">
         <button id="burger-button-display">
            <i class="ti ti-menu-2"></i>

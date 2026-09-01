@@ -1,17 +1,4 @@
-* {
-  box-sizing: border-box;
-}
 
-html {
-  scroll-behavior: smooth;
-}
-body {
-  font-family: "Poppins";
-}
-
-.container {
-  max-width: 100%;
-}
 .header {
   display: flex;
   flex-direction: column;
@@ -26,15 +13,16 @@ body {
   background-position-x: 28%;
   display: flex;
   align-content: center;
+  padding-top: 5px;
 }
 
 .header-top img {
-  width: 230px;
+  width: 180px;
   height: auto;
 }
 
 .header-bottom {
-  background-color: rgb(255, 112, 23);
+  background-color:#010326;
   color: #ffff;
   font-size: 0.4rem;
   padding-left: 40px;
