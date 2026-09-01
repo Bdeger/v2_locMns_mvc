@@ -1,7 +1,7 @@
 <!-- Views/templates/user/navbar.php -->
 
 <header class="header">
-    <div class="header-top">
+    <div class="logo">
         <a href="/user/accueil">
             <img src="/public/image/logo2.png">
         </a>

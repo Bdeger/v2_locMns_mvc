@@ -2,11 +2,13 @@
 
 #si le fichier ou le dossier existe, on le sert directement (css, images, JS...)
 
+RewriteEngine On
+
 # !-f -> le fichier existe physiquement -f = file 
 RewriteCond %{REQUEST_FILENAME} !-f
 
 # !-d -> dossier existe -d = directory 
-RewriteCond %{REQUEST_FILENAM} !-d
+RewriteCond %{REQUEST_FILENAME} !-d
 
 # pour que ts fichiers CSS, Js , images soient chargés normalement
 

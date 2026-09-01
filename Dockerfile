@@ -2,19 +2,16 @@
 # il faut un dockerfile pour installer l'extension
 
 FROM php:8.2-apache
-# installer l'extension PDO MySQL 
+
 RUN docker-php-ext-install pdo pdo_mysql
-# activer mod_rewrite
 RUN a2enmod rewrite
 
-# Sans Docker :
+# faire pointer Apache sur public/
+ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
 
-# Tu installes PHP sur ton ordi
-# Tu installes les extensions manuellement
-# C'est long et compliqué ⚠️
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
+RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
 
-# Avec Docker :
+# autoriser les .htaccess
+RUN sed -ri -e 's!AllowOverride None!AllowOverride All!g' /etc/apache2/apache2.conf
 
-# Le Dockerfile décrit ce qu'on veut installer dans le container
-# Docker crée un container avec tout ce qu'il faut dedans
-# Ton ordi reste propre — tout est isolé dans le container ! ✅
