@@ -1,13 +1,16 @@
-* {
-  box-sizing: border-box;
+/* ==================== */
+/* TITRE DE PAGE        */
+/* ==================== */
+
+.titre-page {
+  padding: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-.container {
-  max-width: 100%;
+.titre-page h1 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: rgb(30, 30, 30);
 }
 
 /* ==================== */
@@ -17,51 +20,63 @@ html {
 .resum {
   display: flex;
   flex-direction: column;
-  text-align: center;
 }
 
 .card-top,
 .card-bottom {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  height: 100px;
-  margin: 20px;
+  gap: 15px;
+  margin: 10px 20px;
 }
 
-.card-top div,
-.card-bottom div {
-  width: 50%;
-  border-top-left-radius: 15%;
-  border-top-right-radius: 15%;
-  border-top-width: 5px;
+.card-top > div,
+.card-bottom > div {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  border-top-width: 4px;
   border-top-style: solid;
-  margin: 15px;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  padding: 18px 12px;
 }
 
-.card-top div p,
-.card-bottom div p {
-  font-size: 1.1em;
+.card-top h3,
+.card-bottom h3 {
+  margin: 0 0 8px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  color: rgba(30, 30, 30, 0.6);
+}
+
+.card-top p,
+.card-bottom p {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: rgb(20, 20, 20);
 }
 
 .card-total {
-  border-top-color: rgb(255, 106, 0);
+  border-top-color: #ff6400;
   background-color: rgb(255, 248, 233);
 }
 
-.card-available {
-  border-top-color: green;
+.card-disponible {
+  border-top-color: #2f6b1f;
   background-color: rgb(229, 252, 229);
 }
 
-.card-ongoing {
-  border-top-color: rgb(19, 184, 255);
-  background-color: rgb(243, 250, 255);
+.card-aRecuperer {
+  border-top-color: #185fa5;
+  background-color: rgb(226, 240, 252);
 }
 
-.card-pending {
-  border-top-color: rgb(255, 65, 65);
-  background-color: rgb(255, 241, 241);
+.card-enAttente {
+  border-top-color: #d99100;
+  background-color: rgb(255, 244, 229);
 }
 
 /* ==================== */
@@ -69,11 +84,11 @@ html {
 /* ==================== */
 
 .last-emprunts {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 10px;
   padding: 16px;
-  margin: 20px;
+  margin: 10px 20px 20px;
 }
 
 .last-emprunts-header {
@@ -86,16 +101,16 @@ html {
 }
 
 .last-emprunts-header h3 {
+  margin: 0;
   font-size: 0.95rem;
   font-weight: 600;
   color: rgb(30, 30, 30);
-  margin: 0;
 }
 
 .btn-voir-tout {
   text-decoration: none;
   font-size: 0.8rem;
-  color: rgb(255, 102, 0);
+  color: #ff6400;
   border: 1px solid rgba(255, 100, 0, 0.3);
   padding: 4px 12px;
   border-radius: 20px;
@@ -120,53 +135,16 @@ html {
 }
 
 .emprunteur-nom {
+  margin: 0;
   font-size: 0.878rem;
   font-weight: 500;
   color: rgb(30, 30, 30);
-  margin: 0;
 }
 
 .emprunteur-materiel {
+  margin: 2px 0 0;
   font-size: 0.75rem;
   color: rgb(130, 130, 130);
-  margin: 2px 0 0;
-}
-
-/* ===== BADGES DE STATUT ===== */
-
-.status {
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  white-space: nowrap;
-  flex-shrink: 0;
-  margin-left: 10px;
-}
-
-.status-1 {
-  background-color: rgb(255, 248, 233);
-  color: #ba7517;
-}
-
-.status-2 {
-  background-color: rgb(243, 250, 255);
-  color: #185fa5;
-}
-
-.status-3 {
-  background-color: rgb(255, 241, 241);
-  color: #a32d2d;
-}
-
-.status-4 {
-  background-color: rgb(229, 252, 229);
-  color: #0f6e56;
-}
-
-.status-5 {
-  background-color: rgb(241, 239, 232);
-  color: #5f5e5a;
 }
 
 /* ==================== */
@@ -175,33 +153,24 @@ html {
 
 @media screen and (min-width: 1024px) {
 
-  .resum,
-  .last-emprunts {
-    margin-left: 240px;
-  }
-
-  .resum {
+  .titre-page {
     padding: 24px;
   }
 
-  .last-emprunts {
-    margin-right: 24px;
-    margin-top: 0;
+  /* les 4 cartes sur une seule ligne */
+  .resum {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    padding: 24px 24px 0;
   }
 
   .card-top,
   .card-bottom {
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
-    margin: 0 0 16px 0;
-    height: auto;
+    display: contents;
   }
 
-  .card-top div,
-  .card-bottom div {
-    flex: 1;
-    margin: 0;
-    padding: 16px;
+  .last-emprunts {
+    margin: 24px;
   }
 }

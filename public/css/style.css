@@ -1,7 +1,6 @@
 /* ==================== */
 /* BASE                 */
 /* ==================== */
-/* _______________ */
 /* déclaration de variables dans root (global) */
 :root {
   --orange-title: #ff6400;
@@ -20,7 +19,14 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
-  min-height: 100dvh; /* ← dvh au lieu de vh (cross-browser) */
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* conteneur sidebar + contenu */
+.layout {
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
@@ -29,6 +35,7 @@ main {
   flex: 1;
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 /* ==================== */
@@ -37,7 +44,7 @@ main {
 
 .bienvenue {
   flex: 1;
-  min-height: 100dvh; /* ← dvh au lieu de vh */
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -47,7 +54,7 @@ main {
   background-image: url(/image/image2.jpg);
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* ← Effet parallax */
+  background-attachment: fixed;
 }
 
 .titre-bienvenue {
@@ -90,7 +97,7 @@ main {
   font-size: 18px;
   transition: all 0.3s ease;
   cursor: pointer;
-  border: none; /* ← Evite les styles par défaut */
+  border: none;
 }
 
 .btn-connexion:hover {
@@ -100,9 +107,8 @@ main {
 }
 
 /* ==================== */
-/* PAGE CONNEXION     */
+/* PAGE CONNEXION       */
 /* ==================== */
-
 
 .section-login {
   flex: 1;
@@ -111,7 +117,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 40px 16px; /* ← mobile : padding réduit */
+  padding: 40px 16px;
 
   background-image: url(/image/image2.jpg);
   background-size: cover;
@@ -123,7 +129,7 @@ main {
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
   border-radius: 20px;
-  padding: 30px 20px; /* ← mobile : padding réduit */
+  padding: 30px 20px;
   width: 100%;
   max-width: 420px;
   color: white;
@@ -132,12 +138,12 @@ main {
 
 .section-login .login-container h1 {
   color: #ff6400;
-  font-size: 32px; /* ← mobile */
+  font-size: 32px;
   margin-bottom: 8px;
 }
 
 .section-login .login-container h2 {
-  font-size: 16px; /* ← mobile */
+  font-size: 16px;
   font-weight: 400;
   margin-bottom: 24px;
   opacity: 0.9;
@@ -191,7 +197,7 @@ main {
   color: white;
   border: none;
   border-radius: 30px;
-  font-size: 16px; /* ← mobile */
+  font-size: 16px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -204,8 +210,9 @@ main {
   box-shadow: 0 4px 15px rgba(255, 126, 6, 0.4);
 }
 
-
-/* MESSAGE ERREUR */
+/* ==================== */
+/* MESSAGES FLASH       */
+/* ==================== */
 
 .message {
   display: flex;
@@ -235,7 +242,9 @@ main {
   color: #3b6d11;
 }
 
-/* ---- */
+/* ==================== */
+/* CONTENEUR CENTRAL    */
+/* ==================== */
 
 .container {
   width: 100%;
@@ -246,14 +255,34 @@ main {
   padding-right: 20px;
 }
 
+/* ==================== */
+/* BADGES DE STATUT     */
+/* ==================== */
 
-/* ===== FOOTER ===== */
+.status {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: 10px;
+}
+
+.status-1 { background-color: rgb(255, 248, 233); color: #ba7517; }
+.status-2 { background-color: rgb(243, 250, 255); color: #185fa5; }
+.status-3 { background-color: rgb(255, 241, 241); color: #a32d2d; }
+.status-4 { background-color: rgb(229, 252, 229); color: #0f6e56; }
+.status-5 { background-color: rgb(241, 239, 232); color: #5f5e5a; }
+
+/* ==================== */
+/* FOOTER               */
+/* ==================== */
 
 .footer {
   background-color: #16135e;
   color: rgba(255, 255, 255, 0.7);
   padding: 30px 20px;
-  margin-top: auto;
   text-align: center;
 }
 
@@ -293,9 +322,8 @@ main {
   color: rgba(255, 255, 255, 0.5);
 }
 
-
 /* ==================== */
-/* DESKTOP              */
+/* TABLETTE             */
 /* ==================== */
 
 @media screen and (min-width: 768px) {
@@ -308,23 +336,18 @@ main {
   }
 
   .section-login .login-container h1 {
-    font-size: 42px; /* ← desktop */
+    font-size: 42px;
     margin-bottom: 8px;
   }
 
   .section-login .login-container h2 {
-    font-size: 18px; /* ← desktop */
+    font-size: 18px;
     margin-bottom: 32px;
   }
 
   #form-login .btn-submit {
-    font-size: 18px; /* ← desktop */
+    font-size: 18px;
     padding: 16px;
-  }
-
-  /* FOOTER */
-  .footer {
-    margin-left: 220px;
   }
 
   .footer-nav {
@@ -335,5 +358,16 @@ main {
   .footer-nav a {
     margin: 0 14px;
   }
-  
+}
+
+/* ==================== */
+/* DESKTOP              */
+/* ==================== */
+
+@media screen and (min-width: 1024px) {
+
+  /* sidebar et contenu côte à côte */
+  .layout {
+    flex-direction: row;
+  }
 }

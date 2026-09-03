@@ -17,10 +17,11 @@
 
 .header-top img {
   width: 180px;
+  max-width: 100%;
   height: auto;
 }
 
-/* MENU BURGER */
+/* ===== MENU BURGER ===== */
 
 #burger-button-display {
   position: absolute;
@@ -28,10 +29,12 @@
   right: 10px;
   cursor: pointer;
 }
+
 .header nav ul {
   list-style: none;
   padding-left: 0;
 }
+
 .header nav ul li a {
   display: block;
   text-decoration: none;
@@ -51,24 +54,35 @@
 #nav.nav-hide #nav-ul {
   display: none;
 }
+
 #nav.nav-hide i.ti-x {
   display: none;
 }
+
 #nav:not(.nav-hide) i.ti-menu-2 {
   display: none;
   color: #0f6e56;
 }
 
-/* media */
+/* ===== TITRE DE PAGE ===== */
+
+.titre-page {
+  display: flex;
+  padding-left: 10px;
+  font-size: 0.5em;
+  color: #3d403f;
+  border-bottom: 1px solid #aeaeae9d;
+  background-color: #01032618;
+}
+
+/* ===== DESKTOP ===== */
 
 @media screen and (min-width: 1024px) {
-  /* SIDEBAR */
+
   .header {
     width: 220px;
+    flex-shrink: 0;
     min-height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
     background-image: url(/image/image2.jpg);
     background-position-y: 20%;
     background-position-x: 8%;
