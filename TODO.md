@@ -1,4 +1,5 @@
 # 📋 TODO — LOC MNS
+
 > Projet Fil Rouge DWWM — Metz Numeric School 2025-2026
 > Dernière mise à jour : 14 août 2026 — Soutenance : octobre 2026
 
@@ -7,6 +8,7 @@
 ## ✅ Déjà réalisé
 
 ### Architecture
+
 - [x] Architecture MVC PHP (Controllers, Models, Views, Router)
 - [x] Système de routing dynamique dans `index.php`
 - [x] Connexion à la BDD via PDO (`Manager.php`)
@@ -15,6 +17,7 @@
 - [x] Gestion des branches Git (`main` + `materiel-v2`)
 
 ### Authentification
+
 - [x] Page d'accueil (home) + Page de connexion (`auth/login`)
 - [x] Authentification avec hashage mot de passe (`password_hash`)
 - [x] Déconnexion — méthode `logout()` dans `AuthController` + lien sidebar
@@ -22,6 +25,7 @@
 - [x] Redirection automatique selon le rôle (via `id_role`, pas le libellé)
 
 ### Côté admin
+
 - [x] Dashboard admin avec stats et derniers emprunts
 - [x] Sidebar admin responsive (mobile burger + desktop fixe)
 - [x] CRUD Matériel complet (liste, ajouter, modifier, supprimer)
@@ -30,6 +34,7 @@
 - [x] Ajout d'un membre (formulaire + insertion BDD)
 
 ### Côté emprunteur
+
 - [x] `UserController` + routes `/user/accueil` et `/user/categorie/{id}`
 - [x] Navbar emprunteur dédiée avec menu burger responsive
 - [x] **Accueil** : 4 tuiles catégories colorées avec comptage des disponibilités
@@ -41,6 +46,7 @@
 - [x] Contraste WCAG vérifié et corrigé sur les tuiles
 
 ### Base de données
+
 - [x] Table `statut_utilisateur` avec 3 états (Actif, Inactif, Suspendu)
 - [x] Champ `commentaire` dans la table utilisateur
 - [x] `emprunt.id_materiel` passé en NULL + ajout `id_categorie` (demande souple)
@@ -51,6 +57,7 @@
 ## 🔥 Prioritaire — Cœur du projet
 
 ### Emprunts — côté emprunteur
+
 - [ ] `EmpruntManager` — `addEmprunt()` (INSERT avec statut « En attente »)
 - [ ] `EmpruntController` + route `/emprunt/demander`
 - [ ] Page de confirmation (récapitulatif avant envoi)
@@ -61,6 +68,7 @@
 - [ ] Section « Statut de mes demandes » sur l'accueil (remplit l'espace vide)
 
 ### Emprunts — côté admin
+
 - [ ] Liste des demandes (En attente, En cours, Terminé, Refusé)
 - [ ] Actions : Valider / Refuser / Marquer comme rendu
 - [ ] Assignation d'un matériel précis lors de la validation (cas `id_materiel` NULL)
@@ -68,6 +76,7 @@
 - [ ] Motif de refus obligatoire si refus
 
 ### Catalogue emprunteur
+
 - [ ] Barre de recherche fonctionnelle (le formulaire existe, pas le traitement)
 - [ ] Section « Non disponible sur cette période » (requête inverse)
 - [ ] Gérer le cas `/user/categorie/99` (catégorie inexistante → 404 propre)
@@ -97,7 +106,7 @@
   - [ ] Styles de formulaires
 - [ ] Alléger `layout.php` : 5 blocs conditionnels qui répètent `script.js` et la navbar
 - [ ] Harmoniser le nommage CSS (convention `bloc-element`, tout en français)
-- [ ] Vérifier les chemins d'images (`/public/image/` vs `/image/`)
+- [ ] Vérifier les chemins d'images (`/image/` vs `/image/`)
 - [ ] `<h1>` unique par page (celui de la navbar en `<p>` ou `<h2>`)
 - [ ] Nommage cohérent des variables (`$materielManager` vs `$listMateriel`)
 - [ ] `font-size: 0.4rem` sur `.header-bottom` — règle inutile, à nettoyer
@@ -108,9 +117,11 @@
 ## 💡 Améliorations (si le temps le permet)
 
 ### Sidebar
+
 - [ ] Lien sur le logo LocMns → page d'accueil
 
 ### Page Membres
+
 - [ ] Champs confirmation email + confirmation mot de passe
 - [ ] Mode desktop : cartes de même taille
 - [ ] JS pour afficher/masquer le commentaire (voir plus)
@@ -120,6 +131,7 @@
 - [ ] Page protégée de création d'un compte administrateur
 
 ### UX
+
 - [ ] Toggle afficher / masquer le mot de passe (login)
 - [ ] Modal de confirmation avant suppression matériel
   - Afficher le nom + modèle du matériel à supprimer
@@ -132,15 +144,18 @@
 ## ⭐ Bonus (fonctionnalités avancées)
 
 ### Calendrier FullCalendar
+
 - [ ] Intégration bibliothèque JS open source
 - [ ] Données emprunts passées en JSON depuis PHP
 - [ ] Vue mensuelle : qui a emprunté quoi et quand
 - [ ] Calendrier de disponibilités type Airbnb côté emprunteur
 
 ### Veille technologique
+
 - [ ] Composant React via CDN (intl-tel-input ou autocomplétion d'adresse)
 
 ### Autres
+
 - [ ] Export CSV/XML des comptes utilisateurs
 - [ ] Système d'alerte (retard retour matériel, nouvelle demande)
 - [ ] Gestion documentaire (notice, doc technique sur un matériel)
@@ -166,6 +181,7 @@
 - [ ] Répétition de la présentation orale
 
 ### Justifications à préparer pour le jury
+
 - [ ] Pourquoi la redirection s'appuie sur `id_role` et non sur le libellé
 - [ ] Pourquoi `id_materiel` est nullable (demande sans matériel imposé)
 - [ ] Pourquoi la règle « au moins un des deux » est en PHP et non en SQL
@@ -181,5 +197,5 @@
 
 ---
 
-> *Confidentiel — Ne pas diffuser*
-> *LOC MNS — Projet DEVWEB / CDA 2025-2026*
+> _Confidentiel — Ne pas diffuser_
+> _LOC MNS — Projet DEVWEB / CDA 2025-2026_

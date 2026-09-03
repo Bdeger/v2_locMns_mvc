@@ -2,7 +2,7 @@
 <header class="header">
     <div class="header-top">
         <a href="/admin/dashboard">
-            <img src="/public/image/logo2.png">
+            <img src="/image/logo2.png" alt="Loc MNS - retour tableau de bord">
         </a>
     </div>
     <nav id="nav">

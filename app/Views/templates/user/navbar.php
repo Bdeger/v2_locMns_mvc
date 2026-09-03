@@ -3,7 +3,7 @@
 <header class="header">
     <div class="logo">
         <a href="/user/accueil">
-            <img src="/public/image/logo2.png">
+            <img src="/image/logo2.png">
         </a>
     </div>
     <nav id="nav">

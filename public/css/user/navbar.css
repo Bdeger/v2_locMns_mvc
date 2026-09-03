@@ -22,7 +22,7 @@ body {
 .header-top {
   overflow: hidden;
   width: 100%;
-  background-image: url(/public/image/image2.jpg);
+  background-image: url(/image/image2.jpg);
   background-position-y: 3%;
   background-position-x: 28%;
   display: flex;
@@ -95,7 +95,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    background-image: url(/public/image/image2.jpg);
+    background-image: url(/image/image2.jpg);
     background-position-y: 20%;
     background-position-x: 8%;
   }
