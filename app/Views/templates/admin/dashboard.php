@@ -1,5 +1,4 @@
-<?php
-include __DIR__ . '/sidebar.php'; ?>
+<?php include __DIR__ . '/sidebar.php'; ?>
 
 <!-- Views/templates/admin/dashboard.php -->
 <main>
@@ -8,19 +7,20 @@ include __DIR__ . '/sidebar.php'; ?>
     <section class="titre-page">
         <h1>Dashboard</h1>
     </section>
+
     <section class="resum">
         <div class="card-top">
-            <div class='card-total'>
+            <div class="card-total">
                 <h3>TOTAL MATERIEL</h3>
                 <p><?php echo $statsMateriel['total']; ?></p>
             </div>
-            <div class='card-disponible'>
+            <div class="card-disponible">
                 <h3>DISPONIBLE</h3>
                 <p><?php echo $statsMateriel['disponibles']; ?></p>
             </div>
         </div>
         <div class="card-bottom">
-            <div class='card-aRecuperer'>
+            <div class="card-aRecuperer">
                 <h3>À RÉCUPÉRER</h3>
                 <p><?php echo $statsEmprunt['a_recuperer']; ?></p>
             </div>
@@ -29,7 +29,6 @@ include __DIR__ . '/sidebar.php'; ?>
                 <p><?php echo $statsEmprunt['en_attente']; ?></p>
             </div>
         </div>
-
     </section>
 
     <!-- derniers emprunts -->
@@ -47,7 +46,7 @@ include __DIR__ . '/sidebar.php'; ?>
         <?php else: ?>
 
             <?php foreach($derniers as $emprunt): ?>
-                <article class="emprunteur">
+                <article class="emprunteur emprunteur-<?php echo $emprunt['id_status_emprunt']; ?>">
                     <div>
                         <p class="emprunteur-nom">
                             <?php echo htmlspecialchars($emprunt['prenom_user']); ?>

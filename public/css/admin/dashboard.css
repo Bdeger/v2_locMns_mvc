@@ -1,3 +1,5 @@
+/*  CSS pour la page DASHBOARD "admin"  */
+
 /* ==================== */
 /* TITRE DE PAGE        */
 /* ==================== */
@@ -5,6 +7,7 @@
 .titre-page {
   padding: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background-color: #ffffff;
 }
 
 .titre-page h1 {
@@ -61,22 +64,22 @@
 
 .card-total {
   border-top-color: #ff6400;
-  background-color: rgb(255, 248, 233);
+  background-color: #fdf0da;
 }
 
 .card-disponible {
   border-top-color: #2f6b1f;
-  background-color: rgb(229, 252, 229);
+  background-color: #e8f2dc;
 }
 
 .card-aRecuperer {
   border-top-color: #185fa5;
-  background-color: rgb(226, 240, 252);
+  background-color: #e3eefa;
 }
 
 .card-enAttente {
   border-top-color: #d99100;
-  background-color: rgb(255, 244, 229);
+  background-color: #fdf0da;
 }
 
 /* ==================== */
@@ -84,6 +87,7 @@
 /* ==================== */
 
 .last-emprunts {
+  background-color: #ffffff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 10px;
@@ -115,23 +119,55 @@
   padding: 4px 12px;
   border-radius: 20px;
   white-space: nowrap;
-  transition: background 0.2s;
+  transition: background-color 0.2s;
 }
 
 .btn-voir-tout:hover {
   background-color: rgb(255, 240, 230);
 }
 
+/* ===== LIGNE D'EMPRUNT ===== */
+
 .emprunteur {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  border-left-width: 5px;
+  border-left-style: solid;
+  border-left-color: #cccccc;
+  border-radius: 0 8px 8px 0;
 }
 
 .emprunteur:last-child {
-  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.emprunteur-1 {
+  border-left-color: #d99100;
+  background-color: #fdf0da;
+}
+
+.emprunteur-2 {
+  border-left-color: #185fa5;
+  background-color: #e3eefa;
+}
+
+.emprunteur-3 {
+  border-left-color: #a32d2d;
+  background-color: #fbe3e3;
+}
+
+.emprunteur-4 {
+  border-left-color: #3b6d11;
+  background-color: #e8f2dc;
+}
+
+.emprunteur-5 {
+  border-left-color: #888780;
+  background-color: #efedea;
+  opacity: 0.8;
 }
 
 .emprunteur-nom {
@@ -144,7 +180,7 @@
 .emprunteur-materiel {
   margin: 2px 0 0;
   font-size: 0.75rem;
-  color: rgb(130, 130, 130);
+  color: rgb(110, 110, 110);
 }
 
 /* ==================== */
@@ -157,7 +193,6 @@
     padding: 24px;
   }
 
-  /* les 4 cartes sur une seule ligne */
   .resum {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -172,5 +207,6 @@
 
   .last-emprunts {
     margin: 24px;
+    max-width: 1000px;
   }
 }
