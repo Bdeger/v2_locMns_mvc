@@ -20,13 +20,6 @@
   height: auto;
 }
 
-.header-bottom {
-  background-color: #010326;
-  color: #ffff;
-  font-size: 0.4rem;
-  padding-left: 40px;
-}
-
 /* MENU BURGER */
 
 #burger-button-display {
