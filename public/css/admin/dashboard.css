@@ -183,6 +183,16 @@
   color: rgb(110, 110, 110);
 }
 
+.emprunteur-dates {
+  margin: 3px 0 0;
+  font-size: 0.72rem;
+  color: rgb(140, 140, 140);
+}
+
+.emprunteur-dates i {
+  margin-right: 4px;
+}
+
 /* ==================== */
 /* DESKTOP              */
 /* ==================== */

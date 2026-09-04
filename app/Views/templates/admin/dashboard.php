@@ -59,6 +59,12 @@
                                 <?php echo htmlspecialchars($emprunt['nom_categorie']); ?>
                             <?php endif; ?>
                         </p>
+                        <p class="emprunteur-dates">
+                            <i class="ti ti-calendar"></i>
+                            <?php echo date('d/m/Y', strtotime($emprunt['date_debut_souhaitee'])); ?>
+                            &rarr;
+                            <?php echo date('d/m/Y', strtotime($emprunt['date_fin_souhaitee'])); ?>
+                        </p>
                     </div>
 
                     <span class="status status-<?php echo $emprunt['id_status_emprunt']; ?>">
