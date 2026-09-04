@@ -1,60 +1,49 @@
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Poppins", sans-serif;
-  background-color: #f4f6f9;
-  margin: 0;
-}
+/*  CSS pour la page MATERIEL "admin"  */
 
 /* ==================== */
-/* HEADER MATERIEL      */
+/* EN-TETE              */
 /* ==================== */
+
 .header-materiel {
-  display: flex;
-  width: 100%;
-  justify-content: center;
   padding: 20px;
-  border-bottom: 1px solid rgb(208, 208, 208);
-  background-color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background-color: #ffffff;
 }
 
-.header-materiel .title {
-  text-align: center;
-}
-
-.header-materiel .title h1 {
-  color: rgb(249, 113, 9);
-  font-size: 1.4rem;
+.header-materiel h1 {
+  margin: 0;
+  font-size: 1.3rem;
   font-weight: 600;
+  color: rgb(30, 30, 30);
 }
 
-.header-materiel .title p {
-  font-size: 0.85rem;
+.header-materiel p {
+  margin: 4px 0 0;
+  font-size: 0.8rem;
   color: rgb(130, 130, 130);
-  margin-top: 4px;
 }
 
 /* ==================== */
 /* BOUTON AJOUTER       */
 /* ==================== */
+
 .materiel-header-actions {
   display: flex;
   justify-content: flex-end;
-  padding: 16px;
+  padding: 16px 20px 0;
 }
 
 .btn-ajouter {
-  display: flex;                           
+  display: inline-flex;
   align-items: center;
-  background-color: rgb(249, 113, 9);
-  color: white;
+  background-color: #ff6400;
+  color: #ffffff;
   text-decoration: none;
-  padding: 8px 16px;
+  padding: 9px 16px;
   border-radius: 8px;
-  font-size: 0.875rem;
+  font-size: 0.82rem;
   font-weight: 500;
+  transition: background-color 0.2s;
 }
 
 .btn-ajouter i {
@@ -62,27 +51,53 @@ body {
 }
 
 .btn-ajouter:hover {
-  background-color: rgb(220, 90, 5);
+  background-color: #e15b01;
 }
 
 /* ==================== */
 /* LISTE DES CARTES     */
 /* ==================== */
+
 .materiel-content {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 16px;
+  padding: 16px 20px;
 }
 
 .materiel-card {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  margin: 8px 0;
-  padding: 14px;
-  border: 1px solid rgb(225, 225, 225);
-  border-radius: 10px;
-  background-color: white;
+  margin-bottom: 10px;
+  padding: 14px 16px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-left-width: 5px;
+  border-left-style: solid;
+  border-left-color: #cccccc;
+  border-radius: 0 10px 10px 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  background-color: #ffffff;
+}
+
+.materiel-card-1 {
+  border-left-color: #2f6b1f;
+  background-color: #e8f2dc;
+}
+
+.materiel-card-2 {
+  border-left-color: #ff6400;
+  background-color: #fdf0da;
+}
+
+.materiel-card-3 {
+  border-left-color: #d99100;
+  background-color: #fdf8e8;
+}
+
+.materiel-card-4 {
+  border-left-color: #a32d2d;
+  background-color: #fbe3e3;
 }
 
 .materiel-icon {
@@ -90,12 +105,12 @@ body {
   width: 42px;
   height: 42px;
   border-radius: 8px;
-  background-color: rgba(249, 113, 9, 0.1);
+  background-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.3rem;
-  color: rgb(249, 113, 9);
+  color: #ff6400;
   margin-right: 14px;
 }
 
@@ -105,103 +120,92 @@ body {
 }
 
 .materiel-infos .categorie {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: rgb(150, 150, 150);
+  color: rgb(130, 130, 130);
   margin-bottom: 4px;
 }
 
 .materiel-infos .nom {
-  font-size: 1rem;
+  margin: 0 0 4px;
+  font-size: 0.95rem;
   font-weight: 600;
   color: rgb(30, 30, 30);
-  margin-bottom: 4px;
 }
 
-.materiel-infos .modele-serie {
-  font-size: 0.82rem;
-  color: rgb(100, 100, 100);
-  margin-bottom: 4px;
-}
-
-.materiel-infos .emplacement {
-  font-size: 0.82rem;
-  color: rgb(100, 100, 100);
-  margin-bottom: 4px;
+.materiel-infos .modele-serie,
+.materiel-infos .emplacement,
+.materiel-infos .description,
+.materiel-infos .date_acquisition {
+  margin: 0 0 4px;
+  font-size: 0.78rem;
+  color: rgb(85, 85, 85);
 }
 
 .materiel-infos .description {
-  font-size: 0.82rem;
-  color: rgb(130, 130, 130);
-  margin-bottom: 8px;
+  color: rgb(120, 120, 120);
+}
+
+.materiel-infos .emplacement i {
+  margin-right: 4px;
 }
 
 /* ==================== */
-/* BADGES STATUT        */
+/* BADGE ETAT           */
 /* ==================== */
-.statut::before {
-  content: attr(data-statut);
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 3px 10px;
-  border-radius: 20px;
+
+.materiel-etat {
   display: inline-block;
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  white-space: nowrap;
+  background-color: #ffffff;
+  margin-top: 4px;
 }
 
-.statut[data-statut="Disponible"]::before {
-  background-color: rgba(34, 197, 94, 0.12);
-  color: rgb(22, 130, 65);
-}
-
-.statut[data-statut="Emprunté"]::before {
-  background-color: rgba(255, 102, 0, 0.12);
-  color: rgb(180, 75, 0);
-}
-
-.statut[data-statut="En maintenance"]::before {
-  background-color: rgba(234, 179, 8, 0.15);
-  color: rgb(146, 100, 5);
-}
-
-.statut[data-statut="Hors service"]::before {
-  background-color: rgba(239, 68, 68, 0.12);
-  color: rgb(180, 35, 35);
-}
+.materiel-etat-1 { color: #2f6b1f; }
+.materiel-etat-2 { color: #b44b00; }
+.materiel-etat-3 { color: #926405; }
+.materiel-etat-4 { color: #a32d2d; }
 
 /* ==================== */
 /* ACTIONS              */
 /* ==================== */
+
 .materiel-card .actions {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
+  margin-left: 12px;
 }
 
 .materiel-card .actions a {
-  font-size: 0.82rem;
-  color: rgb(249, 113, 9);
-  cursor: pointer;
+  font-size: 0.78rem;
+  color: #ff6400;
   text-decoration: none;
-  margin-bottom: 6px;
+  padding: 4px 0;
 }
 
 .materiel-card .actions a:hover {
-  border-bottom: 1px solid rgb(255, 132, 0);
+  text-decoration: underline;
 }
 
 /* ==================== */
 /* PAGE AJOUTER         */
 /* ==================== */
+
 .back {
-  padding: 16px;
+  padding: 16px 20px;
 }
 
 .btn-retour {
   display: inline-flex;
   align-items: center;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: rgb(100, 100, 100);
   text-decoration: none;
 }
@@ -211,17 +215,18 @@ body {
 }
 
 .btn-retour:hover {
-  color: rgb(249, 113, 9);
+  color: #ff6400;
 }
 
 .form-addMateriel {
-  padding: 16px;
+  padding: 0 20px 20px;
 }
 
 .form-addMateriel form {
-  background: white;
+  background: #ffffff;
   border-radius: 12px;
-  border: 1px solid rgb(225, 225, 225);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   padding: 24px;
   display: flex;
   flex-direction: column;
@@ -246,10 +251,10 @@ body {
   padding: 10px 12px;
   border: 1px solid rgb(210, 210, 210);
   border-radius: 8px;
-  font-size: 0.875rem;
-  font-family: "Poppins", sans-serif;
+  font-size: 0.85rem;
+  font-family: inherit;
   color: rgb(30, 30, 30);
-  background-color: white;
+  background-color: #ffffff;
   width: 100%;
 }
 
@@ -257,7 +262,7 @@ body {
 .form-addMateriel .form-group select:focus,
 .form-addMateriel .form-group textarea:focus {
   outline: none;
-  border-color: rgb(249, 113, 9);
+  border-color: #ff6400;
   box-shadow: 0 0 0 3px rgba(249, 113, 9, 0.1);
 }
 
@@ -268,22 +273,23 @@ body {
 
 .btn-group {
   display: flex;
+  gap: 10px;
   margin-top: 8px;
 }
 
 .btn-submit {
   display: inline-flex;
   align-items: center;
-  background-color: rgb(249, 113, 9);
-  color: white;
+  background-color: #ff6400;
+  color: #ffffff;
   border: none;
   padding: 10px 20px;
   border-radius: 8px;
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   font-weight: 500;
-  font-family: "Poppins", sans-serif;
+  font-family: inherit;
   cursor: pointer;
-  margin-right: 10px;
+  transition: background-color 0.2s;
 }
 
 .btn-submit i {
@@ -291,7 +297,7 @@ body {
 }
 
 .btn-submit:hover {
-  background-color: rgb(220, 90, 5);
+  background-color: #e15b01;
 }
 
 .btn-annuler {
@@ -299,11 +305,11 @@ body {
   align-items: center;
   padding: 10px 20px;
   border-radius: 8px;
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   color: rgb(100, 100, 100);
   border: 1px solid rgb(210, 210, 210);
   text-decoration: none;
-  background: white;
+  background: #ffffff;
 }
 
 .btn-annuler:hover {
@@ -311,56 +317,47 @@ body {
 }
 
 /* ==================== */
-/* MEDIA QUERIES        */
+/* DESKTOP              */
 /* ==================== */
 
 @media screen and (min-width: 1024px) {
-  .header-materiel {
-    justify-content: flex-start;
-    padding: 24px 40px;
-    margin-left: 220px;
-  }
 
-  .header-materiel .title {
-    text-align: left;
+  .header-materiel {
+    padding: 24px;
   }
 
   .materiel-header-actions {
-    margin-left: 220px;
+    padding: 20px 24px 0;
+    max-width: 1000px;
   }
 
   .materiel-content {
-    padding: 24px 40px;
-    margin-left: 220px;
+    padding: 16px 24px 24px;
+    max-width: 1000px;
   }
 
   .back {
-    margin-left: 220px;
-    padding: 16px 40px;
+    padding: 16px 24px;
   }
 
   .form-addMateriel {
-    margin-left: 220px;
-    padding: 0 40px 40px;
+    padding: 0 24px 24px;
+    max-width: 1000px;
   }
 
   .form-addMateriel form {
     flex-direction: row;
     flex-wrap: wrap;
+    gap: 16px;
   }
 
   .form-addMateriel .form-group {
     width: calc(50% - 8px);
-    margin-right: 16px;
-  }
-
-  .form-addMateriel .form-group:nth-child(even) {
-    margin-right: 0;
+    margin-bottom: 0;
   }
 
   .form-addMateriel .form-group:last-of-type {
     width: 100%;
-    margin-right: 0;
   }
 
   .btn-group {

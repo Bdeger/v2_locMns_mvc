@@ -73,9 +73,6 @@
     width: 220px;
     flex-shrink: 0;
     min-height: 100vh;
-    position: sticky;
-    top: 0;
-    align-self: flex-start;
     background-image: url(/image/image2.jpg);
     background-position-y: 20%;
     background-position-x: 8%;
