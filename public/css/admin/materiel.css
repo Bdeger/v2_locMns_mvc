@@ -137,8 +137,7 @@
 
 .materiel-infos .modele-serie,
 .materiel-infos .emplacement,
-.materiel-infos .description,
-.materiel-infos .date_acquisition {
+.materiel-infos .description {
   margin: 0 0 4px;
   font-size: 0.78rem;
   color: rgb(85, 85, 85);
@@ -195,7 +194,8 @@
 }
 
 /* ==================== */
-/* PAGE AJOUTER         */
+/* PAGES AJOUTER /      */
+/* MODIFIER             */
 /* ==================== */
 
 .back {
@@ -230,6 +230,13 @@
   padding: 24px;
   display: flex;
   flex-direction: column;
+}
+
+.form-note {
+  margin: 0 0 16px;
+  font-size: 0.75rem;
+  color: rgb(130, 130, 130);
+  width: 100%;
 }
 
 .form-addMateriel .form-group {
@@ -273,7 +280,6 @@
 
 .btn-group {
   display: flex;
-  gap: 10px;
   margin-top: 8px;
 }
 
@@ -289,6 +295,7 @@
   font-weight: 500;
   font-family: inherit;
   cursor: pointer;
+  margin-right: 10px;
   transition: background-color 0.2s;
 }
 
@@ -345,19 +352,25 @@
     max-width: 1000px;
   }
 
+  /* formulaire en deux colonnes */
   .form-addMateriel form {
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 16px;
   }
 
   .form-addMateriel .form-group {
-    width: calc(50% - 8px);
-    margin-bottom: 0;
+    width: 48%;
+    margin-right: 4%;
   }
 
+  .form-addMateriel .form-group:nth-of-type(even) {
+    margin-right: 0;
+  }
+
+  /* la description prend toute la largeur */
   .form-addMateriel .form-group:last-of-type {
     width: 100%;
+    margin-right: 0;
   }
 
   .btn-group {

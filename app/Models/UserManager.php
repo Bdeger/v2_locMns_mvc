@@ -18,12 +18,14 @@ class UserManager extends Manager{
 
     public function getAllUsers():array{
         $stmt = $this->pdo->prepare("
-        SELECT u.id_utilisateur, u.nom, u.prenom, u.telephone, u.email, u.date_inscription, u.commentaire,
-            r.nom AS role,
-            s.nom AS statut
+        SELECT u.id_utilisateur, u.nom, u.prenom, u.telephone, u.email,
+        u.date_inscription, u.commentaire,
+        u.id_statut_utilisateur,
+        r.nom AS role,
+        s.nom AS statut
         FROM utilisateur u
         INNER JOIN role r ON u.id_role = r.id_role
-        INNER JOIN statut_utilisateur s ON u.id_statut_utilisateur = s.id_statut_utilisateur        
+        INNER JOIN statut_utilisateur s ON u.id_statut_utilisateur = s.id_statut_utilisateur
         WHERE u.id_role = 2
         ");
         $stmt->execute();

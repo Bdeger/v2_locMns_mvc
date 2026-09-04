@@ -1,40 +1,26 @@
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Poppins", sans-serif;
-  background-color: #f4f6f9;
-  margin: 0;
-}
+/*  CSS pour la page MEMBRES "admin"  */
 
 /* ==================== */
-/* HEADER MEMBRE        */
+/* EN-TETE              */
 /* ==================== */
 
 .header-membre {
-  display: flex;
-  width: 100%;
-  justify-content: center;
   padding: 20px;
-  border-bottom: 1px solid rgb(208, 208, 208);
-  background-color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background-color: #ffffff;
 }
 
-.header-membre .title {
-  text-align: center;
-}
-
-.header-membre .title h1 {
-  color: rgb(249, 113, 9);
-  font-size: 1.4rem;
+.header-membre h1 {
+  margin: 0;
+  font-size: 1.3rem;
   font-weight: 600;
+  color: rgb(30, 30, 30);
 }
 
-.header-membre .title p {
-  font-size: 0.85rem;
+.header-membre p {
+  margin: 4px 0 0;
+  font-size: 0.8rem;
   color: rgb(130, 130, 130);
-  margin-top: 4px;
 }
 
 /* ==================== */
@@ -44,27 +30,7 @@ body {
 .membre-header-actions {
   display: flex;
   justify-content: flex-end;
-  padding: 16px;
-}
-
-.btn-ajouter {
-  display: flex;
-  align-items: center;
-  background-color: rgb(249, 113, 9);
-  color: white;
-  text-decoration: none;
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-size: 0.875rem;
-  font-weight: 500;
-}
-
-.btn-ajouter i {
-  margin-right: 6px;
-}
-
-.btn-ajouter:hover {
-  background-color: rgb(220, 90, 5);
+  padding: 16px 20px 0;
 }
 
 /* ==================== */
@@ -72,29 +38,25 @@ body {
 /* ==================== */
 
 .membre-content {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 16px;
+  padding: 16px 20px;
 }
 
 .membre-card {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  margin-bottom: 12px;
-  padding: 14px;
-  border: 1px solid rgb(225, 225, 225);
+  margin-bottom: 10px;
+  padding: 14px 16px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 10px;
-  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  background-color: #ffffff;
 }
 
-.membre-card:last-child {
-  margin-bottom: 0;
-}
-
-/* ==================== */
-/* AVATAR INITIALES     */
-/* ==================== */
+/* ===== AVATAR ===== */
 
 .membre-icon {
   flex-shrink: 0;
@@ -107,13 +69,11 @@ body {
   justify-content: center;
   font-size: 0.9rem;
   font-weight: 600;
-  color: rgb(249, 113, 9);
+  color: #ff6400;
   margin-right: 14px;
 }
 
-/* ==================== */
-/* INFOS MEMBRE         */
-/* ==================== */
+/* ===== INFOS ===== */
 
 .membre-infos {
   flex: 1;
@@ -121,134 +81,120 @@ body {
 }
 
 .membre-infos .nom {
+  margin: 0 0 3px;
   font-size: 0.95rem;
   font-weight: 600;
   color: rgb(30, 30, 30);
-  margin-bottom: 3px;
 }
 
 .membre-infos .mail {
-  font-size: 0.82rem;
+  margin: 0 0 8px;
+  font-size: 0.8rem;
   color: rgb(100, 100, 100);
-  margin-bottom: 8px;
 }
 
-/* ==================== */
-/* BADGES STATUT / ROLE */
-/* ==================== */
+.membre-infos .commentaire {
+  margin: 8px 0 0;
+  font-size: 0.78rem;
+  color: rgb(130, 130, 130);
+  font-style: italic;
+}
 
-.membre-infos .status {
+/* ===== BADGES ===== */
+
+.membre-badges {
   display: flex;
-  margin-bottom: 10px;
+  flex-wrap: wrap;
 }
 
-.membre-infos .status p {
-  font-size: 0.75rem;
+.badge-role,
+.badge-statut {
+  font-size: 0.7rem;
   font-weight: 600;
   padding: 3px 10px;
   border-radius: 20px;
+  white-space: nowrap;
   margin-right: 6px;
+  margin-bottom: 4px;
 }
 
-.membre-infos .status p:first-child {
+.badge-role {
   background-color: rgba(37, 99, 235, 0.1);
   color: rgb(37, 99, 235);
 }
 
-.membre-infos .status p:last-child {
-  background-color: rgba(34, 197, 94, 0.12);
-  color: rgb(22, 130, 65);
+.badge-statut-1 {
+  background-color: #e8f2dc;
+  color: #2f6b1f;
 }
 
-.membre-infos .status p.inactif {
-  background-color: rgba(0, 0, 0, 0.06);
-  color: rgb(130, 130, 130);
+.badge-statut-2 {
+  background-color: #efedea;
+  color: #5f5e5a;
 }
 
-/* ==================== */
-/* ACTIONS              */
-/* ==================== */
+.badge-statut-3 {
+  background-color: #fbe3e3;
+  color: #a32d2d;
+}
+
+/* ===== ACTIONS ===== */
+
+.membre-infos .actions {
+  margin-top: 10px;
+}
 
 .membre-infos .actions a {
-  font-size: 0.82rem;
-  color: rgb(249, 113, 9);
+  font-size: 0.78rem;
+  color: #ff6400;
   text-decoration: none;
 }
 
 .membre-infos .actions a:hover {
-  border-bottom: 1px solid rgb(249, 113, 9);
+  text-decoration: underline;
 }
-
 
 /* ==================== */
 /* PAGE AJOUTER MEMBRE  */
 /* ==================== */
 
 .form-addMembre {
-  max-width: 600px;
-  margin: 24px auto;
-  padding: 0 16px;
-}
-
-.header-membre {
-  background: linear-gradient(135deg, #0a0e3f, #1a2a6c);
-  padding: 24px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.header-membre h1 {
-  color: white;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.header-membre::before {
-  content: "\ea77";
-  font-family: "tabler-icons";
-  font-size: 22px;
-  color: rgb(249, 113, 9);
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: rgba(255, 100, 0, 0.2);
-  border: 3px solid rgba(255, 100, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+  padding: 0 20px 20px;
 }
 
 .form-addMembre form {
-  background: white;
-  border-radius: 0 0 16px 16px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   padding: 24px;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-addMembre .form-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 .form-addMembre .form-group label {
-  font-size: 12px;
+  font-size: 0.82rem;
   font-weight: 500;
-  color: #444;
-  margin-bottom: 5px;
+  color: rgb(30, 30, 30);
+  margin-bottom: 6px;
 }
 
 .form-addMembre .form-group input,
 .form-addMembre .form-group select,
 .form-addMembre .form-group textarea {
   padding: 10px 12px;
-  border: 1.5px solid #e8e8e8;
+  border: 1px solid rgb(210, 210, 210);
   border-radius: 8px;
-  font-size: 13px;
-  color: #333;
-  font-family: "Poppins", sans-serif;
+  font-size: 0.85rem;
+  color: rgb(30, 30, 30);
+  font-family: inherit;
+  background-color: #ffffff;
   width: 100%;
 }
 
@@ -256,90 +202,43 @@ body {
 .form-addMembre .form-group select:focus,
 .form-addMembre .form-group textarea:focus {
   outline: none;
-  border-color: rgb(249, 113, 9);
+  border-color: #ff6400;
   box-shadow: 0 0 0 3px rgba(255, 100, 0, 0.08);
 }
 
 .form-addMembre .form-group textarea {
   resize: vertical;
-  min-height: 80px;
+  min-height: 90px;
 }
-
-.form-addMembre .btn-group {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 16px;
-}
-
-.form-addMembre .btn-submit {
-  display: inline-flex;
-  align-items: center;
-  padding: 9px 18px;
-  border-radius: 8px;
-  font-size: 13px;
-  background: rgb(249, 113, 9);
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  margin-right: 10px;
-}
-
-.form-addMembre .btn-submit i {
-  margin-right: 6px;
-}
-
-.form-addMembre .btn-submit:hover {
-  background: rgb(220, 90, 5);
-}
-
-.form-addMembre .btn-annuler {
-  padding: 9px 18px;
-  border-radius: 8px;
-  font-size: 13px;
-  border: 1.5px solid #ddd;
-  background: none;
-  color: #666;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-}
-
-
-
-
 
 /* ==================== */
-/* MEDIA QUERIES        */
+/* DESKTOP              */
 /* ==================== */
 
 @media screen and (min-width: 1024px) {
-  .header-membre {
-    justify-content: flex-start;
-    padding: 24px 40px;
-    margin-left: 220px;
-  }
 
-  .header-membre .title {
-    text-align: left;
+  .header-membre {
+    padding: 24px;
   }
 
   .membre-header-actions {
-    margin-left: 220px;
+    padding: 20px 24px 0;
+    max-width: 1000px;
   }
 
+  /* cartes en grille de 3 */
   .membre-content {
-    margin-left: 220px;
-    padding: 0 40px 40px;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 8px 16px 24px;
+    max-width: 1000px;
   }
 
   .membre-card {
-    flex: 0 0 30%;
-    margin-right: 16px;
-    margin-bottom: 16px;
+    flex: 1 1 30%;
+    margin: 8px;
+    min-width: 240px;
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -353,7 +252,7 @@ body {
     font-size: 1.1rem;
   }
 
-  .membre-infos .status {
+  .membre-badges {
     justify-content: center;
   }
 
@@ -362,9 +261,29 @@ body {
     justify-content: center;
   }
 
-  /* formulaire ajouter membre */
-   .form-addMembre {
-    margin-left: 240px;
-    max-width: 700px;
+  /* formulaire en deux colonnes */
+  .form-addMembre {
+    padding: 0 24px 24px;
+    max-width: 1000px;
+  }
+
+  .form-addMembre form {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .form-addMembre .form-group {
+    width: 48%;
+    margin-right: 4%;
+  }
+
+  .form-addMembre .form-group:nth-of-type(even) {
+    margin-right: 0;
+  }
+
+  /* le commentaire prend toute la largeur */
+  .form-addMembre .form-group:last-of-type {
+    width: 100%;
+    margin-right: 0;
   }
 }
