@@ -1,41 +1,37 @@
 /*  CSS pour ACCUEIL "emprunteur"  */
 
-/* ===== SECTION INTRO ===== */
+/* ==================== */
+/* SECTION INTRO        */
+/* ==================== */
 
 .intro {
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 40px 20px;
-  justify-content: center;
   text-align: center;
-  overflow: hidden;
   background: linear-gradient(135deg, #0a0d5c 0%, #16205e 40%, #1e3fd8 100%);
 }
 
 .intro-titre h2 {
-  font-size: 1.4em;
+  margin: 0 0 18px;
+  font-size: 1.4rem;
   font-weight: 500;
-  margin-bottom: 8px;
   color: #ffffff;
 }
 
-.intro-soustitre {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.85em;
-  margin-bottom: 18px;
-}
-
-/* ===== BARRE DE RECHERCHE ===== */
+/* ==================== */
+/* BARRE DE RECHERCHE   */
+/* ==================== */
 
 .intro-recherche {
   display: flex;
   align-items: center;
+  width: 100%;
+  max-width: 500px;
   background-color: #ffffff;
   border-radius: 8px;
   padding: 4px;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .intro-recherche-champ {
@@ -45,7 +41,7 @@
   outline: none;
   padding: 12px;
   font-family: inherit;
-  font-size: 0.9em;
+  font-size: 0.85rem;
   background: transparent;
 }
 
@@ -58,42 +54,56 @@
   border-radius: 6px;
   padding: 12px 16px;
   font-family: inherit;
-  font-size: 0.9em;
+  font-size: 0.85rem;
   cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 .intro-recherche-bouton:hover {
   background-color: #2531de;
 }
 
-/* ===== CATEGORIES ===== */
+/* ==================== */
+/* CATEGORIES           */
+/* ==================== */
+
+.categorie-section {
+  flex: 1;
+  padding: 20px;
+}
 
 .list-categorie {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  padding: 20px;
 }
 
 .carte-categorie {
-  flex: 1 1 calc(50% - 6px);
-  min-width: 160px;
+  flex: 1 1 45%;
+  margin: 6px;
+  min-width: 150px;
   border-radius: 12px;
   padding: 26px 16px;
   text-align: center;
   text-decoration: none;
   color: #1a1a1a;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s;
+}
+
+.carte-categorie:hover {
+  transform: translateY(-2px);
 }
 
 .carte-categorie h3 {
-  margin: 10px 0 4px;
-  font-size: 0.9em;
+  margin: 0 0 4px;
+  font-size: 0.9rem;
+  font-weight: 600;
   text-transform: uppercase;
 }
 
 .carte-categorie p {
   margin: 0;
-  font-size: 0.8em;
+  font-size: 0.8rem;
   color: rgba(0, 0, 0, 0.7);
 }
 
@@ -102,22 +112,23 @@
 .carte-categorie-3 { background-color: #d9c94a; }
 .carte-categorie-4 { background-color: #e8636b; }
 
-/* ===== DESKTOP ===== */
+/* ==================== */
+/* DESKTOP              */
+/* ==================== */
 
 @media screen and (min-width: 1024px) {
+
   .intro {
     padding: 60px 20px;
   }
 
   .intro-titre h2 {
-    font-size: 1.8em;
+    font-size: 1.8rem;
   }
 
-  .list-categorie {
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 40px 20px;
+  .categorie-section {
+    padding: 40px 24px;
+    max-width: 900px;
   }
 
   .carte-categorie {
@@ -125,10 +136,10 @@
   }
 
   .carte-categorie h3 {
-    font-size: 1.1em;
+    font-size: 1.1rem;
   }
 
   .carte-categorie p {
-    font-size: 0.9em;
+    font-size: 0.9rem;
   }
 }

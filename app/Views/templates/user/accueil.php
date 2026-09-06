@@ -1,9 +1,9 @@
 <?php include __DIR__ . "/navbar.php"; ?>
-<?php include __DIR__ . "/../messages.php"; ?>
 
-<section class="intro">
-    <div class="container">
+<main>
+    <?php include __DIR__ . "/../messages.php"; ?>
 
+    <section class="intro">
         <div class="intro-titre">
             <h2>Empruntez le matériel dont vous avez besoin</h2>
         </div>
@@ -13,14 +13,10 @@
             <input type="text" name="recherche" id="recherche" class="intro-recherche-champ" placeholder="Ordinateur, tablette ...">
             <input type="submit" value="Rechercher" class="intro-recherche-bouton">
         </form>
+    </section>
 
-    </div>
-</section>
-
-<!-- LISTE DES CATEGORIES -->
-<section class="categorie-section">
-    <div class="container">
-
+    <!-- LISTE DES CATEGORIES -->
+    <section class="categorie-section">
         <div class="list-categorie">
             <?php foreach($listCategorie as $categorie): ?>
                 <a href="/user/categorie/<?php echo $categorie['id_categorie']; ?>" class="carte-categorie carte-categorie-<?php echo $categorie['id_categorie']; ?>">
@@ -29,6 +25,6 @@
                 </a>
             <?php endforeach; ?>
         </div>
+    </section>
 
-    </div>
-</section>
+</main>

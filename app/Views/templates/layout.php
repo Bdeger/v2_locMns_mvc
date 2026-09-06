@@ -10,51 +10,45 @@
 
     <title><?php echo $title ?? 'LOC MNS'; ?></title>
 
+    <!-- styles communs à toutes les pages -->
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/navigation.css">
     <script src="/js/script.js" defer></script>
 
     <!-- ===== COTE ADMIN ===== -->
 
     <?php if(isset($dashboard) && $dashboard): ?>
-        <link rel="stylesheet" href="/css/admin/sidebar.css">
         <link rel="stylesheet" href="/css/admin/dashboard.css">
     <?php endif; ?>
 
     <?php if(isset($materielPage) && $materielPage): ?>
-        <link rel="stylesheet" href="/css/admin/sidebar.css">
         <link rel="stylesheet" href="/css/admin/materiel.css">
     <?php endif; ?>
 
     <?php if(isset($membrePage) && $membrePage): ?>
-        <link rel="stylesheet" href="/css/admin/sidebar.css">
         <link rel="stylesheet" href="/css/admin/materiel.css">
         <link rel="stylesheet" href="/css/admin/membre.css">
     <?php endif; ?>
 
     <?php if(isset($empruntPage) && $empruntPage): ?>
-        <link rel="stylesheet" href="/css/admin/sidebar.css">
         <link rel="stylesheet" href="/css/admin/emprunts.css">
     <?php endif; ?>
 
     <!-- ===== COTE EMPRUNTEUR ===== -->
 
     <?php if(isset($accueil) && $accueil): ?>
-        <link rel="stylesheet" href="/css/user/navbar.css">
         <link rel="stylesheet" href="/css/user/accueil.css">
     <?php endif; ?>
 
     <?php if(isset($categorie) && $categorie): ?>
-        <link rel="stylesheet" href="/css/user/navbar.css">
         <link rel="stylesheet" href="/css/user/categorie.css">
     <?php endif; ?>
 
     <?php if(isset($demande) && $demande): ?>
-        <link rel="stylesheet" href="/css/user/navbar.css">
         <link rel="stylesheet" href="/css/user/demander.css">
     <?php endif; ?>
 
     <?php if(isset($mesEmprunts) && $mesEmprunts): ?>
-        <link rel="stylesheet" href="/css/user/navbar.css">
         <link rel="stylesheet" href="/css/user/mesEmprunts.css">
     <?php endif; ?>
 
