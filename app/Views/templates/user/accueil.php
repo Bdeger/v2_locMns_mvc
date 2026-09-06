@@ -1,5 +1,14 @@
 <?php include __DIR__ . "/navbar.php"; ?>
 
+<?php
+$icones = [
+    1 => 'ti-device-laptop',
+    2 => 'ti-device-ipad',
+    3 => 'ti-device-desktop',
+    4 => 'ti-mouse'
+];
+?>
+
 <main>
     <?php include __DIR__ . "/../messages.php"; ?>
 
@@ -20,6 +29,7 @@
         <div class="list-categorie">
             <?php foreach($listCategorie as $categorie): ?>
                 <a href="/user/categorie/<?php echo $categorie['id_categorie']; ?>" class="carte-categorie carte-categorie-<?php echo $categorie['id_categorie']; ?>">
+                    <i class="ti <?php echo $icones[$categorie['id_categorie']] ?? 'ti-package'; ?>"></i>
                     <h3><?php echo htmlspecialchars($categorie['nom']); ?></h3>
                     <p><?php echo $categorie['nb_disponibles']; ?> disponible<?php echo $categorie['nb_disponibles'] > 1 ? 's' : ''; ?></p>
                 </a>
@@ -27,4 +37,39 @@
         </div>
     </section>
 
+        <!-- MES DEMANDES EN COURS -->
+    <?php if(!empty($mesDemandes)): ?>
+        <section class="mes-demandes">
+
+            <div class="mes-demandes-header">
+                <h3>Vos demandes récentes</h3>
+                <a href="/user/mesEmprunts" class="btn-voir-tout">Voir tout</a>
+            </div>
+
+            <?php foreach($mesDemandes as $demande): ?>
+                <article class="demande-ligne demande-ligne-<?php echo $demande['id_status_emprunt']; ?>">
+                    <div>
+                        <p class="demande-materiel">
+                            <?php if(!empty($demande['nom_materiel'])): ?>
+                                <?php echo htmlspecialchars($demande['nom_materiel']); ?>
+                            <?php else: ?>
+                                <?php echo htmlspecialchars($demande['nom_categorie']); ?>
+                            <?php endif; ?>
+                        </p>
+                        <p class="demande-dates">
+                            <i class="ti ti-calendar"></i>
+                            <?php echo date('d/m/Y', strtotime($demande['date_debut_souhaitee'])); ?>
+                            &rarr;
+                            <?php echo date('d/m/Y', strtotime($demande['date_fin_souhaitee'])); ?>
+                        </p>
+                    </div>
+
+                    <span class="status status-<?php echo $demande['id_status_emprunt']; ?>">
+                        <?php echo htmlspecialchars($demande['nom_status']); ?>
+                    </span>
+                </article>
+            <?php endforeach; ?>
+
+        </section>
+    <?php endif; ?>
 </main>

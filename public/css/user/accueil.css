@@ -94,6 +94,13 @@
   transform: translateY(-2px);
 }
 
+.carte-categorie i {
+  display: block;
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
 .carte-categorie h3 {
   margin: 0 0 4px;
   font-size: 0.9rem;
@@ -107,10 +114,115 @@
   color: rgba(0, 0, 0, 0.7);
 }
 
-.carte-categorie-1 { background-color: #4fa8d8; }
-.carte-categorie-2 { background-color: #7ec77e; }
-.carte-categorie-3 { background-color: #d9c94a; }
-.carte-categorie-4 { background-color: #e8636b; }
+.carte-categorie-1 {
+  background-color: #4fa8d8;
+}
+
+.carte-categorie-2 {
+  background-color: #7ec77e;
+}
+
+.carte-categorie-3 {
+  background-color: #d9c94a;
+}
+
+.carte-categorie-4 {
+  background-color: #e8636b;
+}
+
+/* ==================== */
+/* MES DEMANDES         */
+/* ==================== */
+
+.mes-demandes {
+  padding: 0 20px 20px;
+}
+
+.mes-demandes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.mes-demandes-header h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgb(30, 30, 30);
+}
+
+.btn-voir-tout {
+  text-decoration: none;
+  font-size: 0.8rem;
+  color: #ff6400;
+  border: 1px solid rgba(255, 100, 0, 0.3);
+  padding: 4px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+.btn-voir-tout:hover {
+  background-color: rgb(255, 240, 230);
+}
+
+.demande-ligne {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  border-left-width: 5px;
+  border-left-style: solid;
+  border-left-color: #cccccc;
+  border-radius: 0 8px 8px 0;
+}
+
+.demande-ligne-1 {
+  border-left-color: #d99100;
+  background-color: #fdf0da;
+}
+
+.demande-ligne-2 {
+  border-left-color: #185fa5;
+  background-color: #e3eefa;
+}
+
+.demande-ligne-3 {
+  border-left-color: #a32d2d;
+  background-color: #fbe3e3;
+}
+
+.demande-ligne-4 {
+  border-left-color: #3b6d11;
+  background-color: #e8f2dc;
+}
+
+.demande-ligne-5 {
+  border-left-color: #888780;
+  background-color: #efedea;
+  opacity: 0.8;
+}
+
+.demande-materiel {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgb(30, 30, 30);
+}
+
+.demande-dates {
+  margin: 3px 0 0;
+  font-size: 0.75rem;
+  color: rgb(110, 110, 110);
+}
+
+.demande-dates i {
+  margin-right: 4px;
+}
 
 /* ==================== */
 /* DESKTOP              */
@@ -127,12 +239,19 @@
   }
 
   .categorie-section {
-    padding: 40px 24px;
+    width: 100%;
     max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px 24px;
   }
 
   .carte-categorie {
-    padding: 60px 20px;
+    padding: 40px 20px;
+  }
+
+  .carte-categorie i {
+    font-size: 2.8rem;
   }
 
   .carte-categorie h3 {
@@ -141,5 +260,13 @@
 
   .carte-categorie p {
     font-size: 0.9rem;
+  }
+
+  .mes-demandes{
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 24px 40px;
   }
 }

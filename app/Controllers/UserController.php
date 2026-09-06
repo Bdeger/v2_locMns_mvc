@@ -15,15 +15,25 @@ class UserController extends Controller{
 
         $listMateriel = new MaterielManager();
         $materiel = $listMateriel -> getAllMateriel();
+
         $listCategorie = new CategorieManager();
         $categorie = $listCategorie -> getCategoriesAvecCompte();
+
+        // les 3 dernieres demandes de l'utilisateur
+        $empruntManager = new EmpruntManager();
+        $mesDemandes = array_slice(
+            $empruntManager -> getEmpruntsByUser($_SESSION['user']['id']), 0 ,3
+        );
+
         $this -> view -> render('user/accueil',[
             'title' => "Votre Espace",
             'listMateriel' =>$materiel,
             'listCategorie'=> $categorie,
+            'mesDemandes' => $mesDemandes,
             "accueil" => true 
         ]);
     }
+    
     public function categorie($id):void{
         $this -> checkAuth(); //sécurité 
 
