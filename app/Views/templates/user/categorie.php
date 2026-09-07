@@ -40,6 +40,8 @@ $icone = $icones[$categorieInfo['id_categorie']] ?? 'ti-package';
 
             <input type="submit" value="Voir les disponibilités" class="periode-bouton">
         </form>
+
+        <p id="message-date" class="periode-erreur"></p>
     </section>
 
     <!-- LISTE DES MATERIELS DISPONIBLES -->

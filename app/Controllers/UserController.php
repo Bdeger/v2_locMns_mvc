@@ -1,7 +1,7 @@
 <?php
-// app/Controllers/UserController.php 
+// app/Controllers/UserController.php
 
-// Dashboard """emprunteur""" 
+// Espace emprunteur
 
 require_once __DIR__ . "/../Views/View.php";
 require_once __DIR__ . "/Controller.php";
@@ -42,31 +42,52 @@ class UserController extends Controller{
             "accueil" => true
         ]);
     }
-    
-    public function categorie($id):void{
-        $this -> checkAuth(); //sécurité 
 
-        $dateDebut = $_GET['date_debut']?? date('Y-m-d');
+    public function categorie($id): void{
+        $this->checkAuth(); //sécurité
+
+        $dateDebut = $_GET['date_debut'] ?? date('Y-m-d');
         $dateFin = $_GET['date_fin'] ?? date('Y-m-d', strtotime('+7 days'));
 
+        // sécurité : si les dates sont incohérentes, on revient aux valeurs par défaut
+        if(strtotime($dateFin) < strtotime($dateDebut)){
+            $_SESSION['erreur'] = "La date de fin doit être après la date de début.";
+            $dateDebut = date('Y-m-d');
+            $dateFin = date('Y-m-d', strtotime('+7 days'));
+        }
+
+        // sécurité : la date de début ne peut pas être dans le passé
+        if(strtotime($dateDebut) < strtotime(date('Y-m-d'))){
+            $_SESSION['erreur'] = "La date de début ne peut pas être dans le passé.";
+            $dateDebut = date('Y-m-d');
+            $dateFin = date('Y-m-d', strtotime('+7 days'));
+        }
+
         $materielManager = new MaterielManager();
-        $materielDispo = $materielManager -> getMaterielDisponibleParCategorie($id, $dateDebut, $dateFin);
+        $materielDispo = $materielManager->getMaterielDisponibleParCategorie($id, $dateDebut, $dateFin);
 
         $categorieManager = new CategorieManager();
-        $categorieInfo = $categorieManager -> getCategorieById($id);
-        
-        $this -> view -> render('user/categorie',[
-            'title' => 'Matériel Disponible',
+        $categorieInfo = $categorieManager->getCategorieById($id);
+
+        // sécurité : la catégorie doit exister
+        if(empty($categorieInfo)){
+            $_SESSION['erreur'] = "Cette catégorie n'existe pas.";
+            header('Location: /user/accueil');
+            exit;
+        }
+
+        $this->view->render('user/categorie',[
+            'title' => 'Matériel disponible',
             'listMateriel' => $materielDispo,
             'dateDebut' => $dateDebut,
-            'dateFin' => $dateFin, 
+            'dateFin' => $dateFin,
             'categorieInfo' => $categorieInfo,
             'categorie' => true
         ]);
     }
-    
+
     public function mesEmprunts(): void{
-        $this -> checkAuth(); //sécurité
+        $this->checkAuth(); //sécurité
 
         $idUtilisateur = $_SESSION['user']['id'];
 
@@ -80,8 +101,3 @@ class UserController extends Controller{
         ]);
     }
 }
-
-
-
-
-

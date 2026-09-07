@@ -128,6 +128,16 @@
   background-color: #2531de;
 }
 
+.periode-erreur {
+  display: none;
+  margin: 8px 0 0;
+  padding: 8px 12px;
+  font-size: 0.78rem;
+  color: #a32d2d;
+  background-color: #fbe3e3;
+  border-radius: 6px;
+}
+
 /* ==================== */
 /* LISTE DES MATERIELS  */
 /* ==================== */
@@ -277,6 +287,8 @@
 .demande-libre-bouton:hover {
   background-color: rgb(245, 245, 245);
 }
+
+
 
 /* ==================== */
 /* DESKTOP              */
