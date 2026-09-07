@@ -1,60 +1,85 @@
 /*  CSS pour la page MES EMPRUNTS "emprunteur"  */
 
-/* ===== EN-TETE ===== */
+/* ==================== */
+/* EN-TETE              */
+/* ==================== */
 
 .header-mesemprunts {
-  display: flex;
-  width: 100%;
-  justify-content: center;
   padding: 20px;
-  border-bottom: 1px solid rgb(208, 208, 208);
-  background-color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background-color: #ffffff;
 }
 
-.header-mesemprunts .title {
-  text-align: center;
-}
-
-.header-mesemprunts .title h1 {
-  color: rgb(249, 113, 9);
-  font-size: 1.4rem;
-  font-weight: 600;
+.header-mesemprunts h1 {
   margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: rgb(30, 30, 30);
 }
 
-.header-mesemprunts .title p {
-  font-size: 0.85rem;
+.header-mesemprunts p {
+  margin: 4px 0 0;
+  font-size: 0.8rem;
   color: rgb(130, 130, 130);
-  margin-top: 4px;
 }
 
-/* ===== LISTE ===== */
+/* ==================== */
+/* LISTE                */
+/* ==================== */
 
 .mesemprunts-liste {
+  flex: 1;
   padding: 18px 20px;
 }
 
 .mesemprunts-vide {
   padding: 40px 20px;
   text-align: center;
-  color: #888888;
-  font-size: 0.85em;
+  color: rgb(136, 136, 136);
+  font-size: 0.85rem;
 }
 
-/* ===== CARTE ===== */
+/* ==================== */
+/* CARTE                */
+/* ==================== */
 
 .mesemprunts-carte {
-  border: 1px solid #e0e0e0;
-  border-left: 3px solid #cccccc;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-left-width: 5px;
+  border-left-style: solid;
+  border-left-color: #cccccc;
+  border-radius: 0 10px 10px 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   padding: 14px 16px;
   margin-bottom: 10px;
+  background-color: #ffffff;
 }
 
-.mesemprunts-carte-1 { border-left-color: #d99100; }
-.mesemprunts-carte-2 { border-left-color: #185fa5; }
-.mesemprunts-carte-3 { border-left-color: #a32d2d; }
-.mesemprunts-carte-4 { border-left-color: #3b6d11; }
-.mesemprunts-carte-5 { border-left-color: #888780; opacity: 0.7; }
+.mesemprunts-carte-1 {
+  border-left-color: #d99100;
+  background-color: #fdf0da;
+}
+
+.mesemprunts-carte-2 {
+  border-left-color: #185fa5;
+  background-color: #e3eefa;
+}
+
+.mesemprunts-carte-3 {
+  border-left-color: #a32d2d;
+  background-color: #fbe3e3;
+}
+
+.mesemprunts-carte-4 {
+  border-left-color: #3b6d11;
+  background-color: #e8f2dc;
+}
+
+.mesemprunts-carte-5 {
+  border-left-color: #888780;
+  background-color: #efedea;
+  opacity: 0.8;
+}
 
 .mesemprunts-carte-haut {
   display: flex;
@@ -65,63 +90,69 @@
 
 .mesemprunts-carte-titre {
   margin: 0;
-  font-size: 0.95em;
+  font-size: 0.95rem;
   font-weight: 500;
-  color: #1a1a1a;
+  color: rgb(30, 30, 30);
 }
 
 .mesemprunts-attente-assign {
   display: inline-block;
-  background-color: #faeeda;
+  background-color: #ffffff;
   color: #854f0b;
   border-radius: 4px;
   padding: 2px 7px;
-  font-size: 0.7em;
+  font-size: 0.7rem;
   font-weight: 400;
   margin-left: 4px;
 }
 
 .mesemprunts-carte-dates {
   margin: 0 0 3px;
-  font-size: 0.8em;
-  color: #555555;
-}
-
-.mesemprunts-carte-demande {
-  margin: 0;
-  font-size: 0.72em;
-  color: #999999;
+  font-size: 0.8rem;
+  color: rgb(85, 85, 85);
 }
 
 .mesemprunts-carte-dates i {
   margin-right: 4px;
 }
 
-/* ===== BADGE ===== */
+.mesemprunts-carte-demande {
+  margin: 0;
+  font-size: 0.72rem;
+  color: rgb(140, 140, 140);
+}
+
+/* ==================== */
+/* BADGE                */
+/* ==================== */
 
 .mesemprunts-badge {
   flex-shrink: 0;
   border-radius: 20px;
   padding: 3px 10px;
-  font-size: 0.7em;
+  font-size: 0.7rem;
+  font-weight: 600;
   white-space: nowrap;
   margin-left: 10px;
+  background-color: #ffffff;
 }
 
-.mesemprunts-badge-1 { background-color: #faeeda; color: #854f0b; }
-.mesemprunts-badge-2 { background-color: #e6f1fb; color: #0c447c; }
-.mesemprunts-badge-3 { background-color: #fcebeb; color: #a32d2d; }
-.mesemprunts-badge-4 { background-color: #eaf3de; color: #3b6d11; }
-.mesemprunts-badge-5 { background-color: #f1efe8; color: #5f5e5a; }
+.mesemprunts-badge-1 { color: #854f0b; }
+.mesemprunts-badge-2 { color: #0c447c; }
+.mesemprunts-badge-3 { color: #a32d2d; }
+.mesemprunts-badge-4 { color: #3b6d11; }
+.mesemprunts-badge-5 { color: #5f5e5a; }
 
-/* ===== INFOS COMPLEMENTAIRES ===== */
+/* ==================== */
+/* INFOS COMPLEMENTAIRES*/
+/* ==================== */
 
 .mesemprunts-info {
   margin: 10px 0 0;
   padding: 8px 10px;
-  font-size: 0.75em;
-  background-color: #f5f5f5;
-  color: #555555;
+  font-size: 0.75rem;
+  background-color: #ffffff;
+  color: rgb(85, 85, 85);
   border-radius: 6px;
 }
 
@@ -130,41 +161,28 @@
 }
 
 .mesemprunts-info-ok {
-  background-color: #e6f1fb;
   color: #0c447c;
 }
 
 .mesemprunts-info-refus {
-  background-color: #fcebeb;
   color: #a32d2d;
 }
 
-/* ===== DESKTOP ===== */
+/* ==================== */
+/* DESKTOP              */
+/* ==================== */
 
 @media screen and (min-width: 1024px) {
 
   .header-mesemprunts {
-    margin-left: 220px;
-    justify-content: flex-start;
-    background-color: #16135e;
-    border-bottom: none;
-  }
-
-  .header-mesemprunts .title {
-    text-align: left;
-  }
-
-  .header-mesemprunts .title h1 {
-    color: #ffffff;
-  }
-
-  .header-mesemprunts .title p {
-    color: rgba(255, 255, 255, 0.7);
+    padding: 24px;
   }
 
   .mesemprunts-liste {
-    margin-left: 220px;
-    padding-left: 30px;
-    padding-right: 30px;
+    width: 100%;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 24px;
   }
 }

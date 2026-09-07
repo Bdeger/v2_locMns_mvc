@@ -1,16 +1,19 @@
 /*  CSS pour la page CATEGORIE "emprunteur"  */
 
-/* ===== EN-TETE ===== */
+/* ==================== */
+/* EN-TETE              */
+/* ==================== */
 
 .header-categorie {
   padding: 20px;
-  border-left: 6px solid;
+  border-left-width: 6px;
+  border-left-style: solid;
 }
 
 .header-categorie-retour {
   display: inline-block;
-  font-size: 0.75em;
-  color: #555555;
+  font-size: 0.75rem;
+  color: rgb(85, 85, 85);
   text-decoration: none;
   margin-bottom: 7px;
 }
@@ -21,39 +24,57 @@
 
 .header-categorie-titre {
   margin: 0;
-  font-size: 1.3em;
-  color: #1a1a1a;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: rgb(30, 30, 30);
 }
 
 .header-categorie-description {
   margin: 4px 0 0;
-  font-size: 0.8em;
-  color: #555555;
+  font-size: 0.8rem;
+  color: rgb(85, 85, 85);
 }
 
-.header-categorie-1 { background-color: #eaf4fa; border-left-color: #4fa8d8; }
-.header-categorie-2 { background-color: #eef7ee; border-left-color: #7ec77e; }
-.header-categorie-3 { background-color: #faf7e6; border-left-color: #d9c94a; }
-.header-categorie-4 { background-color: #fdeced; border-left-color: #e8636b; }
+.header-categorie-1 {
+  background-color: #eaf4fa;
+  border-left-color: #4fa8d8;
+}
 
-/* ===== PERIODE ===== */
+.header-categorie-2 {
+  background-color: #eef7ee;
+  border-left-color: #7ec77e;
+}
+
+.header-categorie-3 {
+  background-color: #faf7e6;
+  border-left-color: #d9c94a;
+}
+
+.header-categorie-4 {
+  background-color: #fdeced;
+  border-left-color: #e8636b;
+}
+
+/* ==================== */
+/* PERIODE              */
+/* ==================== */
 
 .periode {
   padding: 16px 20px;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background-color: #ffffff;
 }
 
 .periode-titre {
   margin: 0 0 10px;
-  font-size: 0.85em;
+  font-size: 0.85rem;
   font-weight: 500;
-  color: #1a1a1a;
+  color: rgb(30, 30, 30);
 }
 
 .periode-form {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
   align-items: flex-end;
 }
 
@@ -62,11 +83,13 @@
   min-width: 130px;
   display: flex;
   flex-direction: column;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 .periode-champ-label {
-  font-size: 0.7em;
-  color: #555555;
+  font-size: 0.7rem;
+  color: rgb(85, 85, 85);
   margin-bottom: 4px;
 }
 
@@ -75,8 +98,14 @@
   border-radius: 6px;
   padding: 9px 11px;
   font-family: inherit;
-  font-size: 0.85em;
-  color: #1a1a1a;
+  font-size: 0.85rem;
+  color: rgb(30, 30, 30);
+  background-color: #ffffff;
+}
+
+.periode-champ-input:focus {
+  outline: none;
+  border-color: #1e3fd8;
 }
 
 .periode-bouton {
@@ -87,48 +116,58 @@
   border-radius: 6px;
   padding: 11px 20px;
   font-family: inherit;
-  font-size: 0.85em;
+  font-size: 0.85rem;
+  font-weight: 500;
   cursor: pointer;
   white-space: nowrap;
+  margin-bottom: 10px;
+  transition: background-color 0.2s;
 }
 
 .periode-bouton:hover {
   background-color: #2531de;
 }
 
-/* ===== LISTE DES MATERIELS ===== */
+/* ==================== */
+/* LISTE DES MATERIELS  */
+/* ==================== */
 
 .materiel-liste {
+  flex: 1;
   padding: 18px 20px;
 }
 
 .materiel-liste-compte {
   margin: 0 0 13px;
-  font-size: 0.85em;
-  color: #555555;
+  font-size: 0.85rem;
+  color: rgb(85, 85, 85);
 }
 
 .materiel-liste-compte strong {
-  color: #1a1a1a;
-  font-weight: 500;
+  color: rgb(30, 30, 30);
+  font-weight: 600;
 }
 
 .materiel-liste-vide {
   padding: 30px 20px;
   text-align: center;
-  color: #888888;
-  font-size: 0.85em;
+  color: rgb(136, 136, 136);
+  font-size: 0.85rem;
 }
 
-/* ===== CARTE MATERIEL ===== */
+/* ==================== */
+/* CARTE MATERIEL       */
+/* ==================== */
 
 .materiel-carte {
   display: flex;
   align-items: center;
-  border: 1px solid #e0e0e0;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   padding: 13px 14px;
   margin-bottom: 8px;
+  background-color: #ffffff;
 }
 
 .materiel-carte-icone {
@@ -142,7 +181,7 @@
   flex-shrink: 0;
   margin-right: 12px;
   color: #185fa5;
-  font-size: 1.2em;
+  font-size: 1.2rem;
 }
 
 .materiel-carte-infos {
@@ -152,15 +191,15 @@
 
 .materiel-carte-nom {
   margin: 0 0 3px;
-  font-size: 0.9em;
+  font-size: 0.9rem;
   font-weight: 500;
-  color: #1a1a1a;
+  color: rgb(30, 30, 30);
 }
 
 .materiel-carte-detail {
   margin: 0;
-  font-size: 0.78em;
-  color: #555555;
+  font-size: 0.78rem;
+  color: rgb(85, 85, 85);
 }
 
 .materiel-carte-bouton {
@@ -169,16 +208,21 @@
   color: #ffffff;
   border-radius: 6px;
   padding: 9px 18px;
-  font-size: 0.78em;
+  font-size: 0.78rem;
+  font-weight: 500;
   text-decoration: none;
   white-space: nowrap;
+  margin-left: 10px;
+  transition: background-color 0.2s;
 }
 
 .materiel-carte-bouton:hover {
   background-color: #2531de;
 }
 
-/* ===== ENCART SANS PREFERENCE ===== */
+/* ==================== */
+/* ENCART SANS PREFERENCE */
+/* ==================== */
 
 .demande-libre {
   display: flex;
@@ -186,15 +230,15 @@
   border: 1px dashed #cccccc;
   border-radius: 12px;
   padding: 15px 16px;
-  background-color: #f7f7f7;
+  background-color: #ffffff;
   margin-top: 16px;
 }
 
 .demande-libre-icone {
   flex-shrink: 0;
   margin-right: 12px;
-  font-size: 1.4em;
-  color: #888888;
+  font-size: 1.4rem;
+  color: rgb(136, 136, 136);
 }
 
 .demande-libre-infos {
@@ -204,54 +248,59 @@
 
 .demande-libre-titre {
   margin: 0 0 2px;
-  font-size: 0.85em;
+  font-size: 0.85rem;
   font-weight: 500;
-  color: #1a1a1a;
+  color: rgb(30, 30, 30);
 }
 
 .demande-libre-texte {
   margin: 0;
-  font-size: 0.78em;
-  color: #555555;
+  font-size: 0.78rem;
+  color: rgb(85, 85, 85);
 }
 
 .demande-libre-bouton {
   flex-shrink: 0;
   background-color: #ffffff;
-  color: #1a1a1a;
+  color: rgb(30, 30, 30);
   border: 1px solid #cccccc;
   border-radius: 6px;
   padding: 9px 18px;
-  font-size: 0.78em;
+  font-size: 0.78rem;
+  font-weight: 500;
   text-decoration: none;
   white-space: nowrap;
+  margin-left: 10px;
+  transition: background-color 0.2s;
 }
 
 .demande-libre-bouton:hover {
-  background-color: #f0f0f0;
+  background-color: rgb(245, 245, 245);
 }
 
-/* ===== DESKTOP ===== */
+/* ==================== */
+/* DESKTOP              */
+/* ==================== */
 
 @media screen and (min-width: 1024px) {
 
-  /* le bandeau prend toute la largeur disponible à droite de la sidebar */
   .header-categorie {
-    margin-left: 220px;
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-
-  /* le contenu est centré dans cet espace */
-  .periode,
-  .materiel-liste {
-    margin-left: 220px;
-    max-width: 900px;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding: 24px;
   }
 
   .header-categorie-titre {
-    font-size: 1.6em;
+    font-size: 1.6rem;
+  }
+
+  .periode {
+    padding: 20px 24px;
+  }
+
+  .materiel-liste {
+    width: 100%;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 24px;
   }
 }

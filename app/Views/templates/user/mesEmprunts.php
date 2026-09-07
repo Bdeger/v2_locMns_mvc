@@ -1,76 +1,78 @@
 <?php include __DIR__ . "/navbar.php"; ?>
-<?php include __DIR__ . "/../messages.php"; ?>
 
-<header class="header-mesemprunts">
-    <div class="title">
+<main>
+    <?php include __DIR__ . "/../messages.php"; ?>
+
+    <header class="header-mesemprunts">
         <h1>Mes emprunts</h1>
         <p>Suivez l'état de vos demandes</p>
-    </div>
-</header>
+    </header>
 
-<section class="mesemprunts-liste">
+    <section class="mesemprunts-liste">
 
-    <?php if(empty($emprunts)): ?>
+        <?php if(empty($emprunts)): ?>
 
-        <p class="mesemprunts-vide">Vous n'avez encore fait aucune demande.</p>
+            <p class="mesemprunts-vide">Vous n'avez encore fait aucune demande.</p>
 
-    <?php else: ?>
+        <?php else: ?>
 
-        <?php foreach($emprunts as $emprunt): ?>
+            <?php foreach($emprunts as $emprunt): ?>
 
-            <article class="mesemprunts-carte mesemprunts-carte-<?php echo $emprunt['id_status_emprunt']; ?>">
+                <article class="mesemprunts-carte mesemprunts-carte-<?php echo $emprunt['id_status_emprunt']; ?>">
 
-                <div class="mesemprunts-carte-haut">
-                    <p class="mesemprunts-carte-titre">
-                        <?php if(!empty($emprunt['nom_materiel'])): ?>
-                            <?php echo htmlspecialchars($emprunt['nom_materiel']); ?>
-                        <?php else: ?>
-                            <?php echo htmlspecialchars($emprunt['nom_categorie']); ?>
-                            <span class="mesemprunts-attente-assign">en attente d'attribution</span>
-                        <?php endif; ?>
+                    <div class="mesemprunts-carte-haut">
+                        <p class="mesemprunts-carte-titre">
+                            <?php if(!empty($emprunt['nom_materiel'])): ?>
+                                <?php echo htmlspecialchars($emprunt['nom_materiel']); ?>
+                            <?php else: ?>
+                                <?php echo htmlspecialchars($emprunt['nom_categorie']); ?>
+                                <span class="mesemprunts-attente-assign">en attente d'attribution</span>
+                            <?php endif; ?>
+                        </p>
+
+                        <span class="mesemprunts-badge mesemprunts-badge-<?php echo $emprunt['id_status_emprunt']; ?>">
+                            <?php echo htmlspecialchars($emprunt['nom_status']); ?>
+                        </span>
+                    </div>
+
+                    <p class="mesemprunts-carte-dates">
+                        <i class="ti ti-calendar"></i>
+                        <?php echo date('d/m/Y', strtotime($emprunt['date_debut_souhaitee'])); ?>
+                        &rarr;
+                        <?php echo date('d/m/Y', strtotime($emprunt['date_fin_souhaitee'])); ?>
                     </p>
 
-                    <span class="mesemprunts-badge mesemprunts-badge-<?php echo $emprunt['id_status_emprunt']; ?>">
-                        <?php echo htmlspecialchars($emprunt['nom_status']); ?>
-                    </span>
-                </div>
-
-                <p class="mesemprunts-carte-dates">
-                    <i class="ti ti-calendar"></i>
-                    <?php echo date('d/m/Y', strtotime($emprunt['date_debut_souhaitee'])); ?>
-                    &rarr;
-                    <?php echo date('d/m/Y', strtotime($emprunt['date_fin_souhaitee'])); ?>
-                </p>
-
-                <p class="mesemprunts-carte-demande">
-                    Demandé le <?php echo date('d/m/Y', strtotime($emprunt['date_demande'])); ?>
-                </p>
-
-                <?php if($emprunt['id_status_emprunt'] == 2 && !empty($emprunt['localisation'])): ?>
-                    <p class="mesemprunts-info mesemprunts-info-ok">
-                        <i class="ti ti-map-pin"></i>
-                        À récupérer en <?php echo htmlspecialchars($emprunt['localisation']); ?>
+                    <p class="mesemprunts-carte-demande">
+                        Demandé le <?php echo date('d/m/Y', strtotime($emprunt['date_demande'])); ?>
                     </p>
-                <?php endif; ?>
 
-                <?php if($emprunt['id_status_emprunt'] == 3 && !empty($emprunt['motif_refus'])): ?>
-                    <p class="mesemprunts-info mesemprunts-info-refus">
-                        <i class="ti ti-alert-circle"></i>
-                        Motif : <?php echo htmlspecialchars($emprunt['motif_refus']); ?>
-                    </p>
-                <?php endif; ?>
+                    <?php if($emprunt['id_status_emprunt'] == 2 && !empty($emprunt['localisation'])): ?>
+                        <p class="mesemprunts-info mesemprunts-info-ok">
+                            <i class="ti ti-map-pin"></i>
+                            À récupérer en <?php echo htmlspecialchars($emprunt['localisation']); ?>
+                        </p>
+                    <?php endif; ?>
 
-                <?php if($emprunt['id_status_emprunt'] == 5 && !empty($emprunt['date_retour_reel'])): ?>
-                    <p class="mesemprunts-info">
-                        <i class="ti ti-check"></i>
-                        Rendu le <?php echo date('d/m/Y', strtotime($emprunt['date_retour_reel'])); ?>
-                    </p>
-                <?php endif; ?>
+                    <?php if($emprunt['id_status_emprunt'] == 3 && !empty($emprunt['motif_refus'])): ?>
+                        <p class="mesemprunts-info mesemprunts-info-refus">
+                            <i class="ti ti-alert-circle"></i>
+                            Motif : <?php echo htmlspecialchars($emprunt['motif_refus']); ?>
+                        </p>
+                    <?php endif; ?>
 
-            </article>
+                    <?php if($emprunt['id_status_emprunt'] == 5 && !empty($emprunt['date_retour_reel'])): ?>
+                        <p class="mesemprunts-info">
+                            <i class="ti ti-check"></i>
+                            Rendu le <?php echo date('d/m/Y', strtotime($emprunt['date_retour_reel'])); ?>
+                        </p>
+                    <?php endif; ?>
 
-        <?php endforeach; ?>
+                </article>
 
-    <?php endif; ?>
+            <?php endforeach; ?>
 
-</section>
+        <?php endif; ?>
+
+    </section>
+
+</main>

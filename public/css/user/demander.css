@@ -1,14 +1,18 @@
 /*  CSS pour la page CONFIRMATION de demande  */
 
 .confirmation {
+  flex: 1;
   padding: 20px;
+  width: 100%;
   max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .confirmation-retour {
   display: inline-block;
-  font-size: 0.75em;
-  color: #555555;
+  font-size: 0.75rem;
+  color: rgb(85, 85, 85);
   text-decoration: none;
   margin-bottom: 10px;
 }
@@ -19,28 +23,33 @@
 
 .confirmation-titre {
   margin: 0 0 4px;
-  font-size: 1.3em;
-  color: #1a1a1a;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: rgb(30, 30, 30);
 }
 
 .confirmation-soustitre {
   margin: 0 0 20px;
-  font-size: 0.85em;
-  color: #555555;
+  font-size: 0.85rem;
+  color: rgb(85, 85, 85);
 }
 
-/* ===== RECAPITULATIF ===== */
+/* ==================== */
+/* RECAPITULATIF        */
+/* ==================== */
 
 .recap {
-  border: 1px solid #e0e0e0;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   overflow: hidden;
   margin-bottom: 16px;
+  background-color: #ffffff;
 }
 
 .recap-ligne {
   padding: 14px;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .recap-ligne:last-child {
@@ -53,58 +62,63 @@
 
 .recap-bloc {
   flex: 1;
+  min-width: 0;
 }
 
 .recap-label {
   margin: 0 0 3px;
-  font-size: 0.7em;
-  color: #888888;
+  font-size: 0.7rem;
+  color: rgb(136, 136, 136);
   text-transform: uppercase;
   letter-spacing: 0.4px;
 }
 
 .recap-valeur {
   margin: 0 0 2px;
-  font-size: 0.9em;
+  font-size: 0.9rem;
   font-weight: 500;
-  color: #1a1a1a;
+  color: rgb(30, 30, 30);
 }
 
 .recap-detail {
   margin: 0;
-  font-size: 0.78em;
-  color: #555555;
+  font-size: 0.78rem;
+  color: rgb(85, 85, 85);
 }
 
-/* ===== AVERTISSEMENT ===== */
+/* ==================== */
+/* AVERTISSEMENT        */
+/* ==================== */
 
 .avertissement {
   display: flex;
   align-items: flex-start;
-  background-color: #faeeda;
+  background-color: #fdf0da;
   border-radius: 8px;
   padding: 12px 14px;
   margin-bottom: 20px;
 }
 
 .avertissement i {
+  flex-shrink: 0;
   margin-right: 8px;
   color: #854f0b;
-  font-size: 1.1em;
+  font-size: 1.1rem;
 }
 
 .avertissement p {
   margin: 0;
-  font-size: 0.78em;
+  font-size: 0.78rem;
   color: #854f0b;
   line-height: 1.5;
 }
 
-/* ===== BOUTONS ===== */
+/* ==================== */
+/* BOUTONS              */
+/* ==================== */
 
 .confirmation-form {
   display: flex;
-  gap: 10px;
 }
 
 .confirmation-annuler {
@@ -113,13 +127,17 @@
   border: 1px solid #cccccc;
   border-radius: 6px;
   padding: 12px 0;
-  font-size: 0.85em;
-  color: #555555;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgb(85, 85, 85);
   text-decoration: none;
+  background-color: #ffffff;
+  margin-right: 10px;
+  transition: background-color 0.2s;
 }
 
 .confirmation-annuler:hover {
-  background-color: #f0f0f0;
+  background-color: rgb(240, 240, 240);
 }
 
 .confirmation-envoyer {
@@ -130,20 +148,23 @@
   border-radius: 6px;
   padding: 12px 0;
   font-family: inherit;
-  font-size: 0.85em;
+  font-size: 0.85rem;
+  font-weight: 500;
   cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 .confirmation-envoyer:hover {
   background-color: #2531de;
 }
 
-/* ===== DESKTOP ===== */
+/* ==================== */
+/* DESKTOP              */
+/* ==================== */
 
 @media screen and (min-width: 1024px) {
+
   .confirmation {
-    margin-left: auto;
-    margin-right: auto;
-    padding: 30px 20px;
+    padding: 40px 20px;
   }
 }
