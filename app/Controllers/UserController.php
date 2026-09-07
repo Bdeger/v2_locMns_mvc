@@ -10,27 +10,36 @@ require_once __DIR__ . "/../Models/CategorieManager.php";
 require_once __DIR__ . "/../Models/EmpruntManager.php";
 
 class UserController extends Controller{
-    public function accueil():void{
-        $this -> checkAuth(); //sécurité 
+
+    public function accueil(): void{
+        $this->checkAuth(); //sécurité
+
+        $recherche = trim($_GET['recherche'] ?? '');
 
         $listMateriel = new MaterielManager();
-        $materiel = $listMateriel -> getAllMateriel();
+
+        // si une recherche est saisie, on filtre
+        $resultats = [];
+        if(!empty($recherche)){
+            $resultats = $listMateriel->rechercherMateriel($recherche);
+        }
 
         $listCategorie = new CategorieManager();
-        $categorie = $listCategorie -> getCategoriesAvecCompte();
+        $categorie = $listCategorie->getCategoriesAvecCompte();
 
-        // les 3 dernieres demandes de l'utilisateur
+        // les 3 dernières demandes de l'utilisateur
         $empruntManager = new EmpruntManager();
         $mesDemandes = array_slice(
-            $empruntManager -> getEmpruntsByUser($_SESSION['user']['id']), 0 ,3
+            $empruntManager->getEmpruntsByUser($_SESSION['user']['id']), 0, 3
         );
 
-        $this -> view -> render('user/accueil',[
+        $this->view->render('user/accueil',[
             'title' => "Votre Espace",
-            'listMateriel' =>$materiel,
-            'listCategorie'=> $categorie,
+            'listCategorie' => $categorie,
             'mesDemandes' => $mesDemandes,
-            "accueil" => true 
+            'recherche' => $recherche,
+            'resultats' => $resultats,
+            "accueil" => true
         ]);
     }
     

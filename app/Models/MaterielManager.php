@@ -112,6 +112,24 @@ class MaterielManager extends Manager{
         ]);
     }
 
+    // barre de recherche Accueil 
+    public function rechercherMateriel(string $terme):array{
+        $stmt = $this -> pdo -> prepare("
+        SELECT m.id_materiel, m.nom, m.modele, m.description, m.id_categorie, m.id_etat_materiel,
+            c.nom AS categorie,
+            em.nom_etat AS etat
+        FROM materiel m
+        INNER JOIN categorie c ON m.id_categorie = c.id_categorie
+        INNER JOIN etat_materiel em ON m.id_etat_materiel = em.id_etat_materiel
+        WHERE m.nom LIKE :terme
+            OR m.modele LIKE :terme
+            OR m.description LIKE :terme
+            OR c.nom LIKE :terme
+        ORDER BY m.nom");
+        $stmt -> execute([':terme' => '%' . $terme . '%']);
+        return $stmt -> fetchAll();
+    }
+
 }
 
 
