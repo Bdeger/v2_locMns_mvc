@@ -17,100 +17,127 @@ clé     statut
         <p class="emprunt-header-compte"><?php echo $compteurs[1]; ?> en attente de traitement</p>
     </header>
 
+    <!-- FILTRES PAR STATUT -->
+    <nav class="emprunt-filtres">
+        <a href="/admin/emprunts" class="filtre filtre-toutes <?php echo empty($filtre) ? 'filtre-actif' : ''; ?>">
+            Toutes · <?php echo $total; ?>
+        </a>
+        <a href="/admin/emprunts?statut=1" class="filtre filtre-1 <?php echo $filtre == 1 ? 'filtre-actif' : ''; ?>">
+            En attente · <?php echo $compteurs[1]; ?>
+        </a>
+        <a href="/admin/emprunts?statut=2" class="filtre filtre-2 <?php echo $filtre == 2 ? 'filtre-actif' : ''; ?>">
+            Validé · <?php echo $compteurs[2]; ?>
+        </a>
+        <a href="/admin/emprunts?statut=3" class="filtre filtre-3 <?php echo $filtre == 3 ? 'filtre-actif' : ''; ?>">
+            Refusé · <?php echo $compteurs[3]; ?>
+        </a>
+        <a href="/admin/emprunts?statut=5" class="filtre filtre-5 <?php echo $filtre == 5 ? 'filtre-actif' : ''; ?>">
+            Terminé · <?php echo $compteurs[5]; ?>
+        </a>
+    </nav>
+
     <section class="emprunt-liste">
 
-        <?php foreach($demandes as $demande): ?>
+        <?php if(empty($demandes)): ?>
 
-            <article class="emprunt-carte emprunt-carte-<?php echo $demande['id_status_emprunt']; ?>">
+            <p class="emprunt-liste-vide">Aucune demande dans cette catégorie.</p>
 
-                <!-- ===== INFOS ===== -->
-                <div class="emprunt-carte-infos">
+        <?php else: ?>
 
-                    <p class="emprunt-carte-titre">
-                        <?php if(!empty($demande['nom_materiel'])): ?>
-                            <?php echo htmlspecialchars($demande['nom_materiel']); ?>
-                        <?php else: ?>
-                            <?php echo htmlspecialchars($demande['nom_categorie']); ?>
-                            <span class="emprunt-carte-assigner">à assigner</span>
-                        <?php endif; ?>
-                    </p>
+            <?php foreach($demandes as $demande): ?>
 
-                    <p class="emprunt-carte-user">
-                        <i class="ti ti-user"></i>
-                        <?php echo htmlspecialchars($demande['prenom_user']); ?>
-                        <?php echo htmlspecialchars($demande['nom_user']); ?>
-                    </p>
+                <article class="emprunt-carte emprunt-carte-<?php echo $demande['id_status_emprunt']; ?>">
 
-                    <p class="emprunt-carte-dates">
-                        <i class="ti ti-calendar"></i>
-                        <?php echo date('d/m/Y', strtotime($demande['date_debut_souhaitee'])); ?>
-                        &rarr;
-                        <?php echo date('d/m/Y', strtotime($demande['date_fin_souhaitee'])); ?>
-                    </p>
+                    <!-- ===== INFOS ===== -->
+                    <div class="emprunt-carte-infos">
 
-                </div>
-
-                <!-- ===== BADGE ===== -->
-                <span class="emprunt-badge emprunt-badge-<?php echo $demande['id_status_emprunt']; ?>">
-                    <?php echo htmlspecialchars($demande['nom_status']); ?>
-                </span>
-
-                <!-- ===== ACTIONS ===== -->
-                <div class="emprunt-actions">
-
-                    <?php if($demande['id_status_emprunt'] == 1): ?>
-
-                        <form action="/admin/valider" method="post" class="emprunt-form">
-
-                            <input type="hidden" name="id_emprunt" value="<?php echo $demande['id_emprunt']; ?>">
-
-                            <?php if(!empty($demande['materiels_dispo'])): ?>
-
-                                <label class="emprunt-label">Assigner un matériel</label>
-                                <select name="id_materiel" class="emprunt-select" required>
-                                    <?php foreach($demande['materiels_dispo'] as $mat): ?>
-                                        <option value="<?php echo $mat['id_materiel']; ?>">
-                                            <?php echo htmlspecialchars($mat['nom']); ?>
-                                            <?php if(!empty($mat['modele'])): ?>
-                                                — <?php echo htmlspecialchars($mat['modele']); ?>
-                                            <?php endif; ?>
-                                        </option>
-                                    <?php endforeach; ?>
-                                </select>
-
+                        <p class="emprunt-carte-titre">
+                            <?php if(!empty($demande['nom_materiel'])): ?>
+                                <?php echo htmlspecialchars($demande['nom_materiel']); ?>
                             <?php else: ?>
-
-                                <input type="hidden" name="id_materiel" value="<?php echo $demande['id_materiel']; ?>">
-
+                                <?php echo htmlspecialchars($demande['nom_categorie']); ?>
+                                <span class="emprunt-carte-assigner">à assigner</span>
                             <?php endif; ?>
+                        </p>
 
-                            <input type="submit" value="Valider" class="emprunt-btn-valider">
-                        </form>
+                        <p class="emprunt-carte-user">
+                            <i class="ti ti-user"></i>
+                            <?php echo htmlspecialchars($demande['prenom_user']); ?>
+                            <?php echo htmlspecialchars($demande['nom_user']); ?>
+                        </p>
 
-                        <form action="/admin/refuser" method="post" class="emprunt-form">
-                            <input type="hidden" name="id_emprunt" value="<?php echo $demande['id_emprunt']; ?>">
-                            <input type="text" name="motif" placeholder="Motif du refus" class="emprunt-motif" required>
-                            <input type="submit" value="Refuser" class="emprunt-btn-refuser">
-                        </form>
+                        <p class="emprunt-carte-dates">
+                            <i class="ti ti-calendar"></i>
+                            <?php echo date('d/m/Y', strtotime($demande['date_debut_souhaitee'])); ?>
+                            &rarr;
+                            <?php echo date('d/m/Y', strtotime($demande['date_fin_souhaitee'])); ?>
+                        </p>
 
-                    <?php endif; ?>
+                    </div>
+
+                    <!-- ===== BADGE ===== -->
+                    <span class="emprunt-badge emprunt-badge-<?php echo $demande['id_status_emprunt']; ?>">
+                        <?php echo htmlspecialchars($demande['nom_status']); ?>
+                    </span>
+
+                    <!-- ===== ACTIONS ===== -->
+                    <div class="emprunt-actions">
+
+                        <?php if($demande['id_status_emprunt'] == 1): ?>
+
+                            <form action="/admin/valider" method="post" class="emprunt-form">
+
+                                <input type="hidden" name="id_emprunt" value="<?php echo $demande['id_emprunt']; ?>">
+
+                                <?php if(!empty($demande['materiels_dispo'])): ?>
+
+                                    <label class="emprunt-label">Assigner un matériel</label>
+                                    <select name="id_materiel" class="emprunt-select" required>
+                                        <?php foreach($demande['materiels_dispo'] as $mat): ?>
+                                            <option value="<?php echo $mat['id_materiel']; ?>">
+                                                <?php echo htmlspecialchars($mat['nom']); ?>
+                                                <?php if(!empty($mat['modele'])): ?>
+                                                    — <?php echo htmlspecialchars($mat['modele']); ?>
+                                                <?php endif; ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+
+                                <?php else: ?>
+
+                                    <input type="hidden" name="id_materiel" value="<?php echo $demande['id_materiel']; ?>">
+
+                                <?php endif; ?>
+
+                                <input type="submit" value="Valider" class="emprunt-btn-valider">
+                            </form>
+
+                            <form action="/admin/refuser" method="post" class="emprunt-form">
+                                <input type="hidden" name="id_emprunt" value="<?php echo $demande['id_emprunt']; ?>">
+                                <input type="text" name="motif" placeholder="Motif du refus" class="emprunt-motif" required>
+                                <input type="submit" value="Refuser" class="emprunt-btn-refuser">
+                            </form>
+
+                        <?php endif; ?>
 
 
-                    <?php if($demande['id_status_emprunt'] == 2): ?>
+                        <?php if($demande['id_status_emprunt'] == 2): ?>
 
-                        <form action="/admin/rendu" method="post" class="emprunt-form">
-                            <input type="hidden" name="id_emprunt" value="<?php echo $demande['id_emprunt']; ?>">
-                            <input type="hidden" name="id_materiel" value="<?php echo $demande['id_materiel']; ?>">
-                            <input type="submit" value="Marquer comme rendu" class="emprunt-btn-rendu">
-                        </form>
+                            <form action="/admin/rendu" method="post" class="emprunt-form">
+                                <input type="hidden" name="id_emprunt" value="<?php echo $demande['id_emprunt']; ?>">
+                                <input type="hidden" name="id_materiel" value="<?php echo $demande['id_materiel']; ?>">
+                                <input type="submit" value="Marquer comme rendu" class="emprunt-btn-rendu">
+                            </form>
 
-                    <?php endif; ?>
+                        <?php endif; ?>
 
-                </div>
+                    </div>
 
-            </article>
+                </article>
 
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+
+        <?php endif; ?>
 
     </section>
 

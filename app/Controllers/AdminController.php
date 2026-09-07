@@ -29,36 +29,52 @@ class AdminController extends Controller{
     }
 
     public function emprunts(): void{
-        $this-> checkAdmin(); //sécurité
+    $this->checkAdmin();
 
-        $empruntManager = new EmpruntManager();
-        $demandes = $empruntManager->getDemandes();
+    $empruntManager = new EmpruntManager();
+    $demandes = $empruntManager->getDemandes();
 
-        $materielManager = new MaterielManager();
+    $materielManager = new MaterielManager();
 
-        // pour chaque demande sans matériel assigné, on prépare la liste des disponibles
-        foreach($demandes as $index => $demande){
-            if(empty($demande['id_materiel']) && !empty($demande['id_categorie'])){
-                $demandes[$index]['materiels_dispo'] = $materielManager->getMaterielDisponibleParCategorie(
-                    $demande['id_categorie'],
-                    $demande['date_debut_souhaitee'],
-                    $demande['date_fin_souhaitee']
-                );
+    foreach($demandes as $index => $demande){
+        if(empty($demande['id_materiel']) && !empty($demande['id_categorie'])){
+            $demandes[$index]['materiels_dispo'] = $materielManager->getMaterielDisponibleParCategorie(
+                $demande['id_categorie'],
+                $demande['date_debut_souhaitee'],
+                $demande['date_fin_souhaitee']
+            );
+        }
+    }
+
+    // comptage sur TOUTES les demandes
+    $compteurs = [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0];
+    foreach($demandes as $d){
+        $compteurs[$d['id_status_emprunt']]++;
+    }
+
+    $total = count($demandes);
+
+    // filtrage pour l'affichage
+    $filtre = $_GET['statut'] ?? null;
+
+    if(!empty($filtre)){
+        $filtrees = [];
+        foreach($demandes as $d){
+            if($d['id_status_emprunt'] == $filtre){
+                $filtrees[] = $d;
             }
         }
+        $demandes = $filtrees;
+    }
 
-        // caclul du nombre de demandes par statut
-        $compteurs = [1 => 0 , 2=>0 , 3 =>0 , 4=>0, 5=>0];
-        foreach ($demandes as $d) {
-            $compteurs[$d['id_status_emprunt']]++;
-        }
-
-        $this->view->render("admin/emprunts",[
-            'title' => "Demandes d'emprunt",
-            'demandes' => $demandes,
-            'compteurs' => $compteurs,
-            'empruntPage' => true
-        ]);
+    $this->view->render("admin/emprunts",[
+        'title' => "Demandes d'emprunt",
+        'demandes' => $demandes,
+        'compteurs' => $compteurs,
+        'total' => $total,
+        'filtre' => $filtre,
+        'empruntPage' => true
+    ]);
     }
 
     public function valider(): void{

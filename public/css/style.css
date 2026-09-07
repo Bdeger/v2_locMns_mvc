@@ -24,6 +24,7 @@ body {
   flex-direction: column;
   background-color: #f4f4f6;
 }
+
 /* conteneur sidebar + contenu */
 .layout {
   flex: 1;
@@ -220,7 +221,7 @@ main {
   padding: 12px 16px;
   margin: 12px 20px;
   border-radius: 8px;
-  font-size: 0.85em;
+  font-size: 0.85rem;
 }
 
 .message i {
@@ -267,20 +268,80 @@ main {
   white-space: nowrap;
   flex-shrink: 0;
   margin-left: 10px;
+  background-color: #ffffff;
 }
 
-.status-1 { background-color: rgb(255, 248, 233); color: #ba7517; }
-.status-2 { background-color: rgb(243, 250, 255); color: #185fa5; }
-.status-3 { background-color: rgb(255, 241, 241); color: #a32d2d; }
-.status-4 { background-color: rgb(229, 252, 229); color: #0f6e56; }
-.status-5 { background-color: rgb(241, 239, 232); color: #5f5e5a; }
+.status-1 { color: #854f0b; }
+.status-2 { color: #0c447c; }
+.status-3 { color: #a32d2d; }
+.status-4 { color: #3b6d11; }
+.status-5 { color: #5f5e5a; }
+
+/* ==================== */
+/* FILTRES PAR STATUT   */
+/* ==================== */
+
+.emprunt-filtres {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 16px 20px 0;
+}
+
+.filtre {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: rgb(85, 85, 85);
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 20px;
+  padding: 6px 12px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  transition: background-color 0.2s;
+}
+
+.filtre:hover {
+  background-color: rgb(245, 245, 245);
+}
+
+.filtre-actif {
+  border-color: transparent;
+  font-weight: 600;
+}
+
+.filtre-toutes.filtre-actif {
+  background-color: #16135e;
+  color: #ffffff;
+}
+
+.filtre-1.filtre-actif {
+  background-color: #fdf0da;
+  color: #854f0b;
+}
+
+.filtre-2.filtre-actif {
+  background-color: #e3eefa;
+  color: #0c447c;
+}
+
+.filtre-3.filtre-actif {
+  background-color: #fbe3e3;
+  color: #a32d2d;
+}
+
+.filtre-5.filtre-actif {
+  background-color: #efedea;
+  color: #5f5e5a;
+}
 
 /* ==================== */
 /* FOOTER               */
 /* ==================== */
 
 .footer {
-  background-color:#000026;
+  background-color: #16135e;
   color: rgba(255, 255, 255, 0.7);
   padding: 30px 20px;
   text-align: center;
@@ -288,14 +349,14 @@ main {
 
 .footer-marque {
   margin: 0 0 6px;
-  font-size: 1em;
+  font-size: 1rem;
   font-weight: 500;
   color: #ffffff;
 }
 
 .footer-texte {
   margin: 0 0 18px;
-  font-size: 0.8em;
+  font-size: 0.8rem;
 }
 
 .footer-nav {
@@ -307,7 +368,7 @@ main {
 .footer-nav a {
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
-  font-size: 0.8em;
+  font-size: 0.8rem;
   padding: 6px 0;
 }
 
@@ -318,7 +379,7 @@ main {
 
 .footer-copyright {
   margin: 0;
-  font-size: 0.7em;
+  font-size: 0.7rem;
   color: rgba(255, 255, 255, 0.5);
 }
 
@@ -327,6 +388,7 @@ main {
 /* ==================== */
 
 @media screen and (min-width: 768px) {
+
   .section-login {
     padding: 60px 20px;
   }
@@ -369,5 +431,10 @@ main {
   /* sidebar et contenu côte à côte */
   .layout {
     flex-direction: row;
+  }
+
+  .emprunt-filtres {
+    padding: 20px 24px 0;
+    max-width: 1000px;
   }
 }

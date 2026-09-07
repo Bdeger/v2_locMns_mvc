@@ -8,11 +8,36 @@
         <p>Suivez l'état de vos demandes</p>
     </header>
 
+    <!-- FILTRES PAR STATUT -->
+    <nav class="emprunt-filtres">
+        <a href="/user/mesEmprunts" class="filtre filtre-toutes <?php echo empty($filtre) ? 'filtre-actif' : ''; ?>">
+            Tous · <?php echo $total; ?>
+        </a>
+        <a href="/user/mesEmprunts?statut=1" class="filtre filtre-1 <?php echo $filtre == 1 ? 'filtre-actif' : ''; ?>">
+            En attente · <?php echo $compteurs[1]; ?>
+        </a>
+        <a href="/user/mesEmprunts?statut=2" class="filtre filtre-2 <?php echo $filtre == 2 ? 'filtre-actif' : ''; ?>">
+            Validé · <?php echo $compteurs[2]; ?>
+        </a>
+        <a href="/user/mesEmprunts?statut=3" class="filtre filtre-3 <?php echo $filtre == 3 ? 'filtre-actif' : ''; ?>">
+            Refusé · <?php echo $compteurs[3]; ?>
+        </a>
+        <a href="/user/mesEmprunts?statut=5" class="filtre filtre-5 <?php echo $filtre == 5 ? 'filtre-actif' : ''; ?>">
+            Terminé · <?php echo $compteurs[5]; ?>
+        </a>
+    </nav>
+
     <section class="mesemprunts-liste">
 
         <?php if(empty($emprunts)): ?>
 
-            <p class="mesemprunts-vide">Vous n'avez encore fait aucune demande.</p>
+            <p class="mesemprunts-vide">
+                <?php if(empty($filtre)): ?>
+                    Vous n'avez encore fait aucune demande.
+                <?php else: ?>
+                    Aucune demande dans cette catégorie.
+                <?php endif; ?>
+            </p>
 
         <?php else: ?>
 

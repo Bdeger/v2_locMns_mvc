@@ -87,17 +87,41 @@ class UserController extends Controller{
     }
 
     public function mesEmprunts(): void{
-        $this->checkAuth(); //sécurité
+    $this->checkAuth(); //sécurité
 
-        $idUtilisateur = $_SESSION['user']['id'];
+    $idUtilisateur = $_SESSION['user']['id'];
 
-        $empruntManager = new EmpruntManager();
-        $emprunts = $empruntManager->getEmpruntsByUser($idUtilisateur);
+    $empruntManager = new EmpruntManager();
+    $emprunts = $empruntManager->getEmpruntsByUser($idUtilisateur);
 
-        $this->view->render('user/mesEmprunts',[
-            'title' => 'Mes emprunts',
-            'emprunts' => $emprunts,
-            'mesEmprunts' => true
-        ]);
+    // comptage par statut sur TOUS les emprunts
+    $compteurs = [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0];
+    foreach($emprunts as $e){
+        $compteurs[$e['id_status_emprunt']]++;
+    }
+
+    $total = count($emprunts);
+
+    // filtrage pour l'affichage
+    $filtre = $_GET['statut'] ?? null;
+
+    if(!empty($filtre)){
+        $filtres = [];
+        foreach($emprunts as $e){
+            if($e['id_status_emprunt'] == $filtre){
+                $filtres[] = $e;
+            }
+        }
+        $emprunts = $filtres;
+    }
+
+    $this->view->render('user/mesEmprunts',[
+        'title' => 'Mes emprunts',
+        'emprunts' => $emprunts,
+        'compteurs' => $compteurs,
+        'total' => $total,
+        'filtre' => $filtre,
+        'mesEmprunts' => true
+    ]);
     }
 }
