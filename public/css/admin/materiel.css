@@ -24,6 +24,59 @@
 }
 
 /* ==================== */
+/* FILTRES              */
+/* ==================== */
+
+.materiel-filtres {
+  padding: 16px 20px 0;
+}
+
+.filtre-groupe {
+  margin-bottom: 12px;
+}
+
+.filtre-label {
+  margin: 0 0 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: rgb(130, 130, 130);
+}
+
+.filtre-liste {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.filtre-dispo.filtre-actif {
+  background-color: #e8f2dc;
+  color: #2f6b1f;
+}
+
+.filtre-emprunte.filtre-actif {
+  background-color: #fdf0da;
+  color: #b44b00;
+}
+
+.filtre-maintenance.filtre-actif {
+  background-color: #fdf8e8;
+  color: #926405;
+}
+
+.filtre-horsservice.filtre-actif {
+  background-color: #fbe3e3;
+  color: #a32d2d;
+}
+
+.materiel-vide {
+  padding: 40px 20px;
+  text-align: center;
+  color: rgb(136, 136, 136);
+  font-size: 0.85rem;
+}
+
+/* ==================== */
 /* BOUTON AJOUTER       */
 /* ==================== */
 
@@ -333,6 +386,10 @@
     padding: 24px;
   }
 
+  .materiel-filtres {
+    padding: 20px 24px 0;
+    max-width: 1000px;
+  }
   .materiel-header-actions {
     padding: 20px 24px 0;
     max-width: 1000px;

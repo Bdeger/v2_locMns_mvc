@@ -8,17 +8,50 @@ require_once __DIR__ . "/Controller.php";
 require_once __DIR__ . "/../Models/MaterielManager.php";
 
 class MaterielController extends Controller{
-    public function index():void{
-        $this->checkAdmin(); //sécurité
+    public function index(): void{
+    $this->checkAdmin();
 
-        // afficher la page materiel avec la liste lié à la bdd 
-        $listMateriel = new MaterielManager();
-        $materiel = $listMateriel -> getAllMateriel();
-        $this -> view ->render('admin/materiel',[
-            'title' => 'List Materiel',
-            'listMateriel' => $materiel,
-            'materielPage' => true 
-        ]);
+    $materielManager = new MaterielManager();
+    $listMateriel = $materielManager->getAllMateriel();
+
+    // comptage par état sur TOUT le matériel
+    $compteursEtat = [1 => 0, 2 => 0, 3 => 0, 4 => 0];
+    $compteursCat  = [1 => 0, 2 => 0, 3 => 0, 4 => 0];
+
+    foreach($listMateriel as $m){
+        $compteursEtat[$m['id_etat_materiel']]++;
+        $compteursCat[$m['id_categorie']]++;
+    }
+
+    $total = count($listMateriel);
+
+    // filtres
+    $filtreEtat = $_GET['etat'] ?? null;
+    $filtreCat  = $_GET['categorie'] ?? null;
+
+    if(!empty($filtreEtat) || !empty($filtreCat)){
+        $filtres = [];
+        foreach($listMateriel as $m){
+            $okEtat = empty($filtreEtat) || $m['id_etat_materiel'] == $filtreEtat;
+            $okCat  = empty($filtreCat)  || $m['id_categorie'] == $filtreCat;
+
+            if($okEtat && $okCat){
+                $filtres[] = $m;
+            }
+        }
+        $listMateriel = $filtres;
+    }
+
+    $this->view->render('admin/materiel',[
+        'title' => 'Liste Matériel',
+        'listMateriel' => $listMateriel,
+        'compteursEtat' => $compteursEtat,
+        'compteursCat' => $compteursCat,
+        'total' => $total,
+        'filtreEtat' => $filtreEtat,
+        'filtreCat' => $filtreCat,
+        'materielPage' => true
+    ]);
     }
     public function ajouter():void{
         $this->checkAdmin(); //sécurité

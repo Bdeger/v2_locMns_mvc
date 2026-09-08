@@ -19,6 +19,63 @@ $icones = [
         <p>Gestion de votre inventaire d'équipements</p>
     </header>
 
+    <!-- FILTRES -->
+    <div class="materiel-filtres">
+
+        <div class="filtre-groupe">
+            <p class="filtre-label">État</p>
+            <nav class="filtre-liste">
+                <a href="/materiel<?php echo !empty($filtreCat) ? '?categorie=' . $filtreCat : ''; ?>"
+                class="filtre filtre-toutes <?php echo empty($filtreEtat) ? 'filtre-actif' : ''; ?>">
+                    Tous · <?php echo $total; ?>
+                </a>
+                <a href="/materiel?etat=1<?php echo !empty($filtreCat) ? '&categorie=' . $filtreCat : ''; ?>"
+                class="filtre filtre-dispo <?php echo $filtreEtat == 1 ? 'filtre-actif' : ''; ?>">
+                    Disponible · <?php echo $compteursEtat[1]; ?>
+                </a>
+                <a href="/materiel?etat=2<?php echo !empty($filtreCat) ? '&categorie=' . $filtreCat : ''; ?>"
+                class="filtre filtre-emprunte <?php echo $filtreEtat == 2 ? 'filtre-actif' : ''; ?>">
+                    Emprunté · <?php echo $compteursEtat[2]; ?>
+                </a>
+                <a href="/materiel?etat=3<?php echo !empty($filtreCat) ? '&categorie=' . $filtreCat : ''; ?>"
+                class="filtre filtre-maintenance <?php echo $filtreEtat == 3 ? 'filtre-actif' : ''; ?>">
+                    Maintenance · <?php echo $compteursEtat[3]; ?>
+                </a>
+                <a href="/materiel?etat=4<?php echo !empty($filtreCat) ? '&categorie=' . $filtreCat : ''; ?>"
+                class="filtre filtre-horsservice <?php echo $filtreEtat == 4 ? 'filtre-actif' : ''; ?>">
+                    Hors service · <?php echo $compteursEtat[4]; ?>
+                </a>
+            </nav>
+        </div>
+
+        <div class="filtre-groupe">
+            <p class="filtre-label">Catégorie</p>
+            <nav class="filtre-liste">
+                <a href="/materiel<?php echo !empty($filtreEtat) ? '?etat=' . $filtreEtat : ''; ?>"
+                class="filtre filtre-toutes <?php echo empty($filtreCat) ? 'filtre-actif' : ''; ?>">
+                    Toutes
+                </a>
+                <a href="/materiel?categorie=1<?php echo !empty($filtreEtat) ? '&etat=' . $filtreEtat : ''; ?>"
+                class="filtre <?php echo $filtreCat == 1 ? 'filtre-actif filtre-toutes' : ''; ?>">
+                    Ordinateur · <?php echo $compteursCat[1]; ?>
+                </a>
+                <a href="/materiel?categorie=2<?php echo !empty($filtreEtat) ? '&etat=' . $filtreEtat : ''; ?>"
+                class="filtre <?php echo $filtreCat == 2 ? 'filtre-actif filtre-toutes' : ''; ?>">
+                    Tablette · <?php echo $compteursCat[2]; ?>
+                </a>
+                <a href="/materiel?categorie=3<?php echo !empty($filtreEtat) ? '&etat=' . $filtreEtat : ''; ?>"
+                class="filtre <?php echo $filtreCat == 3 ? 'filtre-actif filtre-toutes' : ''; ?>">
+                    Écran · <?php echo $compteursCat[3]; ?>
+                </a>
+                <a href="/materiel?categorie=4<?php echo !empty($filtreEtat) ? '&etat=' . $filtreEtat : ''; ?>"
+                class="filtre <?php echo $filtreCat == 4 ? 'filtre-actif filtre-toutes' : ''; ?>">
+                    Accessoires · <?php echo $compteursCat[4]; ?>
+                </a>
+            </nav>
+        </div>
+
+    </div>
+
     <div class="materiel-header-actions">
         <a href="/materiel/ajouter" class="btn-ajouter">
             <i class="ti ti-plus"></i> Ajouter
@@ -26,6 +83,9 @@ $icones = [
     </div>
 
     <div class="materiel-content">
+        <?php if(empty($listMateriel)): ?>
+            <p class="materiel-vide">Aucun matériel ne correspond à ces critères.</p>
+        <?php endif; ?>
 
         <?php foreach($listMateriel as $materiel): ?>
             <article class="materiel-card materiel-card-<?php echo $materiel['id_etat_materiel']; ?>">
