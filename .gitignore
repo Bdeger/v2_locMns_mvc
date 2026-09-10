@@ -1,22 +1,18 @@
-# fichiers sensibles 
-config/database.php
+# variables d'environnement (identifiants BDD)
+config/.env
 
-#fichiers test temporaires
-public/test_db.php
-public/hash.php
-
-#docker data
+# docker data
 docker/data/
 
-#dépendances
-vendor/ 
+# dépendances
+vendor/
 
-#windows
+# windows
 Thumbs.db
 desktop.ini
 
-#mac 
-.DS_store
+# mac
+.DS_Store
 
 # IDE
 .vscode/
