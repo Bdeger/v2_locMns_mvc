@@ -45,9 +45,7 @@
                         <p class="commentaire"><?php echo htmlspecialchars($membre['commentaire']); ?></p>
                     <?php endif; ?>
 
-                    <div class="actions">
-                        <a href="/membre/modifier/<?php echo $membre['id_utilisateur']; ?>">Modifier</a>
-                    </div>
+                    
                 </div>
 
             </article>
