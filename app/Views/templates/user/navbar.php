@@ -7,6 +7,8 @@
         </a>
     </div>
 
+    <div class="header-bande"></div>
+
     <nav id="navbar" aria-label="Navigation principale">
         <button id="burger-button-display" aria-expanded="false" aria-label="Ouvrir le menu" aria-controls="nav-ul">
             <i class="ti ti-menu-2"></i>
