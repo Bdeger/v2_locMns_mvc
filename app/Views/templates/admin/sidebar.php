@@ -1,15 +1,18 @@
 <!-- Views/templates/admin/sidebar.php -->
+
 <header class="header">
     <div class="header-top">
         <a href="/admin/dashboard">
-            <img src="/image/logo2.png" alt="Loc MNS - retour tableau de bord">
+            <img src="/image/logo2.png" alt="LOC MNS - retour au tableau de bord">
         </a>
     </div>
-    <nav id="nav">
-        <button id="burger-button-display">
-           <i class="ti ti-menu-2"></i>
-           <i class="ti ti-x"></i>
+
+    <nav id="navbar" aria-label="Navigation principale">
+        <button id="burger-button-display" aria-expanded="false" aria-label="Ouvrir le menu" aria-controls="nav-ul">
+            <i class="ti ti-menu-2"></i>
+            <i class="ti ti-x"></i>
         </button>
+
         <ul id="nav-ul">
             <li><a href="/admin/dashboard">Dashboard</a></li>
             <li><a href="/admin/emprunts">Emprunts</a></li>
