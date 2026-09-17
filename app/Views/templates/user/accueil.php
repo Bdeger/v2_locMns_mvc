@@ -14,7 +14,7 @@ $icones = [
 
     <section class="intro">
         <div class="intro-titre">
-            <h2>Empruntez le matériel dont vous avez besoin</h2>
+            <h1>Empruntez le matériel dont vous avez besoin</h1>
         </div>
 
         <!-- BARRE DE RECHERCHE -->
