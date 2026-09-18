@@ -51,6 +51,9 @@ class AuthController extends Controller{
             // 3.vérifier email + mot de passe
            
             if($user && password_verify($pwd, $user['mot_de_passe'])){
+                // Nouvel identifiant de session après authentification
+                // (protection contre la fixation de session)
+                session_regenerate_id(true);
                 // 4. créer la session
                 $_SESSION['user']=[
                     'id' => $user['id_utilisateur'],
