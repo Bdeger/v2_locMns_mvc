@@ -42,6 +42,17 @@ class EmpruntManager extends Manager{
         return $stmt->fetchAll();
     }
 
+    // une demande précise (dates utiles pour vérifier la disponibilité)
+    public function getEmpruntById(int $idEmprunt): ?array{
+        $stmt = $this->pdo->prepare("
+        SELECT id_emprunt, date_debut_souhaitee, date_fin_souhaitee, id_status_emprunt
+        FROM emprunt
+        WHERE id_emprunt = ?
+        ");
+        $stmt->execute([$idEmprunt]);
+        return $stmt->fetch() ?: null;
+    }
+
     public function validerEmprunt($idEmprunt, $idMateriel):void{
         try {
             $this -> pdo -> beginTransaction();

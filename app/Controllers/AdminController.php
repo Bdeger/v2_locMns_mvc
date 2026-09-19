@@ -89,8 +89,25 @@ class AdminController extends Controller{
             exit;
         }
 
+        $empruntManager  = new EmpruntManager();
+        $materielManager = new MaterielManager();
+
+        // la demande doit exister et être encore « En attente »
+        $demande = $empruntManager->getEmpruntById((int) $idEmprunt);
+        if(empty($demande) || $demande['id_status_emprunt'] != 1){
+            $_SESSION['erreur'] = "Cette demande n'est plus en attente.";
+            header('Location: /admin/emprunts');
+            exit;
+        }
+
+        // le matériel ne doit pas être déjà prêté sur la même période
+        if(!$materielManager->estDisponible((int) $idMateriel, $demande['date_debut_souhaitee'], $demande['date_fin_souhaitee'])){
+            $_SESSION['erreur'] = "Ce matériel est déjà réservé sur cette période.";
+            header('Location: /admin/emprunts');
+            exit;
+        }
+
         try {
-            $empruntManager = new EmpruntManager();
             $empruntManager->validerEmprunt($idEmprunt, $idMateriel);
             $_SESSION['succes'] = "La demande a été validée.";
         } catch (Exception $e) {
@@ -144,4 +161,4 @@ class AdminController extends Controller{
         header('Location: /admin/emprunts');
         exit;
     }
-}
+}

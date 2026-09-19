@@ -20,20 +20,24 @@ class MaterielManager extends Manager{
         return $stmt -> fetchAll();
     }
 
-    public function getMaterielById($id):array{
+    // ?array : renvoie null si le matériel n'existe pas (au lieu d'une erreur fatale)
+    public function getMaterielById(int $id):?array{
         $stmt = $this -> pdo -> prepare('
         SELECT * FROM materiel WHERE id_materiel = :id');
         $stmt -> execute([':id' => $id]);
-        return $stmt -> fetch();
+        return $stmt -> fetch() ?: null;
     }
 
-    // toutes les matériels de la catégorie moins ceux déjà réservés sur la période 
+    // tous les matériels de la catégorie moins ceux déjà réservés sur la période
+    // - état 1 (Disponible) ou 2 (Emprunté) : un matériel emprunté aujourd'hui
+    //   peut être libre sur une période future -> ce sont les DATES qui décident
+    // - états 3 (En maintenance) et 4 (Hors service) : toujours exclus
     public function getMaterielDisponibleParCategorie(int $idCategorie, string $dateDebut, string $dateFin): array {
         $stmt = $this->pdo->prepare("
         SELECT m.id_materiel, m.nom, m.modele, m.description
         FROM materiel m
         WHERE m.id_categorie = ?
-        AND m.id_etat_materiel = 1
+        AND m.id_etat_materiel IN (1, 2)
         AND m.id_materiel NOT IN (
             SELECT e.id_materiel FROM emprunt e
             WHERE e.id_materiel IS NOT NULL
@@ -44,6 +48,20 @@ class MaterielManager extends Manager{
         ");
         $stmt->execute([$idCategorie, $dateFin, $dateDebut]);
         return $stmt->fetchAll();
+    }
+
+    // vérifie qu'un matériel précis est libre sur une période
+    // (utilisé au moment où l'admin valide une demande)
+    public function estDisponible(int $idMateriel, string $dateDebut, string $dateFin): bool {
+        $stmt = $this->pdo->prepare("
+        SELECT COUNT(*) FROM emprunt
+        WHERE id_materiel = ?
+        AND id_status_emprunt IN (2, 4)
+        AND date_debut_souhaitee <= ?
+        AND date_fin_souhaitee >= ?
+        ");
+        $stmt->execute([$idMateriel, $dateFin, $dateDebut]);
+        return $stmt->fetchColumn() == 0;
     }
 
     // stats : total des matériels et le nombre dispo
