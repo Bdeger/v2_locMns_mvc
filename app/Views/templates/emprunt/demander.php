@@ -63,16 +63,18 @@
         <!-- ENVOI DE LA DEMANDE -->
         <form action="/emprunt/enregistrer" method="post" class="confirmation-form">
 
+
+            <!-- toutes les valeurs venant de l'URL sont échappées avec htmlspecialchars -->
             <?php if(!empty($idMateriel)): ?>
-                <input type="hidden" name="materiel" value="<?php echo $idMateriel; ?>">
+                <input type="hidden" name="materiel" value="<?php echo htmlspecialchars($idMateriel); ?>">
             <?php endif; ?>
 
             <?php if(!empty($idCategorie)): ?>
-                <input type="hidden" name="categorie" value="<?php echo $idCategorie; ?>">
+                <input type="hidden" name="categorie" value="<?php echo htmlspecialchars($idCategorie); ?>">
             <?php endif; ?>
 
-            <input type="hidden" name="debut" value="<?php echo $dateDebut; ?>">
-            <input type="hidden" name="fin" value="<?php echo $dateFin; ?>">
+            <input type="hidden" name="debut" value="<?php echo htmlspecialchars($dateDebut); ?>">
+            <input type="hidden" name="fin" value="<?php echo htmlspecialchars($dateFin); ?>">
 
             <a href="/user/accueil" class="confirmation-annuler">Annuler</a>
             <input type="submit" value="Envoyer la demande" class="confirmation-envoyer">
@@ -80,4 +82,4 @@
 
     </section>
 
-</main>
+</main>

@@ -30,12 +30,12 @@ $icone = $icones[$categorieInfo['id_categorie']] ?? 'ti-package';
 
             <div class="periode-champ">
                 <label for="date_debut" class="periode-champ-label">Du</label>
-                <input type="date" name="date_debut" id="date_debut" value="<?php echo $dateDebut; ?>" class="periode-champ-input">
+                <input type="date" name="date_debut" id="date_debut" value="<?php echo htmlspecialchars($dateDebut); ?>" class="periode-champ-input">
             </div>
 
             <div class="periode-champ">
                 <label for="date_fin" class="periode-champ-label">Au</label>
-                <input type="date" name="date_fin" id="date_fin" value="<?php echo $dateFin; ?>" class="periode-champ-input">
+                <input type="date" name="date_fin" id="date_fin" value="<?php echo htmlspecialchars($dateFin); ?>" class="periode-champ-input">
             </div>
 
             <input type="submit" value="Voir les disponibilités" class="periode-bouton">
@@ -74,7 +74,7 @@ $icone = $icones[$categorieInfo['id_categorie']] ?? 'ti-package';
                         </p>
                     </div>
 
-                    <a href="/emprunt/demander?materiel=<?php echo $materiel['id_materiel']; ?>&debut=<?php echo $dateDebut; ?>&fin=<?php echo $dateFin; ?>" class="materiel-carte-bouton">Choisir</a>
+                    <a href="/emprunt/demander?<?php echo htmlspecialchars(http_build_query(['materiel' => $materiel['id_materiel'], 'debut' => $dateDebut, 'fin' => $dateFin])); ?>" class="materiel-carte-bouton">Choisir</a>
 
                 </article>
             <?php endforeach; ?>
@@ -90,9 +90,9 @@ $icone = $icones[$categorieInfo['id_categorie']] ?? 'ti-package';
                 <p class="demande-libre-titre">Peu importe le modèle</p>
                 <p class="demande-libre-texte">Le service technique choisira un matériel disponible</p>
             </div>
-            <a href="/emprunt/demander?categorie=<?php echo $categorieInfo['id_categorie']; ?>&debut=<?php echo $dateDebut; ?>&fin=<?php echo $dateFin; ?>" class="demande-libre-bouton">Demander</a>
+            <a href="/emprunt/demander?<?php echo htmlspecialchars(http_build_query(['categorie' => $categorieInfo['id_categorie'], 'debut' => $dateDebut, 'fin' => $dateFin])); ?>" class="demande-libre-bouton">Demander</a>
         </div>
 
     </section>
 
-</main>
+</main>
