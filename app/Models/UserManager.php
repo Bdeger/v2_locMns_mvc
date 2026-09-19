@@ -13,7 +13,7 @@ class UserManager extends Manager{
         WHERE u.email = ?"
         );
         $stmt -> execute([$email]);
-        return $stmt -> fetch(); //fetch : retourne une seule ligne
+        return $stmt -> fetch() ?:null; //fetch : retourne une seule ligne
     }
 
     public function getAllUsers():array{
