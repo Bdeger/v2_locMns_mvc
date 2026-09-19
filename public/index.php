@@ -1,5 +1,10 @@
 <?php 
 
+// cookie de session sécurisé :
+// - samesite Strict : le cookie n'est pas envoyé si la requête vient d'un autre site
+//   (protection contre les requêtes forcées depuis un site pirate)
+// - httponly : le cookie n'est pas lisible en JavaScript (limite les dégâts d'un XSS)
+session_set_cookie_params(['samesite' => 'Strict', 'httponly' => true]);
 session_start();
 // public/index.php 
 
@@ -55,4 +60,4 @@ if(!method_exists($controller,$action)){
 call_user_func_array([$controller, $action],$params);
 
 
-?>
+?>

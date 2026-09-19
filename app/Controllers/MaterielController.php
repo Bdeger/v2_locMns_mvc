@@ -95,6 +95,12 @@ class MaterielController extends Controller{
     public function supprimer($id):void{
         $this->checkAdmin(); //sécurité
 
+        // la suppression n'est acceptée qu'en POST (formulaire), jamais par un simple lien
+        if($_SERVER['REQUEST_METHOD'] !== 'POST'){
+            header('Location: /materiel');
+            exit;
+        }
+
         $materielManager = new MaterielManager();
         $materielManager -> deleteMateriel($id);
         header('Location: /materiel');
@@ -106,7 +112,15 @@ class MaterielController extends Controller{
         $this->checkAdmin(); //sécurité
 
         $materielManager = new MaterielManager();
-        $materiel = $materielManager -> getMaterielById($id);
+        $materiel = $materielManager -> getMaterielById((int) $id);
+
+        // sécurité : le matériel doit exister
+        if(empty($materiel)){
+            $_SESSION['erreur'] = "Ce matériel n'existe pas.";
+            header('Location: /materiel');
+            exit;
+        }
+
         $this -> view -> render('admin/modifier',[
             'title' => 'Modifier un matériel',
             'materiel' => $materiel,

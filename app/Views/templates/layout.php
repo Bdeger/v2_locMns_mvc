@@ -52,6 +52,12 @@
         <link rel="stylesheet" href="/css/user/mesEmprunts.css">
     <?php endif; ?>
 
+    <!-- ===== PAGES D'INFORMATION ===== -->
+
+    <?php if(isset($pageInfo) && $pageInfo): ?>
+        <link rel="stylesheet" href="/css/page.css">
+    <?php endif; ?>
+
 </head>
 <body>
 
@@ -62,4 +68,4 @@
     <?php include __DIR__ . "/footer.php"; ?>
 
 </body>
-</html>
+</html>

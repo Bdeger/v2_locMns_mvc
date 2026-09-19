@@ -435,3 +435,22 @@
     justify-content: flex-end;
   }
 }
+/* bouton Supprimer (formulaire POST) : même aspect que le lien Modifier */
+.materiel-card .actions form {
+  margin: 0;
+}
+
+.actions-supprimer {
+  font-family: inherit;
+  font-size: 0.78rem;
+  color: #ff6400;
+  background: none;
+  border: none;
+  padding: 4px 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.actions-supprimer:hover {
+  text-decoration: underline;
+}

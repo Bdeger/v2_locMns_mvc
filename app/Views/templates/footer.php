@@ -7,9 +7,9 @@
         </div>
 
         <nav class="footer-nav" aria-label="Liens de pied de page">
-            <a href="/mentions-legales">Mentions légales</a>
-            <a href="/rgpd">Données personnelles</a>
-            <a href="/contact">Contact</a>
+            <a href="/page/mentions">Mentions légales</a>
+            <a href="/page/rgpd">Données personnelles</a>
+            <a href="/page/contact">Contact</a>
         </nav>
     </div>
 
@@ -19,4 +19,4 @@
         </p>
     </div>
 
-</footer>
+</footer>

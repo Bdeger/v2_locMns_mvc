@@ -118,7 +118,11 @@ $icones = [
 
                 <div class="actions">
                     <a href="/materiel/modifier/<?php echo $materiel['id_materiel']; ?>">Modifier</a>
-                    <a href="/materiel/supprimer/<?php echo $materiel['id_materiel']; ?>">Supprimer</a>
+                    <!-- suppression en POST (et non plus par un simple lien GET) -->
+                    <form action="/materiel/supprimer/<?php echo (int) $materiel['id_materiel']; ?>" method="post"
+                          onsubmit="return confirm('Supprimer définitivement ce matériel ?');">
+                        <button type="submit" class="actions-supprimer">Supprimer</button>
+                    </form>
                 </div>
 
             </article>
@@ -126,4 +130,4 @@ $icones = [
 
     </div>
 
-</main>
+</main>

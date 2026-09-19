@@ -7,6 +7,9 @@
         <h2>Connectez-vous à votre compte</h2>
 
         <!-- formulaire de connexion -->
+        <!-- messages flash (ex : « Vous devez être connecté… » envoyé par checkAuth) -->
+        <?php include __DIR__ . "/../messages.php"; ?>
+
         <form action="/auth/processLogin" method="post" id="form-login">
                 <?php  if(isset($error)): ?>
                 <div class="error-message">
@@ -30,4 +33,4 @@
         </form>
 
     </div>
-</section>
+</section>
